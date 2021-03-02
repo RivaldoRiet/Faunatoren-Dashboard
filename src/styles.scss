@@ -1,0 +1,46 @@
+@import "~font-awesome/css/font-awesome.css";
+
+form.emp-form{
+    background-color: #dbdbdb;
+    border-radius: 4px;
+    padding: 10px;
+}
+div.validation-error{
+    color: red;
+    text-align: center;
+}
+
+button:hover,a.btn:hover{
+    cursor: pointer;
+}
+
+.header .branding, header .branding{
+    padding: 0;
+}
+
+.branding img{
+    max-height: 100%;
+    width: auto;
+    padding-right: 1rem;
+}
+
+.clr-control-container textarea.fullwidth {
+    width: 100%;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.dg-row-clickable {
+    cursor: pointer;
+}
+
+.page-title {
+    margin-top: 0;
+}
+
+.custom-add-btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
