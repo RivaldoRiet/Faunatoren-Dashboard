@@ -1,0 +1,40 @@
+$textcolor: #069E2D;
+
+$backgroundcolor: #D8FEE7;
+
+$iconcolor: #058A45;
+$iconfont: 'Arial';
+
+$hyperlink: #036316;
+
+$highlightselect: #023B0A;
+
+$torenA: #FF5400;
+$torenB: #A26D1E;       
+$torenC: #0F80F1;
+clr-header {
+    background-color: white;
+}
+
+.branding {
+    .title {
+        color: $textcolor;
+    }
+}
+
+img {
+    position: relative; left: 10%;
+}
+
+.content-container {
+    background-color: $backgroundcolor;
+    color: $textcolor;
+    a {
+        color: $textcolor;
+        font: $iconfont;
+    }
+    clr-icon {
+        color: $iconcolor;
+    }
+}
+
