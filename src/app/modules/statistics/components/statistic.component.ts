@@ -1,13 +1,12 @@
-
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-@Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
-})
 
-export class DashboardComponent implements OnInit, OnDestroy {
+@Component({
+  selector: 'app-statistic',
+  templateUrl: './statistic.component.html',
+  styleUrls: ['./statistic.component.scss']
+})
+export class StatisticComponent implements OnInit, OnDestroy {
   public currentId: string;
 
   constructor(
@@ -25,4 +24,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   }
 
+  onSetFairMode(): void {
+
+  }
 }
