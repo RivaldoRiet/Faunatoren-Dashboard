@@ -15,19 +15,29 @@
     </div>
   </header>
   
-  <i class="fas fa-chart-pie"></i>
   <div class="content-container">
     <div class="content-area">
       <router-outlet></router-outlet>
     </div>
 
     <clr-vertical-nav [clr-nav-level]="2">
+      <clr-vertical-nav-group
+      routerLinkActive="active">
+      
       <a clrVerticalNavLink routerLink="overzicht" routerLinkActive="active"><clr-icon shape="home"></clr-icon>Livestream overzicht</a>
+      <clr-vertical-nav-group-children>
+         <a clrVerticalNavLink
+               routerLink="videos"
+               routerLinkActive="active">
+                Stream overzicht
+            </a>
+    </clr-vertical-nav-group-children>
+      </clr-vertical-nav-group>
       <a clrVerticalNavLink routerLink="statistieken" routerLinkActive="active"><clr-icon shape="align-bottom"></clr-icon>Fauna statistieken</a>
       <a clrVerticalNavLink routerLink="category" routerLinkActive="active"><clr-icon shape="filter"></clr-icon>Fauna toren 1</a>
       <a clrVerticalNavLink routerLink="prize" routerLinkActive="active"><clr-icon shape="filter"></clr-icon>Fauna toren 2</a>
       <a clrVerticalNavLink routerLink="question" routerLinkActive="active"><clr-icon shape="filter"></clr-icon>Fauna toren 3</a>
-
+   
     </clr-vertical-nav>
 
   </div>
