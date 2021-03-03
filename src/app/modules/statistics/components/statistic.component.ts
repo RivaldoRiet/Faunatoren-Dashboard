@@ -9,6 +9,14 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class StatisticComponent implements OnInit, OnDestroy {
   public currentId: string;
 
+  surveyData = [
+    { name: 'Huismussen', value: 105 },
+    { name: 'Zwaluwen', value: 350 },
+    { name: 'Spreeuwen', value: 170 },
+    { name: 'Vinken', value: 140 },
+    { name: 'Koolmeesjes', value: 200 }
+  ];
+
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     ) { }
@@ -21,10 +29,6 @@ export class StatisticComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
-  }
-
-  onSetFairMode(): void {
 
   }
 }

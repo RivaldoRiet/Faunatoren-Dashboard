@@ -1,1 +1,14 @@
-<p>statistic works!</p>
+<h3> Gedetecteerde vogels per soort - Afgelopen maand</h3>
+  <ngx-charts-bar-vertical
+    [view]="[1000,400]"
+    [results]="surveyData"
+    [xAxisLabel]="'Aantal'"
+    [legendTitle]="'Vogels per soort'"
+    [yAxisLabel]="'Soort vogel'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true">
+  </ngx-charts-bar-vertical>
