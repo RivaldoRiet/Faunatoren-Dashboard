@@ -7,8 +7,8 @@ img {
 
 .container
 {
-    width: 320px;
-    height: 240px;
+    width: 960px;
+    height: 540px;
     position: relative;
 }
 .container video
@@ -16,8 +16,8 @@ img {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 320px;
-    height: 240px;
+    width: 960px;
+    height: 540px;
     z-index: 1 !important;
 }
 .container .overlay
