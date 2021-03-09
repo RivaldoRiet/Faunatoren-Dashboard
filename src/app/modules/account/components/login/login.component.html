@@ -1,0 +1,35 @@
+<div class="clr-row">
+  <div class="clr-col-12 clr-col-md-8 clr-offset-md-2 clr-col-lg-6 clr-offset-lg-3 clr-col-xl-4 clr-offset-xl-4">
+    <div class="card">
+      <div class="card-block">
+
+        <h2>Login</h2>
+
+        <clr-alert *ngIf="hasErrors" [clrAlertType]="'danger'">
+          <clr-alert-item>
+              <span class="alert-text">
+                {{ errorMsg }}<br/>
+                {{ errorDetails | json }}
+              </span>
+          </clr-alert-item>
+        </clr-alert>
+
+        <form clrForm [formGroup]="loginForm" (ngSubmit)="onSubmit()" clrLayout="horizontal">
+          <clr-input-container>
+            <label>Email</label>
+            <input clrInput placeholder="john@gmail.com" type="text" formControlName="email" />
+            <clr-control-error>Vul alsjeblieft een emailadres in.</clr-control-error>
+          </clr-input-container>
+          <clr-password-container>
+            <label>Wachtwoord</label>
+            <input clrPassword placeholder="Wachtwoord" formControlName="password" />
+            <clr-control-error>Vul alsjeblieft een wachtwoord in.</clr-control-error>
+          </clr-password-container>
+          <br />
+          <button [clrLoading]="loginBtnState" class="btn btn-primary">Login</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
