@@ -1,0 +1,54 @@
+//styling
+$textcolor: #069E2D;
+
+$backgroundcolor: #D8FEE7;
+
+$iconcolor: #058A45;
+$iconfont: 'Arial';
+
+$hyperlink: #036316;
+
+$highlightselect: #023B0A;
+
+$torenA: #FF5400;
+$torenB: #A26D1E;       
+$torenC: #0F80F1;
+
+.clr-row {
+    height: 10em;
+    width: 35em;
+    border: 20px;
+    border-color: $backgroundcolor;
+    & .card-header{
+        font-size: 1em;
+        color: $highlightselect;
+        text-align: center;
+    }
+    & .card-text {
+        font-size: 4em;
+        text-align: center;
+        color: $torenA;
+    }
+    & .card-footer {
+        font-size: 1em;
+        color: $highlightselect;
+        text-align: center;
+    }
+}
+
+.chart-bar-container {
+    background-color: white;
+    margin-bottom: 100%;
+    height: 50%;
+    width: 70%;
+    float: right;
+    margin-bottom: 50px, auto;
+}
+
+ngx-charts-bar-vertical {
+    position: center;
+}
+
+.clr-timeline clr-timeline-horizontal {
+    float: none;
+}
