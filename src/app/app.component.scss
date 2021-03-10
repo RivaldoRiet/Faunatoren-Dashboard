@@ -12,13 +12,33 @@ $highlightselect: #023B0A;
 $torenA: #FF5400;
 $torenB: #A26D1E;       
 $torenC: #0F80F1;
-clr-header {
+
+header {
     background-color: white;
 }
 
 .branding {
     .title {
         color: $textcolor;
+    }
+    clr-icon {
+        color: $iconcolor;
+        margin-left: 10%;
+    }
+
+}
+
+span {
+    &[class=nav-text] {
+        color: $textcolor;
+    }
+}
+
+.header-actions {
+    clr-icon {
+        color: $iconcolor;
+        font-family: $iconfont;
+        
     }
 }
 
@@ -37,4 +57,6 @@ img {
         color: $iconcolor;
     }
 }
+
+
 
