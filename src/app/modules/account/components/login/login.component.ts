@@ -45,8 +45,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-  /* 
-
+  
     this.loginBtnState = ClrLoadingState.LOADING;
     const loginInfo = this.loginForm.value as LoginInfo;
     this.hasErrors = false;
@@ -63,6 +62,8 @@ export class LoginComponent implements OnInit {
           this.errorDetails = error.errorDetails;
 
           this.loginBtnState = ClrLoadingState.ERROR;
-        });*/
+        });
+
+        
   } 
 }
