@@ -50,11 +50,12 @@ $torenC: #0F80F1;
     margin-left: 16em;
     position: absolute;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-ngx-charts-bar-vertical {
+    & ngx-charts-bar-vertical {
     position: center;
 }
+
+}
+
 
 .timeline-container {
     background-color: white;
@@ -62,8 +63,9 @@ ngx-charts-bar-vertical {
     margin-top: 40em;
     position: absolute;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.clr-timeline clr-timeline-horizontal {
+    & .clr-timeline clr-timeline-horizontal {
     float: none;
 }
+}
+
+
