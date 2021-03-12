@@ -1,20 +1,32 @@
-<h3> Gedetecteerde vogels per soort - Afgelopen maand</h3>
+    <div class="chart-pie-container" style="display: inline-block">
+    <ngx-charts-pie-chart
+    [scheme]="colorScheme"
+    [results]="single"
+    [legendTitle]="'Legenda'"
+    [legend]="showLegend"
+    [explodeSlices]="explodeSlices"
+    [labels]="showLabels"
+    [doughnut]="doughnut"
+    [gradient]="gradient">
+  </ngx-charts-pie-chart>
+  <div>
+  
+  <div class="chart-bar-container">
   <ngx-charts-bar-vertical
-    [view]="[800,300]"
     [results]="surveyData"
     [xAxisLabel]="'Aantal'"
-    [legendTitle]="'Legenda'"
+    [legendTitle]="'Gedetecteerde vogels per soort - Afgelopen maand'"
     [yAxisLabel]="'Soort vogel'"
     [legend]="true"
     [showXAxisLabel]="true"
     [showYAxisLabel]="true"
     [xAxis]="true"
     [yAxis]="true"
-    [gradient]="true">
+    [gradient]="false">
   </ngx-charts-bar-vertical>
-<br>
+</div>
 
-<div style="display: inline-block">
+<div class="chart-line-container" style="display: inline-block">
     <ngx-charts-line-chart
       [view]="[800,300]"
       [scheme]="colorScheme"
@@ -22,7 +34,7 @@
       [gradient]="gradient"
       [xAxis]="showXAxis"
       [yAxis]="showYAxis"
-      [legendTitle]="'Legenda'"
+      [legendTitle]="'legenda'"
       [legend]="showLegend"
       [showXAxisLabel]="showXAxisLabel"
       [showYAxisLabel]="showYAxisLabel"
@@ -34,15 +46,3 @@
   </div>
 
 
-    <div style="display: inline-block">
-    <ngx-charts-pie-chart
-    [view]="view"
-    [scheme]="colorScheme"
-    [results]="single"
-    [legendTitle]="'Legenda'"
-    [legend]="showLegend"
-    [explodeSlices]="explodeSlices"
-    [labels]="showLabels"
-    [doughnut]="doughnut"
-    [gradient]="gradient">
-  </ngx-charts-pie-chart>

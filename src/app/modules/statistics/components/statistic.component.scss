@@ -1,11 +1,47 @@
-ngx-charts-bar-vertical {
-    float: left;
+//styling
+$textcolor: #069E2D;
+
+$backgroundcolor: #D8FEE7;
+
+$iconcolor: #058A45;
+$iconfont: 'Arial';
+
+$hyperlink: #036316;
+
+$highlightselect: #023B0A;
+
+$torenA: #FF5400;
+$torenB: #A26D1E;       
+$torenC: #0F80F1;
+
+.chart-pie-container {
+    background-color: white;
+    border: 20px;
+    border-color: $backgroundcolor;
+    position: absolute;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    //& ngx-charts-pie-chart {
+//}
 }
 
-ngx-charts-line-chart {
-    float: left;
-}
-
-ngx-charts-pie-chart {
+.chart-bar-container {
+    background-color: white;
     float: right;
+    position: absolute;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    //& ngx-charts-bar-vertical {
+    //float: left;
+//}
 }
+
+
+
+.chart-line-container {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: absolute;
+    //& ngx-charts-line-chart {
+    //}
+}
+
+

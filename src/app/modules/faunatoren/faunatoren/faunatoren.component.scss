@@ -19,6 +19,10 @@ $torenC: #0F80F1;
     width: 35em;
     border: 20px;
     border-color: $backgroundcolor;
+    position: absolute;
+    & .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
     & .card-header{
         font-size: 1em;
         color: $highlightselect;
@@ -49,13 +53,26 @@ $torenC: #0F80F1;
     height: 50%;
     width: 70%;
     float: right;
-    margin-bottom: 50px, auto;
-}
-
-ngx-charts-bar-vertical {
+    margin-top: 2em;
+    margin-left: 16em;
+    position: absolute;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    & ngx-charts-bar-vertical {
     position: center;
 }
 
-.clr-timeline clr-timeline-horizontal {
+}
+
+
+.timeline-container {
+    background-color: white;
+    width: 82%;
+    margin-top: 40em;
+    position: absolute;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    & .clr-timeline clr-timeline-horizontal {
     float: none;
 }
+}
+
+
