@@ -1,7 +1,13 @@
-#chat{
-    position: absolute;
-    right: 0px;
-    width: 300px;
-    border: 3px solid #73AD21;
-    padding: 10px;
+.chat-placement{
+    float:left;
+    margin-left: 5%;
+}
+
+.main-video-placement{
+    float:left;
+}
+
+.video-list{
+    margin-top: 5%;
+    float:left;
 }
