@@ -6,12 +6,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MainVideoComponent } from './components/main-video/main-video.component';
 import { ListVideoComponent } from './components/list-video/list-video.component';
+import { NotificationChatComponent } from './components/notification-chat/notification-chat.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     MainVideoComponent,
     ListVideoComponent,
+    NotificationChatComponent,
   ],
   imports: [
     CommonModule,
