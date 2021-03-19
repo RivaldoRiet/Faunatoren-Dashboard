@@ -41,7 +41,7 @@ export class NotificationChatComponent implements OnInit {
       },
       {
         "time": 49,
-        "text": "Er is een Zwaluw aanwezig in faunatoren 1"
+        "text": "Er is een Spreeuw aanwezig in faunatoren 1"
       },
     ]
   }];
