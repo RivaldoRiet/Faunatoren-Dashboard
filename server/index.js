@@ -31,12 +31,9 @@ app.post('/upload', upload.single('audioData'), function (req, res, next) {
   wavData = fs.createReadStream(temporaryFilename),
   bytes = fs.statSync(temporaryFilename)["size"];
 
-   requestBirdnetApi(function(wavData, err, data){ 
-    if(err) return res.json(err);       
-    res.json(data);
-  });
-
- // return res.json({ ok: true, bytes, at: new Date() });
+   
+  requestBirdnetApi(wavData)
+  //return res.json({ ok: true, bytes, at: new Date() });
 })
 
 
@@ -46,7 +43,7 @@ app.listen(port, () => {
 })
 
 
-function requestBirdnetApi(stream, error, data){
+function requestBirdnetApi(stream){
   //console.log(stream);
 
   var data = {
@@ -67,10 +64,10 @@ function requestBirdnetApi(stream, error, data){
 request(options, function (err, res, body) {
     if(err){ 
       console.log(err);
-      return error(err);
+      return err;
     }
     console.log(body);
-    return data(body);
+    return body;
 });
 
 }
