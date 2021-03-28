@@ -10,9 +10,9 @@ export class BirdnetService {
 
   postFile(fileToUpload: File) {
     const formData: FormData = new FormData();
-    formData.append('upload', fileToUpload, fileToUpload.name);
+    formData.append('soundBlob', fileToUpload, fileToUpload.name);
 
-  this.http.post(`birdnet.cornell.edu/api2/upload`, formData).subscribe(
+  this.http.post(`http://localhost:3000/upload`, formData).subscribe(
     (response) => console.log(response),
     (error) => console.log(error)
   )
