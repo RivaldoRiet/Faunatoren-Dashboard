@@ -6,7 +6,8 @@ const baseUrl: string = 'https://acc-ckan-fiware-lab-nl.fiware-lab.nl/';
 export const environment = {
   production: false,
   api: `${baseUrl}api/`,
-  hub: `${baseUrl}hub/`
+  hub: `${baseUrl}hub/`,
+  birdnetAPI: `birdnet.cornell.edu/api2/upload`,
 };
 
 /*
