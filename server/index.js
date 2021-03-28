@@ -17,7 +17,13 @@ const port = 3000
 requestBirdnetApi(fs.createReadStream("./assets/birdtest.wav"));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  var data = {
+    "Fruits": [
+      "apple",
+      "orange"    ]
+  };
+
+  res.json(data);
 })
 
 app.post('/upload', upload.single('soundBlob'), function (req, res, next) {
