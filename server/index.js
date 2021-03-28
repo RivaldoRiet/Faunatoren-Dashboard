@@ -31,9 +31,9 @@ app.post('/upload', upload.single('audioData'), function (req, res, next) {
   wavData = fs.createReadStream(temporaryFilename),
   bytes = fs.statSync(temporaryFilename)["size"];
 
-  this.requestBirdnetApi(wavData, function(r) {
+  this.requestBirdnetApi(wavData, function(birdnet) {
     // Where "r" is the result of the callback
-    return res.json(r);
+    return res.json({ ok: true, bytes, birdnet, at: new Date() });
 });
 
   //return res.json({ ok: true, bytes, at: new Date() });
