@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BirdnetService } from 'src/app/core/services/birdnet.service';
 
 @Component({
   selector: 'app-birdnet',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./birdnet.component.scss']
 })
 export class BirdnetComponent implements OnInit {
-
-  constructor() { }
+  fileToUpload: File = null;
+  constructor(private birdnetService: BirdnetService) { }
 
   ngOnInit(): void {
   }
+
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+}
+
+uploadFileToActivity() {
+  this.birdnetService.postFile(this.fileToUpload);
+}
 
 }

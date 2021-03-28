@@ -8,11 +8,11 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BirdnetComponent } from './modules/birdnet/components/birdnet.component';
+import { BirdnetService } from './core/services/birdnet.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BirdnetComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +23,7 @@ import { BirdnetComponent } from './modules/birdnet/components/birdnet.component
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [BirdnetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
