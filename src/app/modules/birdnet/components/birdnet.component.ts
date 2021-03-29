@@ -5,6 +5,7 @@ import { ClrLoadingState } from '@clr/angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { Prediction } from 'src/app/shared/models/prediction';
 
 @Component({
   selector: 'app-birdnet',
@@ -14,9 +15,16 @@ import { MatDialog } from '@angular/material/dialog';
 export class BirdnetComponent implements OnInit {
   fileToUpload: File = null;
   public files: any[] = [];
-  public lastResponse: Object;
+  public lastResponse: any;
   public lastBytes: object;
-  public birdTypeList: object[];
+  public birdTypeList: object;
+  public shouldShow: boolean = false;
+
+  public predictionlist: Prediction[] = [];
+  stringJson: any;
+  stringObject: any;
+  predictionObjects: any[] = [];
+  result = [];
 
   public submitBtnState: ClrLoadingState = ClrLoadingState.DEFAULT;
   public form: FormGroup = new FormGroup({
@@ -40,13 +48,31 @@ uploadFileToActivity() {
     this.birdnetService.postFile(this.fileToUpload, (returnFunction) => {
      console.log(returnFunction);
      this.submitBtnState = ClrLoadingState.SUCCESS;
-     this.lastResponse = returnFunction;
+     this.lastResponse =JSON.parse(returnFunction);
+
+     this.birdTypeList = this.lastResponse.prediction;
+
+
+     var count = Object.keys(this.lastResponse.prediction).length;
+
+
+      for (var i = 0; i < count; i++){
+        this.predictionlist.push(Prediction.deserialize(this.lastResponse.prediction[i].species, +this.lastResponse.prediction[i].score));
+      }
+     console.log(this.predictionlist);
+
+
+
+     // console.log(this.predictionlist);
      
+
+     this.shouldShow = true;
      this.snackBar.open("Het bestand is succesvol geladen!", 'Sluiten', {
       duration: 4000,
      });
     });
   }else{
+    this.shouldShow = false;
     this.submitBtnState = ClrLoadingState.DEFAULT;
   } 
 }
@@ -57,7 +83,39 @@ onFileChange(files: FileList){
   });
 
   this.uploadFileToActivity();
-  
 }
+
+data = { "languages":[{"1":"Hindi"},{"2":"English"},{"3":"Metallica"}], "status":"200" };
+
+getKey(el){
+  return Object.keys(el)[0];
+}
+
+getValue(el){
+  return el[this.getKey(el)];
+}
+
+dynamicData = [
+  { name: 'Huismussen', value: 55 },
+  { name: 'Zwaluwen', value: 150 },
+  { name: 'Spreeuwen', value: 70 },
+  { name: 'Vinken', value: 40 },
+  { name: 'Koolmeesjes', value: 90 }
+];
+
+
+surveyData = [
+  { name: 'Huismussen', value: 55 },
+  { name: 'Zwaluwen', value: 150 },
+  { name: 'Spreeuwen', value: 70 },
+  { name: 'Vinken', value: 40 },
+  { name: 'Koolmeesjes', value: 90 }
+];
+
+renameKey ( obj, oldKey, newKey ) {
+  obj[newKey] = obj[oldKey];
+  delete obj[oldKey];
+}
+
 
 }

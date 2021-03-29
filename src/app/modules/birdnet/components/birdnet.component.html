@@ -6,16 +6,34 @@
 		<div class="dropzone" fileDragDrop (filesChangeEmiter)="onFileChange($event)">
 			<div class="text-wrapper">
 				<div class="centered">
-					<input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" single>
+					<input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" [clrLoading]="submitBtnState" single>
 					<label for="file"><span class="textLink">Select your file</span> or Drop it here!</label>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div>
-		last response 
+	<div *ngFor="let item of lastResponse | keyvalue">
+		{{item.key}}:{{item.value}}
+	  </div>
+
+	<div> 
 		{{lastResponse | json}}
+	</div>
+	
+	<div *ngIf="shouldShow" class="chart-bar-container">
+		<ngx-charts-bar-vertical
+		[results]="predictionlist"
+		[xAxisLabel]="'Aantal'"
+		[legendTitle]="'Legenda'"
+		[yAxisLabel]="'Procent kans'"
+		[legend]="true"
+		[showXAxisLabel]="true"
+		[showYAxisLabel]="true"
+		[xAxis]="true"
+		[yAxis]="true"
+		[gradient]="false">
+		</ngx-charts-bar-vertical>
 	</div>
 	<!--
 	<div>

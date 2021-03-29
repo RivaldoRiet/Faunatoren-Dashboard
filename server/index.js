@@ -32,7 +32,8 @@ app.post('/upload', upload.single('audioData'), function (req, res, next) {
 
   this.requestBirdnetApi(wavData, function(birdnet) {
     // Where "r" is the result of the callback
-    res.json({ ok: true, bytes, birdnet, at: new Date() });
+   // res.json({ ok: true, bytes, birdnet, at: new Date() });
+    res.json(birdnet);
     deleteFolderRecursive("./tmp/");
 });
 

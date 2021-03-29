@@ -8,6 +8,7 @@ import { ClarityModule } from '@clr/angular';
 import { FileDragNDropDirective } from './components/file-drag-n-drop.directive';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [BirdnetComponent, FileDragNDropDirective],
@@ -18,7 +19,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     ClarityModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxChartsModule
   ]
 })
 export class BirdnetModule { }
