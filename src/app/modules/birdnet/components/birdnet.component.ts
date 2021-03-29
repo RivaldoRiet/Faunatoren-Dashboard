@@ -28,14 +28,14 @@ export class BirdnetComponent implements OnInit {
 
 uploadFileToActivity() {
   this.submitBtnState = ClrLoadingState.LOADING;
-  if (this.fileToUpload != null) {
+ /* if (this.fileToUpload != null) {
     this.birdnetService.postFile(this.fileToUpload, function(returnFunction) {
-     console.log("hey: " + returnFunction);
-    this.this.submitBtnState = ClrLoadingState.DEFAULT;
+     console.log(returnFunction);
+
     });
   }else{
     this.submitBtnState = ClrLoadingState.DEFAULT;
-  }
+  } */
 }
 
 }

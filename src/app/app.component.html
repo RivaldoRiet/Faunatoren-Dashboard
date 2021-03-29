@@ -35,10 +35,20 @@
     </clr-vertical-nav-group-children>
       </clr-vertical-nav-group>
       <a clrVerticalNavLink routerLink="statistieken" routerLinkActive="active"><clr-icon shape="align-bottom"></clr-icon>Fauna statistieken</a>
-      <a clrVerticalNavLink routerLink="toren" routerLinkActive="active"><clr-icon shape="filter"></clr-icon>Fauna toren 1</a>
-      <a clrVerticalNavLink routerLink="toren" routerLinkActive="active"><clr-icon shape="filter"></clr-icon>Fauna toren 2</a>
-      <a clrVerticalNavLink routerLink="toren" routerLinkActive="active"><clr-icon shape="filter"></clr-icon>Fauna toren 3</a>
-   
+     
+    
+        
+        <clr-vertical-nav-group
+        routerLinkActive="active">
+        <a clrVerticalNavLink routerLink="toren" routerLinkActive="active"><clr-icon shape="home"></clr-icon>Faunatoren</a>
+        <clr-vertical-nav-group-children>
+           <a clrVerticalNavLink
+                 routerLink="vogelhok"
+                 routerLinkActive="active">
+                 vogelhok
+              </a>
+      </clr-vertical-nav-group-children>
+        </clr-vertical-nav-group>
     </clr-vertical-nav>
 
   </div>
