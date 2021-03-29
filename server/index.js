@@ -8,7 +8,7 @@ var request = require('request');
 const multer = require('multer')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '/tmp/')
+    cb(null, './tmp/')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname)
@@ -23,7 +23,6 @@ app.use(function(req, res, next) {
 });
 const port = 3000
 
-//console.log(fs.createReadStream("./assets/birdtest.wav"))
 //requestBirdnetApi(fs.createReadStream("./assets/birdtest.wav"));
 
 app.post('/upload', upload.single('audioData'), function (req, res, next) {
@@ -33,7 +32,8 @@ app.post('/upload', upload.single('audioData'), function (req, res, next) {
 
   this.requestBirdnetApi(wavData, function(birdnet) {
     // Where "r" is the result of the callback
-    return res.json({ ok: true, bytes, birdnet, at: new Date() });
+    res.json({ ok: true, bytes, birdnet, at: new Date() });
+    deleteFolderRecursive("./tmp/");
 });
 
   //return res.json({ ok: true, bytes, at: new Date() });
@@ -84,3 +84,20 @@ app.get('/', (req, res) => {
 
   res.json(data);
 })
+
+
+// Used for deleting all files and sub-folders from 'public/upload/*'
+// Multer : stores temporary files in this folder
+var deleteFolderRecursive = function (path) {
+  if (fs.existsSync(path)) {
+      fs.readdirSync(path).forEach(function (file, index) {
+          var curPath = path + "/" + file;
+           if (fs.lstatSync(curPath).isDirectory()) { // recurse
+              deleteFolderRecursive(curPath);
+              fs.rmdirSync(curPath);
+          } else { // delete file
+              fs.unlinkSync(curPath);
+          }
+      });
+  }
+};
