@@ -8,7 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class FaunatorenComponent implements OnInit {
   public currentId: string;
-  view: any[] = [800,200];
+
 
   surveyData = [
     { name: 'Huismussen', value: 55 },
