@@ -1,8 +1,12 @@
-<div class="form-group">
+<form clrForm [formGroup]="form">
+    <clr-input-container>
     <label for="file">Choose File</label>
-    <input type="file"
+    <input clrInput type="file"
            id="file"
-           (change)="handleFileInput($event.target.files)">
-
-           <button class="btn btn-primary" (click)="uploadFileToActivity()">Upload</button>
-</div>
+           (change)="handleFileInput($event.target.files)" formControlName="name">
+           <clr-control-error>Dit veld is verplicht.</clr-control-error>
+        </clr-input-container>
+      <!--   <button class="btn btn-primary" type="submit" [clrLoading]="submitBtnState"
+        [disabled]="form.invalid || form.pristine" (click)="onSubmit()">Toevoegen</button>-->  
+        <button [clrLoading]="submitBtnState" type="submit" class="btn btn-success-outline" (click)="uploadFileToActivity()">Submit</button>
+    </form>

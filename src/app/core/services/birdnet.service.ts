@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { observable, Observable } from 'rxjs';
 
 @Injectable()
 export class BirdnetService {
   private readonly baseUri: string = environment.birdnetAPI;
   constructor(public http: HttpClient) {}
 
-  postFile(fileToUpload: File) {
+  postFile(fileToUpload: File, returnFunction : any){
     const formData: FormData = new FormData();
     formData.append('audioData', fileToUpload, fileToUpload.name);
 
-  this.http.post(`http://localhost:3000/upload`, formData).subscribe(
-    (response) => console.log(response),
-    (error) => console.log(error)
-  )
+  this.http.post(`http://localhost:3000/upload`, formData)
+  .subscribe((response) => returnFunction(response),
+  (error) => returnFunction(error));
 }
 
 /*

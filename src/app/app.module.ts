@@ -6,7 +6,7 @@ import { ClarityModule } from "@clr/angular";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BirdnetComponent } from './modules/birdnet/components/birdnet.component';
 import { BirdnetService } from './core/services/birdnet.service';
 
@@ -22,6 +22,8 @@ import { BirdnetService } from './core/services/birdnet.service';
     SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [BirdnetService],
   bootstrap: [AppComponent]

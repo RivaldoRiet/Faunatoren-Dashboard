@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ViewChild,Component, OnInit } from '@angular/core';
 import { BirdnetService } from 'src/app/core/services/birdnet.service';
+import { ClarityModule } from '@clr/angular';
+import { ClrLoadingState } from '@clr/angular';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-birdnet',
@@ -8,6 +11,12 @@ import { BirdnetService } from 'src/app/core/services/birdnet.service';
 })
 export class BirdnetComponent implements OnInit {
   fileToUpload: File = null;
+  public submitBtnState: ClrLoadingState = ClrLoadingState.DEFAULT;
+  public lastJson
+  public form: FormGroup = new FormGroup({
+    name: new FormControl('', [Validators.required])
+  }, Validators.required);
+
   constructor(private birdnetService: BirdnetService) { }
 
   ngOnInit(): void {
@@ -18,7 +27,15 @@ export class BirdnetComponent implements OnInit {
 }
 
 uploadFileToActivity() {
-  this.birdnetService.postFile(this.fileToUpload);
+  this.submitBtnState = ClrLoadingState.LOADING;
+  if (this.fileToUpload != null) {
+    this.birdnetService.postFile(this.fileToUpload, function(returnFunction) {
+     console.log("hey: " + returnFunction);
+    this.this.submitBtnState = ClrLoadingState.DEFAULT;
+    });
+  }else{
+    this.submitBtnState = ClrLoadingState.DEFAULT;
+  }
 }
 
 }
