@@ -19,20 +19,23 @@ export class BirdnetComponent implements OnInit {
   public lastBytes: object;
   public birdTypeList: object;
   public shouldShow: boolean = false;
-
+  isLoading = false;
+  
   public predictionlist: Prediction[] = [];
   stringJson: any;
   stringObject: any;
   predictionObjects: any[] = [];
   result = [];
-
+  chartSize = [1470, 450];
   public submitBtnState: ClrLoadingState = ClrLoadingState.DEFAULT;
   public form: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required])
   }, Validators.required);
 
   constructor(private birdnetService: BirdnetService, public snackBar: MatSnackBar,
-    private zone: NgZone) { }
+    private zone: NgZone) { 
+      
+    }
 
   ngOnInit(): void {
   }
@@ -67,12 +70,14 @@ uploadFileToActivity() {
      
 
      this.shouldShow = true;
+     this.isLoading = false;
      this.snackBar.open("Het bestand is succesvol geladen!", 'Sluiten', {
       duration: 4000,
      });
     });
   }else{
     this.shouldShow = false;
+    this.isLoading = false;
     this.submitBtnState = ClrLoadingState.DEFAULT;
   } 
 }
@@ -81,40 +86,10 @@ onFileChange(files: FileList){
   this.snackBar.open("Het bestand wordt geladen!", 'Sluiten', {
     duration: 2000,
   });
-
+  this.shouldShow = false;
+  this.predictionlist = [];
+  this.isLoading = true;
   this.uploadFileToActivity();
-}
-
-data = { "languages":[{"1":"Hindi"},{"2":"English"},{"3":"Metallica"}], "status":"200" };
-
-getKey(el){
-  return Object.keys(el)[0];
-}
-
-getValue(el){
-  return el[this.getKey(el)];
-}
-
-dynamicData = [
-  { name: 'Huismussen', value: 55 },
-  { name: 'Zwaluwen', value: 150 },
-  { name: 'Spreeuwen', value: 70 },
-  { name: 'Vinken', value: 40 },
-  { name: 'Koolmeesjes', value: 90 }
-];
-
-
-surveyData = [
-  { name: 'Huismussen', value: 55 },
-  { name: 'Zwaluwen', value: 150 },
-  { name: 'Spreeuwen', value: 70 },
-  { name: 'Vinken', value: 40 },
-  { name: 'Koolmeesjes', value: 90 }
-];
-
-renameKey ( obj, oldKey, newKey ) {
-  obj[newKey] = obj[oldKey];
-  delete obj[oldKey];
 }
 
 

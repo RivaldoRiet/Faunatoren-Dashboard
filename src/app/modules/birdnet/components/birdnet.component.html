@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
 
+
+<loading *ngIf="isLoading">{{ isLoading }}</loading>
+
 <div style="padding: 15px;">
 	<div>
 		<div class="dropzone" fileDragDrop (filesChangeEmiter)="onFileChange($event)">
@@ -12,12 +15,14 @@
 			</div>
 		</div>
 	</div>
+	<br> <br>
 	<div *ngIf="shouldShow" class="chart-bar-container">
 		<ngx-charts-bar-horizontal
+		[view] = "chartSize"
 		[results]="predictionlist"
-		[xAxisLabel]="'Aantal'"
+		[xAxisLabel]="'Procent kans'"
 		[legendTitle]="'Legenda'"
-		[yAxisLabel]="'Procent kans'"
+		[yAxisLabel]="'Vogelsoort'"
 		[legend]="true"
 		[showXAxisLabel]="true"
 		[showYAxisLabel]="true"
