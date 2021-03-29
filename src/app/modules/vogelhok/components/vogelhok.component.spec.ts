@@ -23,3 +23,5 @@ describe('VogelhokComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
