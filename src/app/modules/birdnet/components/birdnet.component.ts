@@ -20,7 +20,6 @@ export class BirdnetComponent implements OnInit {
   public birdTypeList: object;
   public shouldShow: boolean = false;
   isLoading = false;
-  
   public predictionlist: Prediction[] = [];
   stringJson: any;
   stringObject: any;
@@ -60,7 +59,9 @@ uploadFileToActivity() {
 
 
       for (var i = 0; i < count; i++){
-        this.predictionlist.push(Prediction.deserialize(this.lastResponse.prediction[i].species, +this.lastResponse.prediction[i].score));
+        console.log(Number(this.lastResponse.prediction[i].score));
+        console.log(this.lastResponse.prediction[i].score);
+        this.predictionlist.push(Prediction.deserialize(this.lastResponse.prediction[i].species.split(";")[0],  Number(this.lastResponse.prediction[i].score)));
       }
      console.log(this.predictionlist);
 
