@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BirdnetComponent } from './modules/birdnet/components/birdnet.component';
 import { BirdnetService } from './core/services/birdnet.service';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BirdnetService } from './core/services/birdnet.service';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [BirdnetService],
   bootstrap: [AppComponent]

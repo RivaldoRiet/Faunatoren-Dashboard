@@ -1,12 +1,33 @@
-<form clrForm [formGroup]="form">
-    <clr-input-container>
-    <label for="file">Choose File</label>
-    <input clrInput type="file"
-           id="file"
-           (change)="handleFileInput($event.target.files)" formControlName="name">
-           <clr-control-error>Dit veld is verplicht.</clr-control-error>
-        </clr-input-container>
-      <!--   <button class="btn btn-primary" type="submit" [clrLoading]="submitBtnState"
-        [disabled]="form.invalid || form.pristine" (click)="onSubmit()">Toevoegen</button>-->  
-        <button [clrLoading]="submitBtnState" type="submit" class="btn btn-success-outline" (click)="uploadFileToActivity()">Submit</button>
-    </form>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+
+<div style="padding: 15px;">
+	<div>
+		<div class="dropzone" fileDragDrop (filesChangeEmiter)="onFileChange($event)">
+			<div class="text-wrapper">
+				<div class="centered">
+					<input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" single>
+					<label for="file"><span class="textLink">Select your file</span> or Drop it here!</label>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		last response 
+		{{lastResponse | json}}
+	</div>
+	<!--
+	<div>
+		<mat-list>
+			<h3 mat-subheader>Files</h3>
+			<mat-list-item *ngFor="let file of files">
+				<mat-icon mat-list-icon>folder</mat-icon>
+				<h4 mat-line>{{file.name}}</h4>
+				<button mat-raised-button color="warn" (click)="deleteFile(file)">Delete</button>
+				<mat-divider></mat-divider>
+			</mat-list-item>
+		</mat-list>
+	</div>
+  -->
+</div>

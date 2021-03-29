@@ -5,16 +5,20 @@ import { BirdnetRoutingModule } from './birdnet-routing.module';
 import { BirdnetComponent } from './components/birdnet.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
-
+import { FileDragNDropDirective } from './components/file-drag-n-drop.directive';
+import {MatIconModule} from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [BirdnetComponent],
+  declarations: [BirdnetComponent, FileDragNDropDirective],
   imports: [
     CommonModule,
     BirdnetRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ClarityModule
+    ClarityModule,
+    MatIconModule,
+    MatSnackBarModule
   ]
 })
 export class BirdnetModule { }
