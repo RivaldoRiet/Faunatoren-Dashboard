@@ -51,7 +51,7 @@ requestBirdnetApi = function(stream, returnFunction) {
 
   var data = {
     upload: stream,
-		meta: "{\"deviceId\":\"6668948700\",\"appVersion\":\"1.83\",\"ts\":1616790316034,\"author\":{\"name\":\"\",\"email\":\"\"},\"recordingId\":15,\"gps\":{\"lat\":31.249160766601563,\"lon\":121.48789978027344,\"alt\":60},\"city\":\"\",\"eBird_threshold\":0.05999999865889549,\"week\":0,\"os\":\"Android\",\"sensitivity\":0.25}"
+		meta: "{\"deviceId\":\"6668948700\",\"appVersion\":\"1.83\",\"ts\":1616790316034,\"author\":{\"name\":\"\",\"email\":\"\"},\"recordingId\":15,\"gps\":{\"lat\":52.379189,\"lon\":4.899431,\"alt\":1},\"city\":\"\",\"eBird_threshold\":0.05999999865889549,\"week\":0,\"os\":\"Android\",\"sensitivity\":0.25}"
   };
 
   const options = {
