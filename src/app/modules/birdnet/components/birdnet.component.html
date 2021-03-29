@@ -7,22 +7,13 @@
 			<div class="text-wrapper">
 				<div class="centered">
 					<input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" [clrLoading]="submitBtnState" single>
-					<label for="file"><span class="textLink">Select your file</span> or Drop it here!</label>
+					<label for="file"><span class="textLink">Selecteer je bestand</span> of sleep het hiernaartoe!</label>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<div *ngFor="let item of lastResponse | keyvalue">
-		{{item.key}}:{{item.value}}
-	  </div>
-
-	<div> 
-		{{lastResponse | json}}
-	</div>
-	
 	<div *ngIf="shouldShow" class="chart-bar-container">
-		<ngx-charts-bar-vertical
+		<ngx-charts-bar-horizontal
 		[results]="predictionlist"
 		[xAxisLabel]="'Aantal'"
 		[legendTitle]="'Legenda'"
@@ -33,7 +24,7 @@
 		[xAxis]="true"
 		[yAxis]="true"
 		[gradient]="false">
-		</ngx-charts-bar-vertical>
+		</ngx-charts-bar-horizontal>
 	</div>
 	<!--
 	<div>
