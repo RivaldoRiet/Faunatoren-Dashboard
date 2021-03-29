@@ -1,3 +1,23 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.chart-bar-container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+text{
+  margin-right: 34px !important;
+}
+
+.spectre-line-chart {
+  height: 100%;
+  width: 100%;
+  float: left;
+}
+
 h3,h4,p{
   font-family: Roboto, Arial, sans-serif;
 }

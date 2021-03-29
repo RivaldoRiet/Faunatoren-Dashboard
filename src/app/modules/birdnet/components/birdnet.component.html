@@ -9,7 +9,7 @@
 		<div class="dropzone" fileDragDrop (filesChangeEmiter)="onFileChange($event)">
 			<div class="text-wrapper">
 				<div class="centered">
-					<input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" [clrLoading]="submitBtnState" single>
+					<input type="file" name="file" id="file" (change)="onFileChange($event.target.files)" [clrLoading]="submitBtnState" accept=".mp3,audio/*" single>
 					<label for="file"><span class="textLink">Selecteer je bestand</span> of sleep het hiernaartoe!</label>
 				</div>
 			</div>

@@ -60,8 +60,9 @@ uploadFileToActivity() {
 
       for (var i = 0; i < count; i++){
         console.log(Number(this.lastResponse.prediction[i].score));
+
         console.log(this.lastResponse.prediction[i].score);
-        this.predictionlist.push(Prediction.deserialize(this.lastResponse.prediction[i].species.split(";")[0],  Number(this.lastResponse.prediction[i].score)));
+        this.predictionlist.push(Prediction.deserialize(this.lastResponse.prediction[i].species.split(";")[0],  (Number(this.lastResponse.prediction[i].score) * 100)));
       }
      console.log(this.predictionlist);
 
