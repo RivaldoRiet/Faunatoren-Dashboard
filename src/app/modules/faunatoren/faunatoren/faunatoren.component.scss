@@ -47,21 +47,7 @@ $torenC: #0F80F1;
     font-size: 30px;
   }
 
-.chart-bar-container {
-    background-color: white;
-    margin-bottom: 100%;
-    height: 50%;
-    width: 70%;
-    float: right;
-    margin-top: 2em;
-    margin-left: 16em;
-    position: absolute;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    & ngx-charts-bar-vertical {
-    position: center;
-}
 
-}
 
 
 .timeline-container {
