@@ -5,11 +5,9 @@ import { StatisticsRoutingModule } from './statistics-routing.module';
 import { ClarityModule } from '@clr/angular';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
-import { CardComponent } from './components/card/card.component';
-
 
 @NgModule({
-  declarations: [StatisticComponent, CardComponent],
+  declarations: [StatisticComponent],
   imports: [
     CommonModule,
     StatisticsRoutingModule,

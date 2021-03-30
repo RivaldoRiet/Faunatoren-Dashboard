@@ -14,31 +14,6 @@ $torenA: #FF5400;
 $torenB: #A26D1E;       
 $torenC: #0F80F1;
 
-.clr-row {
-    height: 10em;
-    width: 35em;
-    border: 20px;
-    border-color: $backgroundcolor;
-    position: absolute;
-    & .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-    & .card-header{
-        font-size: 1em;
-        color: $highlightselect;
-        text-align: center;
-    }
-    & .card-text {
-        font-size: 4em;
-        text-align: center;
-        color: $torenA;
-    }
-    & .card-footer {
-        font-size: 1em;
-        color: $highlightselect;
-        text-align: center;
-    }
-}
 .header {
     padding: 60px;
     text-align: center;
@@ -47,32 +22,3 @@ $torenC: #0F80F1;
     font-size: 30px;
   }
 
-.chart-pie-container {
-    background-color: white;
-    border: 20px;
-    border-color: $backgroundcolor;
-    position: absolute;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    //& ngx-charts-pie-chart {
-//}
-}
-
-.chart-bar-container {
-    background-color: white;
-    float: right;
-    position: absolute;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    //& ngx-charts-bar-vertical {
-    //float: left;
-//}
-}
-
-
-
-.chart-line-container {
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    position: absolute;
-    //& ngx-charts-line-chart {
-    //}
-}
