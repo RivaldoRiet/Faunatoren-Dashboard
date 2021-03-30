@@ -1,16 +1,28 @@
-<div class="content-container">
-  <div class="content-area">
-    <h3>Clarity Starter Instructions:</h3>
-    <ul>
-      <li>Start by clicking Fork in the toolbar above.</li>
-      <li>Implement the problem in the new editor.</li>
-      <li>Save the result, and share the url in a GitHub or StackOverflow issue.</li>
-    </ul>
+<header class="header">
+  Algemeen statistieken overzicht
+</header>
+
+
+<div class="clr-row">
+    <div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
+      <div class="card">
+        <div class="card-header">
+          Totale aanwezigheid
+        </div>
+        <div class="card-block">
+          <div class="card-text">
+            1153
+          </div>
+        </div>
+        <div class="card-footer">
+            <div>Vogel registraties sinds 1/3/2021</div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<br>
-
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 <div class="chart-pie-container" style="display: inline-block">
   <ngx-charts-pie-chart
@@ -24,13 +36,20 @@
   [doughnut]="doughnut"
   [gradient]="gradient">
 </ngx-charts-pie-chart>
+<clr-signpost>
+  <clr-signpost-content [clrPosition]="right-middle" *clrIfOpen>
+      <h3 style="margin-top: 0">Statistiek</h3>
+      <p><code class="clr-code">Op het scherm is het aandeel van verschillende vogelsoorten te vinden</code></p>
+  </clr-signpost-content>
+</clr-signpost>
 <div>
+
 
 <div class="chart-bar-container" style="margin-top:30%">
 <ngx-charts-bar-vertical
   [view]="[800,300]"
   [results]="surveyData"
-  [xAxisLabel]="'Aantal'"
+  [xAxisLabel]="'Aantal verschillende vogelsoorten deze maand'"
   [legendTitle]="'Gedetecteerde vogels per soort - Afgelopen maand'"
   [yAxisLabel]="'Soort vogel'"
   [legend]="true"
@@ -40,6 +59,12 @@
   [yAxis]="true"
   [gradient]="false">
 </ngx-charts-bar-vertical>
+<clr-signpost>
+  <clr-signpost-content [clrPosition]="right-middle" *clrIfOpen>
+      <h3 style="margin-top: 0">Statistiek</h3>
+      <p><code class="clr-code">Gedetecteerde vogels per soort - Afgelopen maand</code></p>
+  </clr-signpost-content>
+</clr-signpost>
 </div>
 
 <div class="chart-line-container" style="display: inline-block;margin-left:20%;">
@@ -54,9 +79,15 @@
     [legend]="showLegend"
     [showXAxisLabel]="showXAxisLabel"
     [showYAxisLabel]="showYAxisLabel"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
+    [xAxisLabel]="'Tijd'"
+    [yAxisLabel]="'Aantal vogels'"
     [autoScale]="autoScale"
     [timeline]="timeline">
   </ngx-charts-line-chart>
+  <clr-signpost>
+    <clr-signpost-content [clrPosition]="right-middle" *clrIfOpen>
+        <h3 style="margin-top: 0">Statistiek</h3>
+        <p><code class="clr-code">Aantal ontdekking van het vogelsoort per tijdsindeling</code></p>
+    </clr-signpost-content>
+</clr-signpost>
 </div>
