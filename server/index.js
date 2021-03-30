@@ -77,13 +77,7 @@ request(options, function (err, res, body) {
 
 
 app.get('/', (req, res) => {
-  var data = {
-    "Fruits": [
-      "apple",
-      "orange"    ]
-  };
-
-  res.json(data);
+  res.json("You should upload files to /upload!");
 })
 
 

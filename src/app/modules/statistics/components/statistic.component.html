@@ -1,48 +1,62 @@
-    <div class="chart-pie-container" style="display: inline-block">
-    <ngx-charts-pie-chart
-    [scheme]="colorScheme"
-    [results]="single"
-    [legendTitle]="'Legenda'"
-    [legend]="showLegend"
-    [explodeSlices]="explodeSlices"
-    [labels]="showLabels"
-    [doughnut]="doughnut"
-    [gradient]="gradient">
-  </ngx-charts-pie-chart>
-  <div>
-  
-  <div class="chart-bar-container">
-  <ngx-charts-bar-vertical
-    [results]="surveyData"
-    [xAxisLabel]="'Aantal'"
-    [legendTitle]="'Gedetecteerde vogels per soort - Afgelopen maand'"
-    [yAxisLabel]="'Soort vogel'"
-    [legend]="true"
-    [showXAxisLabel]="true"
-    [showYAxisLabel]="true"
-    [xAxis]="true"
-    [yAxis]="true"
-    [gradient]="false">
-  </ngx-charts-bar-vertical>
+<div class="content-container">
+  <div class="content-area">
+    <h3>Clarity Starter Instructions:</h3>
+    <ul>
+      <li>Start by clicking Fork in the toolbar above.</li>
+      <li>Implement the problem in the new editor.</li>
+      <li>Save the result, and share the url in a GitHub or StackOverflow issue.</li>
+    </ul>
+  </div>
 </div>
 
-<div class="chart-line-container" style="display: inline-block">
-    <ngx-charts-line-chart
-      [view]="[800,300]"
-      [scheme]="colorScheme"
-      [results]="multi"
-      [gradient]="gradient"
-      [xAxis]="showXAxis"
-      [yAxis]="showYAxis"
-      [legendTitle]="'legenda'"
-      [legend]="showLegend"
-      [showXAxisLabel]="showXAxisLabel"
-      [showYAxisLabel]="showYAxisLabel"
-      [xAxisLabel]="xAxisLabel"
-      [yAxisLabel]="yAxisLabel"
-      [autoScale]="autoScale"
-      [timeline]="timeline">
-    </ngx-charts-line-chart>
-  </div>
+<br>
 
 
+<div class="chart-pie-container" style="display: inline-block">
+  <ngx-charts-pie-chart
+  [view]="[800,300]"
+  [scheme]="colorScheme"
+  [results]="single"
+  [legendTitle]="'Legenda'"
+  [legend]="showLegend"
+  [explodeSlices]="explodeSlices"
+  [labels]="showLabels"
+  [doughnut]="doughnut"
+  [gradient]="gradient">
+</ngx-charts-pie-chart>
+<div>
+
+<div class="chart-bar-container" style="margin-top:30%">
+<ngx-charts-bar-vertical
+  [view]="[800,300]"
+  [results]="surveyData"
+  [xAxisLabel]="'Aantal'"
+  [legendTitle]="'Gedetecteerde vogels per soort - Afgelopen maand'"
+  [yAxisLabel]="'Soort vogel'"
+  [legend]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  [xAxis]="true"
+  [yAxis]="true"
+  [gradient]="false">
+</ngx-charts-bar-vertical>
+</div>
+
+<div class="chart-line-container" style="display: inline-block;margin-left:20%;">
+  <ngx-charts-line-chart
+    [view]="[800,300]"
+    [scheme]="colorScheme"
+    [results]="multi"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legendTitle]="'legenda'"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [autoScale]="autoScale"
+    [timeline]="timeline">
+  </ngx-charts-line-chart>
+</div>
