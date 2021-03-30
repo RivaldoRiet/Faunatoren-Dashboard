@@ -14,6 +14,49 @@ $torenA: #FF5400;
 $torenB: #A26D1E;       
 $torenC: #0F80F1;
 
+.header-color{
+    color: $torenA;
+    font-size: 2em;
+    font-weight: bolder;
+    text-align: left;
+}
+
+.total-count{
+  float:right;
+  font-size: 4em;
+  text-align: right;
+  color: $torenA;
+}
+
+.clr-row {
+  //height: 400em;
+  //width: 35em;
+  //border: 20px;
+  border-color: $backgroundcolor;
+  //position: absolute;
+  padding: 10pt;
+  & .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      height: 100%;;
+  }
+  & .card-header{
+      font-size: 1em;
+      color: $highlightselect;
+      text-align: center;
+  }
+  & .card-text {
+      padding: 10pt;
+      font-size: 4em;
+      text-align: center;
+      color: $torenA;
+  }
+  & .card-footer {
+      font-size: 1em;
+      color: $highlightselect;
+      text-align: center;
+  }
+}
+
 .header {
     padding: 60px;
     text-align: center;

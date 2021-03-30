@@ -54,7 +54,8 @@ export class StatisticComponent implements OnInit, OnDestroy {
   //pie
   explodeSlices = false;
   doughnut = false;
-
+  gradient = false;
+  showLegend = true;
 
 
 
