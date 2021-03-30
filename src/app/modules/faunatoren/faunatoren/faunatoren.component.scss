@@ -15,13 +15,15 @@ $torenB: #A26D1E;
 $torenC: #0F80F1;
 
 .clr-row {
-    height: 10em;
-    width: 35em;
-    border: 20px;
+    //height: 400em;
+    //width: 35em;
+    //border: 20px;
     border-color: $backgroundcolor;
-    position: absolute;
+    //position: absolute;
+    padding: 10pt;
     & .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        height: 100%;;
     }
     & .card-header{
         font-size: 1em;
@@ -29,6 +31,7 @@ $torenC: #0F80F1;
         text-align: center;
     }
     & .card-text {
+        padding: 10pt;
         font-size: 4em;
         text-align: center;
         color: $torenA;
@@ -50,15 +53,15 @@ $torenC: #0F80F1;
 
 
 
-.timeline-container {
-    background-color: white;
-    width: 82%;
-    margin-top: 40em;
-    position: absolute;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    & .clr-timeline clr-timeline-horizontal {
-    float: none;
-}
-}
+// .timeline-container {
+//     background-color: white;
+//     width: 82%;
+//     margin-top: 40em;
+//     position: absolute;
+//     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+//     & .clr-timeline clr-timeline-horizontal {
+//     float: none;
+// }
+//}
 
 
