@@ -14,12 +14,74 @@ $torenA: #FF5400;
 $torenB: #A26D1E;       
 $torenC: #0F80F1;
 
-.clr-row {
+.header {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header-color{
+    color: $torenA;
+    font-size: 2em;
+    font-weight: bolder;
+    text-align: left;
+}
+
+.first-row {
+    .clr-row {
+        //height: 400em;
+        //width: 35em;
+        //border: 20px;
+        border-color: $backgroundcolor;
+        //position: absolute;
+        padding: 10pt;
+        & .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        & .card-header{
+            font-size: 2em;
+            padding: 20pt;
+            color: $hyperlink;
+            text-align: left;
+        }
+        & .first-header {
+            text-align: center;
+        }
+        & .card-block {
+            font-size: 2em;
+        }
+        & .card-text {
+            font-size: 4em;
+            margin: 1em auto;
+            text-align: center;
+            color: $torenA;
+        }
+        & .card-footer {
+            font-size: 1em;
+            color: $highlightselect;
+            text-align: center;
+        }
+      }
+}
+
+.chart-container {
+    // padding: 1em;
+    width: fit-content;
+    margin: 1em auto;
+    align-self: left;
+}
+
+.ngx-charts-bar-horizontal {
+    display: inline-block;
+    padding: .5em;
+  }
+
+.second-row{
+    & .clr-row {
     //height: 400em;
     //width: 35em;
     //border: 20px;
     border-color: $backgroundcolor;
-    //position: absolute;
+    position: relative;
+    left: 0; right: 0; top: 10px; bottom: 30px;
     padding: 10pt;
     & .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -42,6 +104,33 @@ $torenC: #0F80F1;
         text-align: center;
     }
 }
+}
+
+.bubble-container {
+    // padding: 1em;
+    width: fit-content;
+    margin: 1em auto;
+    align-self: left;
+}
+
+.ngx-charts-bubble-chart {
+    display: inline-block;
+    padding: .5em;
+  }
+
+
+.pie-container {
+    // padding: 1em;
+    width: fit-content;
+    margin: 1em auto;
+    align-self: left;
+}
+
+.ngx-charts-pie-chart {
+    display: inline-block;
+    padding: .5em;
+  }
+
 .header {
     padding: 60px;
     text-align: center;
