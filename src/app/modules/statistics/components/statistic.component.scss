@@ -14,6 +14,10 @@ $torenA: #FF5400;
 $torenB: #A26D1E;       
 $torenC: #0F80F1;
 
+.header {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .header-color{
     color: $torenA;
     font-size: 2em;
@@ -28,6 +32,57 @@ $torenC: #0F80F1;
   color: $torenA;
 }
 
+.first-row {
+    .clr-row {
+        //height: 400em;
+        //width: 35em;
+        //border: 20px;
+        border-color: $backgroundcolor;
+        //position: absolute;
+        padding: 10pt;
+        & .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            height: 100%;
+        }
+        & .card-header{
+            font-size: 2em;
+            padding: 20pt;
+            color: $hyperlink;
+            text-align: left;
+        }
+        & .first-header {
+            text-align: center;
+        }
+        & .card-block {
+            font-size: 2em;
+        }
+        & .card-text {
+            font-size: 4em;
+            margin: 1em auto;
+            text-align: center;
+            color: $torenA;
+        }
+        & .card-footer {
+            font-size: 1em;
+            color: $highlightselect;
+            text-align: center;
+        }
+      }
+}
+
+.chart-container {
+    padding: 1em;
+    width: fit-content;
+    margin: 1em auto;
+    align-self: left;
+}
+
+.ngx-charts-bar-horizontal {
+    display: inline-block;
+    background: tomato;
+    padding: .5em;
+  }
+
 .clr-row {
   //height: 400em;
   //width: 35em;
@@ -37,16 +92,26 @@ $torenC: #0F80F1;
   padding: 10pt;
   & .card {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      height: 100%;;
+      height: 100%;
   }
   & .card-header{
-      font-size: 1em;
+      font-size: 2em;
+      padding: 20pt;
       color: $highlightselect;
-      text-align: center;
+      text-align: left;
+      & a {
+          color: $hyperlink;
+          font-size: 3em;
+          float: right;
+      }
+  }
+  & .card-block {
+      font-size: 2em;
+      padding: 20pt;
   }
   & .card-text {
-      padding: 10pt;
-      font-size: 4em;
+      width: 100%;
+      padding: 20pt;
       text-align: center;
       color: $torenA;
   }
