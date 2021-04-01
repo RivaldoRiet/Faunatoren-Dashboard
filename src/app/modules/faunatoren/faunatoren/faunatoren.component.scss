@@ -35,6 +35,7 @@ $torenC: #0F80F1;
         padding: 10pt;
         & .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            min-height: 100%;
         }
         & .card-header{
             font-size: 2em;
@@ -85,7 +86,7 @@ $torenC: #0F80F1;
     padding: 10pt;
     & .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        height: 100%;;
+        min-height: 100%;
     }
     & .card-header{
         font-size: 1em;
