@@ -89,15 +89,20 @@ $torenC: #0F80F1;
         min-height: 100%;
     }
     & .card-header{
-        font-size: 1em;
+        font-size: 2em;
+        padding: 20pt;
         color: $highlightselect;
         text-align: center;
     }
     & .card-text {
         padding: 10pt;
-        font-size: 4em;
-        text-align: center;
-        color: $torenA;
+        font-size: 2em;
+        text-align: left;
+        color: $textcolor;
+        & a {
+            text-align: right;
+            float: right;
+        }
     }
     & .card-footer {
         font-size: 1em;

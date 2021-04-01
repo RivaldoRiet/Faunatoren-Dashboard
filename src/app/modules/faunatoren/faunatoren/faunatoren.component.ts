@@ -19,8 +19,8 @@ export class FaunatorenComponent implements OnInit {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Year';
-  yAxisLabel: string = 'Population';
+  xAxisLabel: string = 'Aantal registraties';
+  yAxisLabel: string = 'Vogelsoorten';
   timeline: boolean = true;
   legendPosition: string = 'below';
 
