@@ -1,65 +1,79 @@
-<header class="header">
+
+<header class="header"> 
+  <div class="clr-row">
+    <div class="clr-col-12">
   Algemene statistieken
+    </div>
+  </div>
 </header>
 
-
-<div class="clr-row">
-    <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
-      <div class="card">
-        <div class="card-header">
-          Totale aanwezigheid
-        </div>
-        <div class="card-block">
-          <div class="card-text">
-            400
-          </div>
-        </div>
-        <div class="card-footer">
-            <div>Vogel registraties sinds 1/3/2021</div>
-        </div>
-      </div>
-    </div>
-    <div class="clr-col-lg-8 clr-col-md-8 clr-col-12">
-      <div class="card">
-        
-        <div class="card-header">
-          Totale aanwezigheid
-        </div>
-        <div class="card-block">
-          <ngx-charts-bar-horizontal
-          [scheme]="colorScheme"
-          [legend]="legend"
-          [showXAxisLabel]="showXAxisLabel"
-          [showYAxisLabel]="showYAxisLabel"
-          [xAxis]="xAxis"
-          [yAxis]="yAxis"
-          [xAxisLabel]="xAxisLabel"
-          [yAxisLabel]="yAxisLabel"
-          [results]="surveyData"
-          >
-          </ngx-charts-bar-horizontal>
-        </div>
-        <div class="card-footer">
-            <div>Vogel registraties sinds 1/3/2021</div>
-        </div>
-      </div>
-    </div>    
-  </div>
+<div class="first-row">
+ <div class="clr-row">
+     <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
+       
+       <div class="card">
+         <div class="card-header">
+           <div class="first-header">
+           Totale aanwezigheid</div>
+         </div>
+         <div class="card-block">
+           <div class="card-text">
+             156
+           </div>
+         </div>
+         <div class="card-footer">
+          <cds-icon shape="exclamation-circle"></cds-icon>
+             <div>Registraties 1/3/2021</div>
+         </div>
+       </div>
+     </div>
+     <div class="clr-col-lg-8 clr-col-md-8 clr-col-12">
+       <div class="card">
+         
+         <div class="card-header">
+           Activiteit Faunatorens
+         </div>
+         <div class="card-block">
+           <div class="chart-container">
+            <ngx-charts-bar-horizontal
+            [scheme]="colorScheme"
+            [legend]="legend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxis]="xAxis"
+            [yAxis]="yAxis"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            [results]="surveyData"
+            >
+            </ngx-charts-bar-horizontal>
+           </div>
+         </div>
+         <div class="card-footer">
+             <div>Registraties 1/3/2021</div>
+         </div>
+       </div>
+     </div>    
+   </div>
+</div>
 
   <div class="clr-row">
 
     <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
       <div class="card">
         <div class="card-header">
-          Totale aanwezigheid
+          <div>Toren 1</div>
+          <a>73</a>
+          <div>vogeltelling</div>
         </div>
         <div class="card-block">
+          <div>Bekijk de livestream</div>
           <div class="card-text">
-            <iframe type="text/html" width="500" height="250" src="https://www.youtube.com/embed/live_stream?channel=UC-0uK90U1sH5A_2dHYVVm5Q&autoplay=1" ></iframe>
+            <iframe type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UC-0uK90U1sH5A_2dHYVVm5Q&autoplay=1" ></iframe>
           </div>
         </div>
         <div class="card-footer">
-            <div>Vogel registraties sinds 1/3/2021</div>
+            
         </div>
       </div>
     </div>
@@ -67,20 +81,18 @@
     <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
       <div class="card">
         <div class="card-header">
-          <div class="header-color">
-          Totale aanwezigheid
-          </div>
-          <div class="card-text">
-            400
-          </div>
+          <div>toren 2</div>
+          <a>14</a>
+          <div>vogeltelling</div>
         </div>
         <div class="card-block">
+           <div>Bekijk de livestream</div>
           <div class="card-text">
-            <iframe type="text/html" width="500" height="250" src="https://www.youtube.com/embed/live_stream?channel=UCuL60_Ko4m9xCaa4QDNgJrw&autoplay=1" ></iframe>
+            <iframe type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UCuL60_Ko4m9xCaa4QDNgJrw&autoplay=1" ></iframe>
           </div>
         </div>
-        <div class="card-footer">
-            <div>Vogel registraties sinds 1/3/2021</div>
+        <div class="card-footer"> 
+
         </div>
       </div>
     </div>
@@ -88,20 +100,23 @@
     <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
       <div class="card">
         <div class="card-header">
-          Totale aanwezigheid
-        </div>
+          <div>toren 3</div>
+          <a>69</a>
+          <div>vogeltelling</div>
+          </div>
         <div class="card-block">
+          <div>Bekijk de livestream</div>
           <div class="card-text">
-            <iframe type="text/html" width="500" height="250" src="https://www.youtube.com/embed/live_stream?channel=UCVtdo4OmU52nCGX9NcOesAw&autoplay=1" ></iframe>
+            <iframe type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UCVtdo4OmU52nCGX9NcOesAw&autoplay=1" ></iframe>
           </div>
         </div>
         <div class="card-footer">
-            <div>Vogel registraties sinds 1/3/2021</div>
+            
         </div>
       </div>
     </div>
 
-  </div>
+  
   <div class="clr-row">
     <div class="card clr-col-lg-12 clr-col-md-12 clr-col-12">
      
