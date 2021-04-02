@@ -1,25 +1,36 @@
+
+
 //styling
-$textcolor: #069E2D;
+// $textcolor: #069E2D;
 
-$backgroundcolor: #D8FEE7;
+// $backgroundcolor: #D8FEE7;
 
-$iconcolor: #058A45;
-$iconfont: 'Arial';
+// $iconcolor: #058A45;
+// $iconfont: 'Arial';
 
-$hyperlink: #036316;
+// $hyperlink: #036316;
 
-$highlightselect: #023B0A;
+// $highlightselect: #023B0A;
 
-$torenA: #FF5400;
-$torenB: #A26D1E;       
-$torenC: #0F80F1;
+// $torenA: #FF5400;
+// $torenB: #A26D1E;       
+// $torenC: #0F80F1;
+
+.color-test{
+    background-color: var(--torenC);
+}
 
 .header {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 60px;
+    text-align: center;
+    background: white;
+    color: var(--textcolor);
+    font-size: 30px;
 }
 
 .header-color{
-    color: $torenA;
+    color: var(--torenA);
     font-size: 2em;
     font-weight: bolder;
     text-align: left;
@@ -29,7 +40,7 @@ $torenC: #0F80F1;
   float:right;
   font-size: 4em;
   text-align: right;
-  color: $torenA;
+  color: var(--torenA);
 }
 
 .first-row {
@@ -37,17 +48,17 @@ $torenC: #0F80F1;
         //height: 400em;
         //width: 35em;
         //border: 20px;
-        border-color: $backgroundcolor;
+        border-color: var(--backgroundcolor);
         //position: absolute;
         padding: 10pt;
         & .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            height: 100%;
+            min-height: 100%;
         }
         & .card-header{
             font-size: 2em;
             padding: 20pt;
-            color: $hyperlink;
+            color: var(--hyperlink);
             text-align: left;
         }
         & .first-header {
@@ -60,11 +71,11 @@ $torenC: #0F80F1;
             font-size: 4em;
             margin: 1em auto;
             text-align: center;
-            color: $torenA;
+            color: var(--torenA);
         }
         & .card-footer {
             font-size: 1em;
-            color: $highlightselect;
+            color: var(--highlightselect);
             text-align: center;
         }
       }
@@ -86,20 +97,21 @@ $torenC: #0F80F1;
   //height: 400em;
   //width: 35em;
   //border: 20px;
-  border-color: $backgroundcolor;
+  border-color: var(--backgroundcolor);
   //position: absolute;
   padding: 10pt;
   & .card {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      height: 100%;
+      min-height: 100%;
   }
   & .card-header{
+      max-height: 100%;
       font-size: 2em;
       padding: 20pt;
-      color: $highlightselect;
+      color: var(--highlightselect);
       text-align: left;
       & a {
-          color: $hyperlink;
+          color: var(--hyperlink);
           font-size: 3em;
           float: right;
       }
@@ -112,20 +124,11 @@ $torenC: #0F80F1;
       width: 100%;
       padding: 20pt;
       text-align: center;
-      color: $torenA;
+      color: var(--torenA);
   }
   & .card-footer {
       font-size: 1em;
-      color: $highlightselect;
+      color: var(--highlightselect);
       text-align: center;
   }
 }
-
-.header {
-    padding: 60px;
-    text-align: center;
-    background: #1abc9c;
-    color: white;
-    font-size: 30px;
-  }
-
