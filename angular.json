@@ -32,8 +32,7 @@
               "node_modules/@clr/icons/clr-icons.min.css",
               "node_modules/@clr/ui/clr-ui.min.css",
               "./node_modules/font-awesome/css/font-awesome.css",
-              "src/styles.scss",
-              "src/assets/style/global.scss"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
@@ -104,8 +103,7 @@
               "node_modules/@clr/icons/clr-icons.min.css",
               "node_modules/@clr/ui/clr-ui.min.css",
               "node_modules/font-awesome/css/font-awesome.css",
-              "src/styles.scss",
-              "src/assets/style/global.scss"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
