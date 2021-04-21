@@ -33,6 +33,7 @@
     "angular2-fontawesome": "^5.2.1",
     "font-awesome": "^4.7.0",
     "jwt-decode": "^3.1.2",
+    "ngx-timeline-albe": "^1.2.11",
     "nodemon": "^2.0.7",
     "rxjs": "~6.6.0",
     "stream-buffers": "^3.0.2",

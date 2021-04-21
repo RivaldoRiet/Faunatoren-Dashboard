@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TimelineItem } from 'ngx-timeline-albe';
+
 
 @Component({
   selector: 'app-vogelhok',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VogelhokComponent implements OnInit {
 
+  public data: Array<TimelineItem> | String = [];
   public currentId: string;
 
 
@@ -21,6 +24,51 @@ export class VogelhokComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.data = [
+      {
+        datetime: new Date('2020-03-29 23:59:59'),
+        header: 'Sample of header',
+        body: [
+          // {
+          //   tag: 'h1',
+          //   content: "Lorem ipsum"
+          // },
+          {
+            tag: 'p',
+            content: 'Lorem ipsum dolor sit amet, nisl lorem, wisi egestas orci tempus class massa.'
+          }],
+        footer: 'Sample of footer. See <a href=\"https://github.com/Albejr/ngx-timeline\" target=\"_blank\">more details</a>'
+      },
+      {
+        datetime: new Date('2020-03-28 23:49:59'),
+        header: 'Sample of header',
+        body: [
+          // {
+          //   tag: 'h1',
+          //   content: "Lorem ipsum"
+          // },
+          {
+            tag: 'p',
+            content: 'Lorem ipsum dolor sit amet, nisl lorem, wisi egestas orci tempus class massa.'
+          }],
+        footer: 'Sample of footer. See <a href=\"https://github.com/Albejr/ngx-timeline\" target=\"_blank\">more details</a>'
+      },
+      {
+        datetime: new Date('2020-03-27 23:39:59'),
+        header: 'Sample of header',
+        body: [
+          // {
+          //   tag: 'h1',
+          //   content: "Lorem ipsum"
+          // },
+          {
+            tag: 'p',
+            content: 'Lorem ipsum dolor sit amet, nisl lorem, wisi egestas orci tempus class massa.'
+          }],
+        footer: 'Sample of footer. See <a href=\"https://github.com/Albejr/ngx-timeline\" target=\"_blank\">more details</a>'
+      }
+    ];
   }
+  
 
 }

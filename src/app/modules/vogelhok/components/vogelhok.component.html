@@ -1,115 +1,114 @@
-<div class="timeline-container">
-    <ul class="clr-timeline clr-timeline-horizontal">
-        <li class="clr-timeline-step disabled">
-          <div class="clr-timeline-step-header">11:59 am</div>
-          <cds-icon shape="circle" aria-label="Not started"></cds-icon>
-          <div class="clr-timeline-step-body">
-            <span class="clr-timeline-step-title">Add KMS</span>
-            <span class="clr-timeline-step-description">Root CA certificate requested.</span>
-          </div>
-        </li>
-        <li class="clr-timeline-step">
-          <div class="clr-timeline-step-header">11:59 am</div>
-          <cds-icon shape="dot-circle" aria-current="true" aria-label="Current"></cds-icon>
-          <div class="clr-timeline-step-body">
-            <span class="clr-timeline-step-title">Add KMS</span>
-            <span class="clr-timeline-step-description">
-              Root CA certificate requested. Upload it to the KMS to complete the connection.
-              <button class="btn btn-sm">Action</button>
-            </span>
-          </div>
-        </li>
-        <li class="clr-timeline-step">
-          <div class="clr-timeline-step-header">11:59 am</div>
-          <clr-spinner clrMedium aria-label="In progress">Fetching data</clr-spinner>
-          <div class="clr-timeline-step-body">
-            <span class="clr-timeline-step-title">Make vCenter trust KMS</span>
-            <span class="clr-timeline-step-description">
-              Root CA certificate requested. Upload it to the KMS to complete the connection. Third sentence is very long and
-              very long.
-            </span>
-          </div>
-        </li>
-        <li class="clr-timeline-step">
-          <div class="clr-timeline-step-header">11:59 am</div>
-          <cds-icon shape="success-standard" aria-label="Completed"></cds-icon>
-          <div class="clr-timeline-step-body">
-            <span class="clr-timeline-step-title">Make KMS trust vCenter</span>
-            <span class="clr-timeline-step-description"
-              >Upload it to the KMS to complete the connection. Third sentence.
-              <button class="btn btn-sm btn-link">Action</button>
-            </span>
-          </div>
-        </li>
-        <li class="clr-timeline-step">
-          <div class="clr-timeline-step-header">11:59 am</div>
-          <cds-icon shape="error-standard" aria-label="Error"></cds-icon>
-          <div class="clr-timeline-step-body">
-            <span class="clr-timeline-step-title">Connected</span>
-            <span class="clr-timeline-step-description">No. It's not connected.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
+<div class="hok-pagina-container">
 
-    <div>
-    <ngx-charts-bar-vertical
-    [results]="surveyData"
-    [xAxisLabel]="'Aantal'"
-    [legendTitle]="'Legenda'"
-    [yAxisLabel]="'Soort vogel'"
-    [legend]="true"
-    [showXAxisLabel]="true"
-    [showYAxisLabel]="true"
-    [xAxis]="true"
-    [yAxis]="true"
-    [gradient]="false">
-    </ngx-charts-bar-vertical>
-    </div>
+  <div class="clr-row">
+    <div class="clr-col-lg-10 clr-col-md-10 clr-col-12">
+     <div class="container-links">
+     <div class="first-row">
+      <div class="card">
+         
+        <div class="card-header">
+          Activiteit over de dag
+        </div>
+        <div class="card-block">
+         <div class="timeline-container">
+          <ngx-timeline [itens]="data" [theme]="'horizontal'"></ngx-timeline>
+             </div>
+           </div>
+           </div>
+           </div>
 
-  <div class="dag-statistiek">
-    <table class="table table-vertical">
-      <caption>
-        Statistieken (vandaag) pagina 1 > 
-      </caption>
-      <tbody>
-        <tr>
-          <th>Gem.temperatuur</th>
-          <td>17.5 °C</td>
-        </tr>
-        <tr>
-          <th>Registraties huisje</th>
-          <td>
-            14
-          </td>
-        </tr>
-        <tr>
-          <th>Tijd aanwezig in huisje</th>
-          <td>
-            04:16:22
-          </td>
-        </tr>
-        <tr>
-          <th>Huisje laatst bezocht</th>
-          <td>00:03:12</td>
-      </tbody>
-    </table>
-  </div>
+         <div class="second-row" >
+           <div class="clr-row">
+             <div class="clr-col-lg-6 clr-col-md-6 clr-col-12">
+              <div class="card">
+         
+                <div class="card-header">
+                  Activiteit Faunatorens
+                </div>
+                <div class="card-block">
+              <div class="chart-container">
+              <ngx-charts-bar-vertical
+              [results]="surveyData"
+              [xAxisLabel]="'Aantal'"
+              [legendTitle]="'Legenda'"
+              [yAxisLabel]="'Soort vogel'"
+              [legend]="true"
+              [showXAxisLabel]="true"
+              [showYAxisLabel]="true"
+              [xAxis]="true"
+              [yAxis]="true"
+              [gradient]="false">
+              </ngx-charts-bar-vertical>
+              </div>
+              </div>
+              </div>
+              </div>
+      
+            <div class="clr-col-lg-6 clr-col-md-6 clr-col-12">
+              <div class="card">
+         
+                <div class="card-header">
+                  Statistieken (vandaag) pagina 1 >
+                </div>
+                <div class="card-block">
+            <div class="dag-statistiek">
+              <table class="table table-vertical">
+                <tbody>
+                  <tr>
+                    <th>Gem.temperatuur</th>
+                    <td>17.5 °C</td>
+                  </tr>
+                  <tr>
+                    <th>Registraties huisje</th>
+                    <td>
+                      14
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Tijd aanwezig in huisje</th>
+                    <td>
+                      04:16:22
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Huisje laatst bezocht</th>
+                    <td>00:03:12</td>
+                </tbody>
+              </table>
+              </div>
+         </div>
+        </div>
+      </div>       
+      </div>
+      </div>
+      </div>
+      </div>
 
-
-   <div class="hokken">
-     <ul>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-       <li><img src="http://placehold.it/150x150" /></li>
-     </ul>
+      <div class="clr-col-lg-2 clr-col-md-2 clr-col-12">
+      <div class="vogelhok-container">
+        <div class="hokken">
+          <ul>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+            <li><img src="http://placehold.it/50X50" /></li>
+          </ul>
+        </div>
+      </div>
+     </div>
    </div>
+</div>
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="container" style="max-width: 100vw;">
+  <ngx-timeline [itens]="data" [theme]="'horizontal'"></ngx-timeline>
+</div> -->

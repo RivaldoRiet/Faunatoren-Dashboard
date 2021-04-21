@@ -1,16 +1,37 @@
-.timeline-container {
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    & .clr-timeline clr-timeline-horizontal {
-    float: none;
-}
-}
-
 .hokken {
   margin-top: 20px;
   float: right;
 }
 
-.dag-statistiek {
+
+.vogelhok-container {
   background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: inline-block;
+  text-align: center;
+  & .hokken {
+    display: block;
+  }
+
+}
+
+
+// .timeline-container {
+//   width: min-content;
+// }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  min-height: 100%;
+  & .clr-timeline clr-timeline-horizontal {
+    position: absolute;
+  }
+}
+
+.timeline-container{
+  overflow: auto;
+  & .ngx-timeline {
+    min-height: 100%;
+    color: green;
+  }
 }

@@ -6,6 +6,7 @@ import { VogelhokComponent } from './components/vogelhok.component';
 import { ClarityModule } from '@clr/angular';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxTimelineAlbeModule } from 'ngx-timeline-albe';
 
 @NgModule({
   declarations: [VogelhokComponent],
@@ -15,6 +16,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ClarityModule,
     SharedModule,
     NgxChartsModule,
+    NgxTimelineAlbeModule
   ]
 })
 export class VogelhokModule { }
