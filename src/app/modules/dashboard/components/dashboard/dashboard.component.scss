@@ -1,22 +1,27 @@
-.chat-placement{
-    float:left;
-    margin-left: 5%;
+.clr-row {
+    border-color: var(--backgroundcolor);
+    padding: 10pt;
+    & .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        min-height: 100%;
+    }
+    & .card-header{
+        font-size: 2em;
+        padding: 20pt;
+        color: var(--hyperlink);
+        text-align: left;
+    }
 }
 
-.main-video-placement{
-    float:left;
-}
+// .recent-vids {
+//     min-width: 100%;
+//     // padding: 1em;
+//     // width: fit-content;
+//     // margin: 1em auto;
+//     // align-self: left;
+// }
 
-.video-list{
-    margin-top: 5%;
-    float:left;
-}
-
-.header {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 60px;
-    text-align: center;
-    background: white;
-    color: var(--textcolor);
-    font-size: 30px;
+iframe {
+    width: 1px;
+    min-width: 100%;
   }

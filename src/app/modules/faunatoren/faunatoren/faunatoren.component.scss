@@ -1,10 +1,21 @@
-.header {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 60px;
-    text-align: center;
-    background: white;
-    color: var(--textcolor);
-    font-size: 30px;
+.clr-row {
+    //height: 400em;
+    //width: 35em;
+    //border: 20px;
+    border-color: var(--backgroundcolor);
+    //position: absolute;
+    padding: 10pt;
+    // margin-top: -50px;
+    & .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        min-height: 100%;
+    }
+    & .card-header{
+        font-size: 2em;
+        padding: 20pt;
+        color: var(--hyperlink);
+        text-align: center;
+    }
 }
 
 

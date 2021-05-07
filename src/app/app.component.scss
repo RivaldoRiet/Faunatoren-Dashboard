@@ -2,6 +2,16 @@ header {
     background-color: white;
 }
 
+.nav-trigger {
+    & .active {
+        color: white;
+    }
+}
+
+.sidenav {
+    color: red;
+}
+
 .clr-vertical-nav{
     background-color: var(--backgroundcolor);
 }
