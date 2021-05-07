@@ -58,7 +58,7 @@
 }
 
 .chart-container {
-    // padding: 1em;
+    padding: 1em;
     width: fit-content;
     margin: 1em auto;
     align-self: left;
@@ -88,6 +88,9 @@
         color: var(--highlightselect);
         text-align: center;
     }
+    & .card-block{
+        min-height: 100%;
+    }
     & .card-text {
         padding: 10pt;
         font-size: 2em;
@@ -106,11 +109,20 @@
 }
 }
 
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
 .bubble-container {
-    // padding: 1em;
-    width: fit-content;
-    margin: 1em auto;
-    align-self: left;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
 }
 
 .ngx-charts-bubble-chart {
@@ -130,6 +142,8 @@
     display: inline-block;
     padding: .5em;
   }
+
+
 
 
 

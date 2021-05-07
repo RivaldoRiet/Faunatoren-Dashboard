@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class FaunatorenComponent implements OnInit {
   public currentId: string;
 
-  multi: any[];
+  multi: any[] = [800, 300];
   view: any[] = [800, 300];
 
   legend: boolean = true;

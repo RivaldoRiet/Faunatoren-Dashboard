@@ -10,7 +10,7 @@
 
 <div class="first-row">
   <div class="clr-row">
-    <div class="clr-col-lg-3 clr-col-md-7 clr-col-12">
+    <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
       <div class="card">
         <div class="card-header">
           <div class="first-header">
@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="clr-col-lg-9 clr-col-md-7 clr-col-12">
+    <div class="clr-col-lg-8 clr-col-md-8 clr-col-12">
       <div class="card">
         <div class="card-header">
           Activiteit huisjes
@@ -58,15 +58,16 @@
 
 <div class="second-row">
   <div class="clr-row">
-    <div class="clr-col-lg-3 clr-col-md-7 clr-col-12">
+    <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
       <div class="card">
         <div class="card-header">
           Klimaat per huisje
         </div>
-        <div class="card-block">
-          <div class="bubble-container">
+        <div class="wrapper">
+        <div class="bubble-container">
+         <div class="card-block">
            <ngx-charts-bubble-chart
-             [view]= "[300, 150]"
+             [view]= "[100 , 100]"
              [scheme]="colorScheme"
              [results]="bubbleData"
              [xAxis]="xAxis"
@@ -78,8 +79,9 @@
            </ngx-charts-bubble-chart>
           </div>
         </div>
+        </div>
         <div class="card-footer">
-            <div>Registraties 1/3/2021</div>
+            Registraties 1/3/2021
         </div>
       </div>
     </div>
@@ -112,7 +114,7 @@
         </div>
       </div>
     </div>
-    <div class="clr-col-lg-6 clr-col-md-10 clr-col-12">
+    <div class="clr-col-lg-5 clr-col-md-9 clr-col-12">
       <div class="card">
         <div class="card-header">
           Percentage aanwezigheid huisjes

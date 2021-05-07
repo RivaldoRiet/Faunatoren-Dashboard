@@ -11,11 +11,18 @@
     }
     & .card-header{
         font-size: 2em;
-        padding: 20pt;
+        padding: 25pt;
         color: var(--hyperlink);
         text-align: center;
     }
 }
+
+iframe {
+    width: 1px;
+    min-width: 100%;
+    border-radius: 5px;
+    border-color: var(--hyperlink);
+  }
 
 .total-count{
   float:right;
@@ -88,18 +95,18 @@
   & .card-header{
       max-height: 100%;
       font-size: 2em;
-      padding: 20pt;
       color: var(--highlightselect);
       text-align: left;
       & a {
           color: var(--hyperlink);
-          font-size: 3em;
+          font-size: 1.5em;
           float: right;
       }
   }
   & .card-block {
-      font-size: 2em;
-      padding: 20pt;
+      font-size: 1em;
+      padding: 5pt;
+      text-align: center;
   }
   & .card-text {
       width: 100%;

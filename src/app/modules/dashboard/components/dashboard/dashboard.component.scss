@@ -13,6 +13,8 @@
     }
 }
 
+
+
 // .recent-vids {
 //     min-width: 100%;
 //     // padding: 1em;
@@ -24,4 +26,6 @@
 iframe {
     width: 1px;
     min-width: 100%;
+    border-radius: 5px;
+    border-color: var(--hyperlink);
   }
