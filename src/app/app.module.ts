@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BirdnetComponent } from './modules/birdnet/components/birdnet.component';
 import { BirdnetService } from './core/services/birdnet.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { NgxTimelineAlbeModule } from 'ngx-timeline-albe';
+
 
 @NgModule({
   declarations: [

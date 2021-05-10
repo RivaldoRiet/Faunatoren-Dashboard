@@ -1,5 +1,18 @@
-.card {
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.clr-row {
+  margin-top: -4em;
+  border-color: var(--backgroundcolor);
+  padding: 10pt;
+  & .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      min-height: 100%;
+  }
+  & .card-header{
+      font-size: 2em;
+      padding: 20pt;
+      color: var(--hyperlink);
+      text-align: left;
+  }
+  
 }
 
 :host {
