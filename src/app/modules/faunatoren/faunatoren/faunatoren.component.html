@@ -41,8 +41,8 @@
            [showYAxisLabel]="showYAxisLabel"
            [xAxis]="xAxis"
            [yAxis]="yAxis"
-           [xAxisLabel]="xAxisLabel"
-           [yAxisLabel]="yAxisLabel"
+           [xAxisLabel]="'xAxisLabel'"
+           [yAxisLabel]="'yAxisLabel'"
            [results]="surveyData"
            >
            </ngx-charts-bar-horizontal>
@@ -63,19 +63,19 @@
         <div class="card-header">
           Klimaat per huisje
         </div>
+        <div class="card-block">
         <div class="wrapper">
         <div class="bubble-container">
-         <div class="card-block">
            <ngx-charts-bubble-chart
-             [view]= "[100 , 100]"
+             [view]= "[300 , 300]"
              [scheme]="colorScheme"
              [results]="bubbleData"
              [xAxis]="xAxis"
              [yAxis]="yAxis"
-             [showXAxisLabel]="showXAxisLabel"
-             [showYAxisLabel]="showYAxisLabel"
-             [xAxisLabel]="xAxisLabel"
-             [yAxisLabel]="yAxisLabel">
+             [showXAxisLabel]= "showXAxisLabel"
+             [showYAxisLabel]= "showYAxisLabel"
+             [xAxisLabel]= "'Tijd'"
+             [yAxisLabel]= "'Temperatuur in °C'">
            </ngx-charts-bubble-chart>
           </div>
         </div>
@@ -120,17 +120,17 @@
           Percentage aanwezigheid huisjes
         </div>
         <div class="card-block">
+          <div class="wrapper" >
           <div class="pie-container">
            <ngx-charts-pie-chart
              [view]= "[300, 150]"
              [scheme]="colorScheme"
              [results]="single"
-             [legend]="legend"
-             [legendPosition]="legendPosition"
              [labels]="showLabels"
              [doughnut]=true
              >
            </ngx-charts-pie-chart>
+          </div>
           </div>
         </div>
         <div class="card-footer">

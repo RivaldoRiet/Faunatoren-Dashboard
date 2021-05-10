@@ -9,9 +9,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class FaunatorenComponent implements OnInit {
   public currentId: string;
 
-  multi: any[] = [800, 300];
-  view: any[] = [800, 300];
-
   legend: boolean = true;
   showLabels: boolean = true;
   animations: boolean = true;
@@ -19,8 +16,6 @@ export class FaunatorenComponent implements OnInit {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Aantal registraties';
-  yAxisLabel: string = 'Vogelsoorten';
   timeline: boolean = true;
   legendPosition: string = 'below';
 
@@ -38,93 +33,93 @@ export class FaunatorenComponent implements OnInit {
 
   bubbleData =  [
     {
-      name: 'Germany',
+      name: 'Hok 1',
       series: [
         {
-          name: '2010',
-          x: '2010',
-          y: 80.3,
+          name: '12:00',
+          x: '12:00',
+          y: 12.0,
           r: 80.4
         },
         {
-          name: '2000',
-          x: '2000',
-          y: 80.3,
+          name: '13:00',
+          x: '13:00',
+          y: 12.5,
           r: 78
         },
         {
-          name: '1990',
-          x: '1990',
-          y: 75.4,
+          name: '14:00',
+          x: '14:00',
+          y: 13,
           r: 79
         }
       ]
     },
     {
-      name: 'United States',
+      name: 'Hok 2',
       series: [
         {
-          name: '2010',
-          x: '2010',
-          y: 78.8,
+          name: '12:00',
+          x: '12:00',
+          y: 13.5,
           r: 310
         },
         {
-          name: '2000',
-          x: '2000',
-          y: 76.9,
+          name: '13:00',
+          x: '13:00',
+          y: 14.5,
           r: 283
         },
         {
-          name: '1990',
-          x: '1990',
-          y: 75.4,
+          name: '14:00',
+          x: '14:00',
+          y: 15,
           r: 253
         }
       ]
     },
     {
-      name: 'France',
+      name: 'Hok 3',
       series: [
         {
-          name: '2010',
-          x: '2010',
-          y: 81.4,
+          name: '12:00',
+          x: '12:00',
+          y: 12,
           r: 63
         },
         {
-          name: '2000',
-          x: '2000',
-          y: 79.1,
+          name: '13:00',
+          x: '13:00',
+          y: 13,
           r: 59.4
         },
         {
-          name: '1990',
-          x: '1990',
-          y: 77.2,
+          name: '14:00',
+          x: '14:00',
+          y: 14,
           r: 56.9
         }
       ]
     },
     {
-      name: 'United Kingdom',
+      name: 'Hok 4',
       series: [
         {
-          name: '2010',
-          x: '2010',
-          y: 80.2,
+          name: '12:00',
+          x: '12:00',
+          y: 13,
           r: 62.7
         },
         {
-          name: '2000',
-          x: '2000',
-          y: 77.8,
+          name: '13:00',
+          x: '13:00',
+          y: 14,
           r: 58.9
         },
         {
-          name: '1990',
-          x: '1990',
-          y: 75.7,
+          name: '14:00',
+          x: '14:00',
+          y: 15,
           r: 57.1
         }
       ]
@@ -133,20 +128,20 @@ export class FaunatorenComponent implements OnInit {
 
   single = [
     {
-      "name": "Germany",
-      "value": 8940000
+      "name": "Hok 1",
+      "value": 34
     },
     {
-      "name": "USA",
-      "value": 5000000
+      "name": "Hok 2",
+      "value": 13
     },
     {
-      "name": "France",
-      "value": 7200000
+      "name": "Hok 3",
+      "value": 4
     },
       {
-      "name": "UK",
-      "value": 6200000
+      "name": "Hok 4",
+      "value": 1
     }
   ];
 
