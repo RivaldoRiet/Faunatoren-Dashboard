@@ -49,19 +49,20 @@
       }
 }
 
-.chart-container {
-    padding: 1em;
-    width: fit-content;
-    margin: 1em auto;
-    align-self: left;
-}
+// .chart-container {
+//     padding: 1em;
+//     width: fit-content;
+//     margin: 1em auto;
+//     align-self: left;
+// }
 
-.ngx-charts-bar-horizontal {
-    display: inline-block;
-    padding: .5em;
-  }
+// .ngx-charts-bar-horizontal {
+//     display: inline-block;
+//     padding: .5em;
+//   }
 
 .second-row{
+    height: 50%;
     & .clr-row {
     border-color: var(--backgroundcolo);
     position: relative;
@@ -98,26 +99,30 @@
 }
 }
 
-.wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
+// .wrapper {
+//     display: flex;
+//     flex-wrap: wrap;
+    // margin-right: -15px;
+    // margin-left: -15px;
+// }
 
-.bubble-container {
-    position: relative;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    flex: 0 0 33.3333333333%;
-    max-width: 33.3333333333%;
-}
+// .bubble-container {
+//     position: relative;
+//     width: 100%;
+//     padding-right: 15px;
+//     padding-left: 15px;
+//     flex: 0 0 33.3333333333%;
+//     max-width: 33.3333333333%;
+// }
 
-.ngx-charts-bubble-chart {
-    display: inline-block;
-    padding: .5em;
-  }
+// .bubble-container {
+
+// }
+
+// .ngx-charts-bubble-chart {
+//     display: inline-block;
+//     padding: .5em;
+//   }
 
 
 .pie-container {

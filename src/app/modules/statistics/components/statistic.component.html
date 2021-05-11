@@ -37,8 +37,9 @@
            Activiteit Faunatorens
          </div>
          <div class="card-block">
-           <div class="chart-container">
+           <div #containerRef class="chart-container">
             <ngx-charts-bar-horizontal
+            [view]="[containerRef.offsetWidth, containerRef.offsetHeight]"
             [scheme]="colorScheme"
             [legend]="legend"
             [showXAxisLabel]="showXAxisLabel"

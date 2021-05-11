@@ -18,6 +18,10 @@ export class FaunatorenComponent implements OnInit {
   showXAxisLabel: boolean = true;
   timeline: boolean = true;
   legendPosition: string = 'below';
+  maxRadius: number = 40;
+  minRadius: number = 0;
+  yScaleMin: number = 20;
+  yScaleMax: number = 40;
 
   colorScheme = {
     domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']

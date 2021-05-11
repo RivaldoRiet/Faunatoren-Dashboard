@@ -10,6 +10,7 @@ import { VogelhokModule } from './modules/vogelhok/vogelhok.module';
 import {Router} from '@angular/router';
 
 const routes: Routes = [
+  { path: '', loadChildren: () => StatisticsModule },
   { path: 'overzicht', loadChildren: () => DashboardModule },
   { path: 'statistieken', loadChildren: () => StatisticsModule },
   { path: 'vogelherkenning', loadChildren: () => BirdnetModule },
