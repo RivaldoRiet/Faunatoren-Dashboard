@@ -3,23 +3,23 @@ import { TimelineItem } from 'ngx-timeline-albe';
 
 
 @Component({
-  selector: 'app-vogelhok',
-  templateUrl: './vogelhok.component.html',
-  styleUrls: ['./vogelhok.component.scss']
+  selector: 'app-vogelhok2',
+  templateUrl: './vogelhok2.component.html',
+  styleUrls: ['./vogelhok2.component.scss']
 })
-export class VogelhokComponent implements OnInit {
+export class Vogelhok2Component implements OnInit {
 
   public data: Array<TimelineItem> | String = [];
   public currentId: string;
 
   surveyData = [
-    { name: 'Ma', value: 55 },
+    { name: 'Ma', value: 83 },
     { name: 'Di', value: 150 },
-    { name: 'Wo', value: 70 },
-    { name: 'Do', value: 40 },
-    { name: 'Vr', value: 90 },
-    { name: 'Za', value: 90 },
-    { name: 'Zo', value: 90 }
+    { name: 'Wo', value: 64 },
+    { name: 'Do', value: 48 },
+    { name: 'Vr', value: 74 },
+    { name: 'Za', value: 106 },
+    { name: 'Zo', value: 89 }
   ];
 
   constructor() { }
