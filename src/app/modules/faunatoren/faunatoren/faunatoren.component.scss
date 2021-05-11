@@ -99,38 +99,33 @@
 }
 }
 
-// .wrapper {
-//     display: flex;
-//     flex-wrap: wrap;
-    // margin-right: -15px;
-    // margin-left: -15px;
-// }
-
-// .bubble-container {
-//     position: relative;
-//     width: 100%;
-//     padding-right: 15px;
-//     padding-left: 15px;
-//     flex: 0 0 33.3333333333%;
-//     max-width: 33.3333333333%;
-// }
-
-// .bubble-container {
-
-// }
-
-// .ngx-charts-bubble-chart {
-//     display: inline-block;
-//     padding: .5em;
-//   }
-
-
-.pie-container {
-    // padding: 1em;
-    width: fit-content;
-    margin: 1em auto;
-    align-self: left;
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
 }
+
+.wrapper1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper3 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// .pie-container {
+//     // padding: 1em;
+//     width: fit-content;
+//     margin: 1em auto;
+//     align-self: left;
+// }
+
 
 // .ngx-charts-pie-chart {
 //     display: inline-block;

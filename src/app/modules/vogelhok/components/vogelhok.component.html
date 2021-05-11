@@ -10,8 +10,18 @@
         </div>
         <div class="card-block">
          <div class="timeline-container">
-          <ngx-timeline [itens]="data" [theme]="'horizontal'"></ngx-timeline>
+          <ngx-timeline 
+          [formatDate]="'dd/MM/yyyy HH:mm:ss'"
+          [showGroup]="false"
+          [showMenu]="false" 
+          [itens]="data" 
+          [theme]="'horizontal'" >
+          
+          </ngx-timeline>
              </div>
+           </div>
+           <div class="card-footer">
+            Registraties 11/5/2021
            </div>
            </div>
            </div>
@@ -21,16 +31,18 @@
               <div class="card">
          
                 <div class="card-header">
-                  Activiteit Faunatorens
+                  Activiteit Vogelhok
                 </div>
                 <div class="card-block">
-              <div class="chart-container">
+              <div #containerRef class="wrapper">
+              <div  class="chart-container">
               <ngx-charts-bar-vertical
+              [view] = "[containerRef.offsetWidth, containerRef.offsetHeight]"
               [results]="surveyData"
               [xAxisLabel]="'Aantal'"
               [legendTitle]="'Legenda'"
               [yAxisLabel]="'Soort vogel'"
-              [legend]="true"
+              [legend]="false"
               [showXAxisLabel]="true"
               [showYAxisLabel]="true"
               [xAxis]="true"
@@ -38,6 +50,10 @@
               [gradient]="false">
               </ngx-charts-bar-vertical>
               </div>
+              </div>
+              </div>
+              <div class="card-footer">
+                Registraties 11/5/2021
               </div>
               </div>
               </div>
@@ -74,6 +90,9 @@
                 </tbody>
               </table>
               </div>
+              <div class="card-footer">
+                Registraties 11/5/2021
+            </div>
         </div>
       </div>       
       </div>
@@ -139,7 +158,7 @@
 
          
           <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
-          <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
+          <button type="button" class="btn btn-icon btn-primary" aria-label="settings">    
             H1
           </button>
           </div>

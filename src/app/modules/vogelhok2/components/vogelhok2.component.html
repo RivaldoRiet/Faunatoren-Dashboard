@@ -1,224 +1,242 @@
 <div class="hok-pagina-container">
 
-    <div class="clr-row">
-      <div class="clr-col-lg-10 clr-col-md-10 clr-col-12">
-       <div class="container-links">
-        <div class="card">
-           
-          <div class="card-header">
-            Activiteit over de dag
-          </div>
-          <div class="card-block">
-           <div class="timeline-container">
-            <ngx-timeline [itens]="data" [theme]="'horizontal'"></ngx-timeline>
-               </div>
-             </div>
-             </div>
-             </div>
-  
-             <div class="clr-row">
-               <div class="clr-col-lg-6 clr-col-md-6 clr-col-12">
-                <div class="card">
-           
-                  <div class="card-header">
-                    Activiteit Faunatorens
-                  </div>
-                  <div class="card-block">
-                <div class="chart-container">
-                <ngx-charts-bar-vertical
-                [results]="surveyData"
-                [xAxisLabel]="'Aantal'"
-                [legendTitle]="'Legenda'"
-                [yAxisLabel]="'Soort vogel'"
-                [legend]="true"
-                [showXAxisLabel]="true"
-                [showYAxisLabel]="true"
-                [xAxis]="true"
-                [yAxis]="true"
-                [gradient]="false">
-                </ngx-charts-bar-vertical>
-                </div>
-                </div>
-                </div>
-                </div>
-        
-              <div class="clr-col-lg-6 clr-col-md-6 clr-col-12">
-                <div class="card">
-           
-                  <div class="card-header">
-                    Statistieken (vandaag) pagina 1 >
-                  </div>
-                  <div class="card-block">
-              <!-- <div class="dag-statistiek"> -->
-                <table class="table table-vertical">
-                  <tbody>
-                    <tr>
-                      <th>Gem.temperatuur</th>
-                      <td>19.5 °C</td>
-                    </tr>
-                    <tr>
-                      <th>Registraties huisje</th>
-                      <td>
-                        11
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Tijd aanwezig in huisje</th>
-                      <td>
-                        14:16:22
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Huisje laatst bezocht</th>
-                      <td>03:03:12</td>
-                  </tbody>
-                </table>
-                </div>
-          </div>
-        </div>       
+  <div class="clr-row">
+    <div class="clr-col-lg-10 clr-col-md-10 clr-col-12">
+     <div class="container-links">
+      <div class="card">
+         
+        <div class="card-header">
+          Activiteit over de dag
         </div>
-        </div>
-  
-        <div class="clr-col-lg-2 clr-col-md-8 clr-col-12">
-  
-          <div class="card">
-            <div class="card-header" >
-              Hokken
+        <div class="card-block">
+         <div class="timeline-container">
+          <ngx-timeline 
+          [formatDate]="'dd/MM/yyyy HH:mm:ss'"
+          [showGroup]="false"
+          [showMenu]="false" 
+          [itens]="data" 
+          [theme]="'horizontal'">
+          </ngx-timeline>
+             </div>
+           </div>
+           <div class="card-footer">
+            Registraties 11/5/2021
+           </div>
+           </div>
+           </div>
+
+           <div class="clr-row">
+             <div class="clr-col-lg-6 clr-col-md-6 clr-col-12">
+              <div class="card">
+         
+                <div class="card-header">
+                  Activiteit Faunatorens
+                </div>
+                <div class="card-block">
+              <div #containerRef class="wrapper">
+              <div  class="chart-container">
+              <ngx-charts-bar-vertical
+              [view] = "[containerRef.offsetWidth, containerRef.offsetHeight]"
+              [results]="surveyData"
+              [xAxisLabel]="'Aantal'"
+              [legendTitle]="'Legenda'"
+              [yAxisLabel]="'Soort vogel'"
+              [legend]="false"
+              [showXAxisLabel]="true"
+              [showYAxisLabel]="true"
+              [xAxis]="true"
+              [yAxis]="true"
+              [gradient]="false">
+              </ngx-charts-bar-vertical>
+              </div>
+              </div>
+              </div>
+              <div class="card-footer">
+                Registraties 11/5/2021
+              </div>
+              </div>
+              </div>
+      
+            <div class="clr-col-lg-6 clr-col-md-6 clr-col-12">
+              <div class="card">
+         
+                <div class="card-header">
+                  Statistieken (vandaag) pagina 1 >
+                </div>
+                <div class="card-block">
+            <!-- <div class="dag-statistiek"> -->
+              <table class="table table-vertical">
+                <tbody>
+                  <tr>
+                    <th>Gem.temperatuur</th>
+                    <td>19.5 °C</td>
+                  </tr>
+                  <tr>
+                    <th>Registraties huisje</th>
+                    <td>
+                      8
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Tijd aanwezig in huisje</th>
+                    <td>
+                      04:16:22
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Huisje laatst bezocht</th>
+                    <td>00:03:12</td>
+                </tbody>
+              </table>
+              </div>
+              <div class="card-footer">
+                Registraties 11/5/2021
             </div>
-            
-          <div class="hokken">
-            <div class="clr-row">
-  
-            <!-- <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
+        </div>
+      </div>       
+      </div>
+      </div>
+
+      <div class="clr-col-lg-2 clr-col-md-8 clr-col-12">
+
+        <div class="card">
+          <div class="card-header" >
+            Hokken
+          </div>
+          
+        <div class="hokken">
+          <div class="clr-row">
+
+          <!-- <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
+          <button class="button">H1</button>
+          </div>
+
+          <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
             <button class="button">H1</button>
             </div>
-  
+
             <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
               <button class="button">H1</button>
               </div>
-  
+
               <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                 <button class="button">H1</button>
-                </div>
-  
-                <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
+                </div> -->
+
+                <!-- <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                   <button class="button">H1</button>
-                  </div> -->
-  
-                  <!-- <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
+                  </div>
+
+                  <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                     <button class="button">H1</button>
                     </div>
-  
+
                     <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                       <button class="button">H1</button>
                       </div>
-  
+
                       <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                         <button class="button">H1</button>
                         </div>
-  
+
                         <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                           <button class="button">H1</button>
                           </div>
-  
+
                           <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                             <button class="button">H1</button>
                             </div>
-  
+
                             <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                               <button class="button">H1</button>
                               </div>
-  
+
                               <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                                 <button class="button">H1</button>
-                                </div>
-  
-                                <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
-                                  <button class="button">H1</button>
-                                  </div> -->
-  
-           
-            <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
-            <button type="button" class="btn btn-icon btn-primary" aria-label="settings" [routerLink]="'../vogelhok'">
-              H1
+                                </div> -->
+
+         
+          <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
+          <button type="button" class="btn btn-icon btn-primary" aria-label="settings" [routerLink]="'../vogelhok'">    
+            H1
+          </button>
+          </div>
+
+          <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
+            <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
+              H2
             </button>
             </div>
-  
+          
             <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
               <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                H2
+                H3
               </button>
               </div>
-            
+
               <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                 <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                  H3
+                  H4
                 </button>
                 </div>
-  
+
                 <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                   <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                    H4
+                    H5
                   </button>
                   </div>
-  
+
                   <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                     <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                      H5
+                      H6
                     </button>
                     </div>
-  
+
                     <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                       <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                        H6
+                        H7
                       </button>
                       </div>
-  
+
                       <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                         <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                          H7
+                          H8
                         </button>
                         </div>
-  
+
                         <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                           <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                            H8
+                            H9
                           </button>
                           </div>
-  
+
                           <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                             <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                              H9
+                              H10
                             </button>
                             </div>
-  
+
                             <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                               <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                                H10
+                                H11
                               </button>
                               </div>
-  
+
                               <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
                                 <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                                  H11
+                                  H12
                                 </button>
                                 </div>
-  
-                                <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
-                                  <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
-                                    H12
-                                  </button>
-                                  </div>
-                  
-             </div>
-            </div>
+                
+           </div>
           </div>
         </div>
-       </div>
+      </div>
      </div>
-  <!-- </div> -->
-  <!-- </div> -->
-  
-  <!-- <div class="container" style="max-width: 100vw;">
-    <ngx-timeline [itens]="data" [theme]="'horizontal'"></ngx-timeline>
-  </div> -->
+   </div>
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="container" style="max-width: 100vw;">
+  <ngx-timeline [itens]="data" [theme]="'horizontal'"></ngx-timeline>
+</div> -->

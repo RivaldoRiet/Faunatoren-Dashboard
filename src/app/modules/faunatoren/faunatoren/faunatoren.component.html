@@ -2,7 +2,7 @@
 
 <div class="first-row">
   <div class="clr-row">
-    <div class="clr-col-lg-4 clr-col-md-8 clr-col-12">
+    <div class="clr-col-lg-4 clr-col-md-12 clr-col-12">
       <div class="card">
         <div class="card-header">
           <div class="first-header">
@@ -15,21 +15,22 @@
         </div>
         <div class="card-footer">
           <cds-icon shape="exclamation-circle"></cds-icon>
-            <div>Registraties 1/3/2021</div>
+            <div>Registraties 11/5/2021</div>
         </div>
       </div>
     </div>
-    <div class="clr-col-lg-8 clr-col-md-8 clr-col-12">
+    <div class="clr-col-lg-8 clr-col-md-12 clr-col-12">
       <div class="card">
         <div class="card-header">
           Activiteit huisjes
         </div>
         <div class="card-block">
-          <div #containerRef class="chart-container">
+          <div #containerRef class="wrapper">
+          <div  class="chart-container">
            <ngx-charts-bar-horizontal
            [view] = "[containerRef.offsetWidth, containerRef.offsetHeight]"
            [scheme]="colorScheme"
-           [legend]="legend"
+           [legend]="false"
            [showXAxisLabel]="showXAxisLabel"
            [showYAxisLabel]="showYAxisLabel"
            [xAxis]="xAxis"
@@ -41,8 +42,9 @@
            </ngx-charts-bar-horizontal>
           </div>
         </div>
+        </div>
         <div class="card-footer">
-            <div>Registraties 1/3/2021</div>
+            <div>Registraties 11/5/2021</div>
         </div>
       </div>
     </div>    
@@ -56,11 +58,11 @@
         <div class="card-header">
           Klimaat per huisje
         </div>
-        <div class="card-block">
-        <div class="wrapper">
-        <div #containerRef2 class="bubble-container">
+        <div  class="card-block">
+        <div  #containerRef1 class="wrapper1">
+        <div class="bubble-container">
            <ngx-charts-bubble-chart
-             [view]= "[containerRef2.offsetWidth]"
+             [view]= "[containerRef1.offsetWidth]"
              [scheme]="colorScheme"
              [results]="bubbleData"
              [xAxis]="xAxis"
@@ -74,7 +76,7 @@
         </div>
         </div>
         <div class="card-footer">
-            Registraties 1/3/2021
+            Registraties 11/5/2021
         </div>
       </div>
     </div>
@@ -85,7 +87,7 @@
           Meest actieve huisjes
         </div>
         <div class="card-block">
-
+          <div class="wrapper2">
           <table class="table table-vertical">
             <tbody>
               <tr>
@@ -109,11 +111,12 @@
                 <td>1</td>
             </tbody>
             </table>
+          </div>
+          </div>
           
         <div class="card-footer">
-            <div>Registraties 1/3/2021</div>
+            Registraties 11/5/2021
         </div>
-    </div>
     </div>
     </div>
 
@@ -123,8 +126,8 @@
           Percentage aanwezigheid 
         </div>
         <div class="card-block">
-          <div class="wrapper" >
-          <div #containerRef3 class="pie-container">
+          <div #containerRef3 class="wrapper3" >
+          <div  class="pie-container">
            <ngx-charts-pie-chart
              [view]= "[containerRef3.offsetWidth]"
              [scheme]="colorScheme"
@@ -137,7 +140,7 @@
           </div>
         </div>
         <div class="card-footer">
-            <div>Registraties 1/3/2021</div>
+            Registraties 11/5/2021
         </div>
       </div>
     </div>
@@ -145,6 +148,7 @@
   </div>
   </div>
   </div>
+  
 
 
 

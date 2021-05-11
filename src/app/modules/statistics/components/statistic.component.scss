@@ -83,6 +83,11 @@ iframe {
     padding: 2em;
   }
 
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .clr-row {
   //height: 400em;
   //width: 35em;

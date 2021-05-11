@@ -15,18 +15,24 @@
       color: var(--hyperlink);
       text-align: center;
   }
+  & .card-footer {
+    font-size: 1em;
+    color: var(--highlightselect);
+    text-align: center;
+}
 }
 
-
-.chart-container {
-  width: fit-content;
-  align-self: left;
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.ngx-charts-bar-vertical {
-  display: inline-block;
-  padding: .5em;
-}
+// .header {
+//   & .ng-star-inserted {
+//     color: blue;
+//   }
+// }
+
 
 .timeline-container{
   overflow: auto;
