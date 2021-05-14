@@ -15,8 +15,7 @@
           [showGroup]="false"
           [showMenu]="false" 
           [itens]="data" 
-          [theme]="'horizontal'" >
-          
+          [theme]="'horizontal'">
           </ngx-timeline>
              </div>
            </div>
@@ -39,9 +38,9 @@
               <ngx-charts-bar-vertical
               [view] = "[containerRef.offsetWidth, containerRef.offsetHeight]"
               [results]="surveyData"
-              [xAxisLabel]="'Aantal audio registraties'"
+              [xAxisLabel]="'Aantal'"
               [legendTitle]="'Legenda'"
-              [yAxisLabel]="'Soorten'"
+              [yAxisLabel]="'Soort vogel'"
               [legend]="false"
               [showXAxisLabel]="true"
               [showYAxisLabel]="true"
@@ -62,7 +61,7 @@
               <div class="card">
          
                 <div class="card-header">
-                  Statistieken Hok 1
+                  Statistieken Hok 2
                 </div>
                 <div class="card-block">
             <!-- <div class="dag-statistiek"> -->
@@ -70,12 +69,12 @@
                 <tbody>
                   <tr>
                     <th>Gem.temperatuur</th>
-                    <td>17.5 °C</td>
+                    <td>19.5 °C</td>
                   </tr>
                   <tr>
                     <th>Registraties huisje</th>
                     <td>
-                      34
+                      8
                     </td>
                   </tr>
                   <tr>
@@ -158,13 +157,13 @@
 
          
           <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
-          <button type="button" class="btn btn-icon btn-primary" aria-label="settings">    
+          <button type="button" class="btn btn-icon btn-primary" aria-label="settings" [routerLink]="'../vogelhok'">    
             H1
           </button>
           </div>
 
           <div class="clr-col-lg-6 clr-col-md-4 clr-col-12">
-            <button type="button" class="btn btn-icon btn-primary" aria-label="settings" [routerLink]="'../vogelhok2'">
+            <button type="button" class="btn btn-icon btn-primary" aria-label="settings">
               H2
             </button>
             </div>

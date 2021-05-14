@@ -1,28 +1,27 @@
-$textcolor: #000000;
-
-$backgroundcolor: #D8FEE7;
-
-$iconcolor: #058A45;
-$iconfont: 'Arial';
-
-$hyperlink: #036316;
-
-$highlightselect: #023B0A;
-
-$torenA: #FF5400;
-$torenB: #A26D1E;       
-$torenC: #0F80F1;
-
 header {
     background-color: white;
 }
 
+.nav-trigger {
+    & .active {
+        color: white;
+    }
+}
+
+.sidenav {
+    color: red;
+}
+
+.clr-vertical-nav{
+    background-color: var(--backgroundcolor);
+}
+
 .branding {
     .title {
-        color: $textcolor;
+        color: var(--textcolor);
     }
     clr-icon {
-        color: $iconcolor;
+        color: var(--iconcolor);
         margin-left: 10%;
     }
 
@@ -30,14 +29,14 @@ header {
 
 span {
     &[class=nav-text] {
-        color: $textcolor;
+        color: var(--textcolor);
     }
 }
 
 .header-actions {
     clr-icon {
-        color: $iconcolor;
-        font-family: $iconfont;
+        color: var(--iconcolor);
+        font-family: var(--iconfont);
         
     }
 }
@@ -47,16 +46,18 @@ img {
 }
 
 .content-container {
-    background-color: $backgroundcolor;
-    color: $textcolor;
+    background-color: white;
+    color: var(--textcolor);
     a {
-        color: $textcolor;
-        font: $iconfont;
+        color: var(--textcolor);
+        background-color: var(--backgroundcolor);
+        font: var(--iconfont);
     }
     clr-icon {
-        color: $iconcolor;
+        color: var(--iconcolor);
     }
 }
+
 
 
 

@@ -32,7 +32,9 @@
     "angular-font-awesome": "^3.1.2",
     "angular2-fontawesome": "^5.2.1",
     "font-awesome": "^4.7.0",
+    "iframe-resizer": "^4.3.2",
     "jwt-decode": "^3.1.2",
+    "ngx-timeline-albe": "^1.2.11",
     "nodemon": "^2.0.7",
     "rxjs": "~6.6.0",
     "stream-buffers": "^3.0.2",
@@ -41,7 +43,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.2",
-    "@angular/cli": "~11.2.2",
+    "@angular/cli": "^11.2.7",
     "@angular/compiler-cli": "~11.2.3",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",

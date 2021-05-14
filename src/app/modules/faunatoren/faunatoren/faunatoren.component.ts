@@ -9,122 +9,123 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class FaunatorenComponent implements OnInit {
   public currentId: string;
 
-  multi: any[];
-  view: any[] = [800, 300];
-
   legend: boolean = true;
   showLabels: boolean = true;
   animations: boolean = true;
   xAxis: boolean = true;
   yAxis: boolean = true;
-  showYAxisLabel: boolean = true;
-  showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Year';
-  yAxisLabel: string = 'Population';
+  showYAxisLabel: string = 'Soorten';
+  showXAxisLabel: string = 'Aantal audio registraties';
+  xAxisLabel1: string = 'registraties';
+  yAxisLabel1: string = 'Population';
   timeline: boolean = true;
   legendPosition: string = 'below';
+  maxRadius: number = 40;
+  minRadius: number = 0;
+  yScaleMin: number = 20;
+  yScaleMax: number = 40;
 
   colorScheme = {
     domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
   };
 
   surveyData = [
-    { name: 'Huismussen', value: 55 },
-    { name: 'Zwaluwen', value: 150 },
-    { name: 'Spreeuwen', value: 70 },
-    { name: 'Vinken', value: 40 },
-    { name: 'Koolmeesjes', value: 90 }
+    { name: 'Huismussen', value: 9 },
+    { name: 'Zwaluwen', value: 13 },
+    { name: 'Spreeuwen', value: 3 },
+    { name: 'Vinken', value: 6 },
+    { name: 'Koolmeesjes', value: 5 }
   ];
 
   bubbleData =  [
     {
-      name: 'Germany',
+      name: 'Hok 1',
       series: [
         {
-          name: '2010',
-          x: '2010',
-          y: 80.3,
+          name: '12:00',
+          x: '12:00',
+          y: 12.0,
           r: 80.4
         },
         {
-          name: '2000',
-          x: '2000',
-          y: 80.3,
+          name: '13:00',
+          x: '13:00',
+          y: 12.5,
           r: 78
         },
         {
-          name: '1990',
-          x: '1990',
-          y: 75.4,
+          name: '14:00',
+          x: '14:00',
+          y: 13,
           r: 79
         }
       ]
     },
     {
-      name: 'United States',
+      name: 'Hok 2',
       series: [
         {
-          name: '2010',
-          x: '2010',
-          y: 78.8,
+          name: '12:00',
+          x: '12:00',
+          y: 13.5,
           r: 310
         },
         {
-          name: '2000',
-          x: '2000',
-          y: 76.9,
+          name: '13:00',
+          x: '13:00',
+          y: 14.5,
           r: 283
         },
         {
-          name: '1990',
-          x: '1990',
-          y: 75.4,
+          name: '14:00',
+          x: '14:00',
+          y: 15,
           r: 253
         }
       ]
     },
     {
-      name: 'France',
+      name: 'Hok 3',
       series: [
         {
-          name: '2010',
-          x: '2010',
-          y: 81.4,
+          name: '12:00',
+          x: '12:00',
+          y: 12,
           r: 63
         },
         {
-          name: '2000',
-          x: '2000',
-          y: 79.1,
+          name: '13:00',
+          x: '13:00',
+          y: 13,
           r: 59.4
         },
         {
-          name: '1990',
-          x: '1990',
-          y: 77.2,
+          name: '14:00',
+          x: '14:00',
+          y: 14,
           r: 56.9
         }
       ]
     },
     {
-      name: 'United Kingdom',
+      name: 'Hok 4',
       series: [
         {
-          name: '2010',
-          x: '2010',
-          y: 80.2,
+          name: '12:00',
+          x: '12:00',
+          y: 13,
           r: 62.7
         },
         {
-          name: '2000',
-          x: '2000',
-          y: 77.8,
+          name: '13:00',
+          x: '13:00',
+          y: 14,
           r: 58.9
         },
         {
-          name: '1990',
-          x: '1990',
-          y: 75.7,
+          name: '14:00',
+          x: '14:00',
+          y: 15,
           r: 57.1
         }
       ]
@@ -133,21 +134,54 @@ export class FaunatorenComponent implements OnInit {
 
   single = [
     {
-      "name": "Germany",
-      "value": 8940000
+      "name": "Hok 1",
+      "value": 5
     },
     {
-      "name": "USA",
-      "value": 5000000
+      "name": "Hok 2",
+      "value": 1
     },
     {
-      "name": "France",
-      "value": 7200000
+      "name": "Hok 3",
+      "value": 0
     },
       {
-      "name": "UK",
-      "value": 6200000
+      "name": "Hok 4",
+      "value": 1
+    },
+    {
+      "name": "Hok 5",
+      "value": 1
+    },
+    {
+      "name": "Hok 6",
+      "value": 0
+    },
+    {
+      "name": "Hok 7",
+      "value": 1
+    },
+      {
+      "name": "Hok 8",
+      "value": 1
+    },
+    {
+      "name": "Hok 9",
+      "value": 0
+    },
+    {
+      "name": "Hok 10",
+      "value": 0
+    },
+    {
+      "name": "Hok 11",
+      "value": 1
+    },
+      {
+      "name": "Hok 12",
+      "value": 2
     }
+    
   ];
 
   constructor(

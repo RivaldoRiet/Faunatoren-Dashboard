@@ -11,6 +11,7 @@ import { BirdnetComponent } from './modules/birdnet/components/birdnet.component
 import { BirdnetService } from './core/services/birdnet.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
+
 @NgModule({
   declarations: [
     AppComponent,

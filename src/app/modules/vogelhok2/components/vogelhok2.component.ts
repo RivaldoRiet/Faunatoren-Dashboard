@@ -3,19 +3,19 @@ import { TimelineItem } from 'ngx-timeline-albe';
 
 
 @Component({
-  selector: 'app-vogelhok',
-  templateUrl: './vogelhok.component.html',
-  styleUrls: ['./vogelhok.component.scss']
+  selector: 'app-vogelhok2',
+  templateUrl: './vogelhok2.component.html',
+  styleUrls: ['./vogelhok2.component.scss']
 })
-export class VogelhokComponent implements OnInit {
+export class Vogelhok2Component implements OnInit {
 
   public data: Array<TimelineItem> | String = [];
   public currentId: string;
 
   surveyData = [
-    { name: 'Ma', value: 32 },
-    { name: 'Di', value: 28 },
-    { name: 'Wo', value: 34 },
+    { name: 'Ma', value: 6 },
+    { name: 'Di', value: 9 },
+    { name: 'Wo', value: 8 },
     { name: 'Do', value: 0 },
     { name: 'Vr', value: 0 },
     { name: 'Za', value: 0 },
@@ -53,7 +53,7 @@ export class VogelhokComponent implements OnInit {
           },
           {
             tag: 'p',
-            content: 'De koolmees heeft het hok verlaten.'
+            content: 'De zwaluw heeft het hok verlaten.'
           }
         ]
           ,

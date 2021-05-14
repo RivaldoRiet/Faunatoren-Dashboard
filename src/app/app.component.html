@@ -1,18 +1,17 @@
 <clr-main-container>
- 
   <header class="header-6">
     <div class="branding">
-      <a href="javascript://" class="nav-link">
+      <a href="javascript://" class="nav-link" [routerLink]="'../statistieken'">
         <clr-icon shape="home"></clr-icon>
         <span class="title">Project Faunatoren</span>
       </a>
     </div>
-    <div class="header-actions">
+    <!-- <div class="header-actions">
       <a href="/account/login" class="nav-link nav-icon-text">
         <clr-icon shape="user"></clr-icon>
         <span class="nav-text">Inloggen</span>
       </a>
-    </div>
+    </div> -->
   </header>
   
   <div class="content-container">
@@ -20,36 +19,40 @@
       <router-outlet></router-outlet>
     </div>
 
-    <clr-vertical-nav [clr-nav-level]="2">
-      <a clrVerticalNavLink routerLink="vogelherkenning" routerLinkActive="active"><clr-icon shape="volume-up"></clr-icon>Vogelherkenning</a>
-      <clr-vertical-nav-group
-      routerLinkActive="active">
-      
-      <a clrVerticalNavLink routerLink="overzicht" routerLinkActive="active"><clr-icon shape="home"></clr-icon>Livestream overzicht</a>
+    <clr-vertical-nav>
+
+      <a clrVerticalNavLink routerLink="statistieken" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="align-bottom"></clr-icon>
+        Statistieken
+      </a>
+
+      <a clrVerticalNavLink routerLink="vogelherkenning" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="volume-up"></clr-icon>
+        Vogelherkenning
+      </a>
+
+      <a clrVerticalNavLink routerLink="overzicht" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="video-camera"></clr-icon>
+        Stream overzicht
+      </a>
+
+      <clr-vertical-nav-group routerLinkActive="active">
+      <a clrVerticalNavLink routerLink="toren" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="tree"></clr-icon>
+        Toren
+      </a>
+
       <clr-vertical-nav-group-children>
-         <a clrVerticalNavLink
-               routerLink="videos"
-               routerLinkActive="active">
-                Stream overzicht
-            </a>
-    </clr-vertical-nav-group-children>
-      </clr-vertical-nav-group>
-      <a clrVerticalNavLink routerLink="statistieken" routerLinkActive="active"><clr-icon shape="align-bottom"></clr-icon>Fauna statistieken</a>
-     
-    
-        
-        <clr-vertical-nav-group
-        routerLinkActive="active">
-        <a clrVerticalNavLink routerLink="toren" routerLinkActive="active"><clr-icon shape="home"></clr-icon>Faunatoren</a>
-        <clr-vertical-nav-group-children>
-           <a clrVerticalNavLink
-                 routerLink="vogelhok"
-                 routerLinkActive="active">
-                 vogelhok
-              </a>
-      </clr-vertical-nav-group-children>
-        </clr-vertical-nav-group>
-    </clr-vertical-nav>
+        <a clrVerticalNavLink
+              routerLink="vogelhok"
+              routerLinkActive="active">
+              vogelhok
+           </a>
+
+     </clr-vertical-nav-group-children>
+     </clr-vertical-nav-group>
+      
+</clr-vertical-nav>
 
   </div>
 </clr-main-container>

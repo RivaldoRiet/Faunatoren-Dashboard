@@ -9,6 +9,10 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class StatisticComponent implements OnInit, OnDestroy {
   public currentId: string;
 
+//   @HostListener('window:resize', ['$event'])
+//   onResize(event) {
+//   event.target.innerWidth;
+// }
 
 
   constructor(
@@ -40,8 +44,8 @@ export class StatisticComponent implements OnInit, OnDestroy {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Year';
-  yAxisLabel: string = 'Population';
+  xAxisLabel: string = 'Aantal audio registraties';
+  yAxisLabel: string = 'Soort';
   timeline: boolean = true;
   legendPosition: string = 'below';
 
@@ -61,11 +65,11 @@ export class StatisticComponent implements OnInit, OnDestroy {
 
 
   surveyData = [
-    { name: 'Huismussen', value: 105 },
-    { name: 'Zwaluwen', value: 350 },
-    { name: 'Spreeuwen', value: 170 },
-    { name: 'Vinken', value: 140 },
-    { name: 'Koolmeesjes', value: 200 }
+    { name: 'Huismussen', value: 23 },
+    { name: 'Zwaluwen', value: 34 },
+    { name: 'Spreeuwen', value: 12 },
+    { name: 'Vinken', value: 21 },
+    { name: 'Koolmeesjes', value: 20 }
   ];
 
   public single = [

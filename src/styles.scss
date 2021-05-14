@@ -1,5 +1,27 @@
 @import "~font-awesome/css/font-awesome.css";
 
+/* Color Theme Swatches in Hex */
+.Optie-5---Custom-zwaluw-1-hex { color: #FFFFFF; }
+.Optie-5---Custom-zwaluw-2-hex { color: #575556; }
+.Optie-5---Custom-zwaluw-3-hex { color: #9E9B76; }
+.Optie-5---Custom-zwaluw-4-hex { color: #294260; }
+.Optie-5---Custom-zwaluw-5-hex { color: #3C629E; }
+
+
+:root 
+{
+--textcolor: grey;
+--backgroundcolor: #294260;
+--iconcolor: #9E9B76;
+--iconfont: 'Arial';
+--hyperlink: #3C629E;
+--highlightselect: #36578d;
+--torenB: orange;
+--torenC: blue;
+--torenA: red; // or any global you wish to share with components
+}
+
+
 form.emp-form{
     background-color: #dbdbdb;
     border-radius: 4px;
