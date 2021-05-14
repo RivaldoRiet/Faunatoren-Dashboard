@@ -52,8 +52,8 @@ uploadFileToActivity() {
      this.submitBtnState = ClrLoadingState.SUCCESS;
      this.lastResponse =JSON.parse(returnFunction);
 
+     
      this.birdTypeList = this.lastResponse.prediction;
-
 
      var count = Object.keys(this.lastResponse.prediction).length;
 
