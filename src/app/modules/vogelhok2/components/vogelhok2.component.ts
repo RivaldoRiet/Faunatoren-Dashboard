@@ -13,9 +13,9 @@ export class Vogelhok2Component implements OnInit {
   public currentId: string;
 
   surveyData = [
-    { name: 'Ma', value: 43 },
-    { name: 'Di', value: 80 },
-    { name: 'Wo', value: 12 },
+    { name: 'Ma', value: 6 },
+    { name: 'Di', value: 9 },
+    { name: 'Wo', value: 8 },
     { name: 'Do', value: 0 },
     { name: 'Vr', value: 0 },
     { name: 'Za', value: 0 },

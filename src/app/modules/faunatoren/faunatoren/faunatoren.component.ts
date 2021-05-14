@@ -14,8 +14,10 @@ export class FaunatorenComponent implements OnInit {
   animations: boolean = true;
   xAxis: boolean = true;
   yAxis: boolean = true;
-  showYAxisLabel: boolean = true;
-  showXAxisLabel: boolean = true;
+  showYAxisLabel: string = 'Soorten';
+  showXAxisLabel: string = 'Aantal audio registraties';
+  xAxisLabel1: string = 'registraties';
+  yAxisLabel1: string = 'Population';
   timeline: boolean = true;
   legendPosition: string = 'below';
   maxRadius: number = 40;
@@ -28,11 +30,11 @@ export class FaunatorenComponent implements OnInit {
   };
 
   surveyData = [
-    { name: 'Huismussen', value: 55 },
-    { name: 'Zwaluwen', value: 150 },
-    { name: 'Spreeuwen', value: 70 },
-    { name: 'Vinken', value: 40 },
-    { name: 'Koolmeesjes', value: 90 }
+    { name: 'Huismussen', value: 9 },
+    { name: 'Zwaluwen', value: 13 },
+    { name: 'Spreeuwen', value: 3 },
+    { name: 'Vinken', value: 6 },
+    { name: 'Koolmeesjes', value: 5 }
   ];
 
   bubbleData =  [
@@ -133,20 +135,53 @@ export class FaunatorenComponent implements OnInit {
   single = [
     {
       "name": "Hok 1",
-      "value": 34
+      "value": 5
     },
     {
       "name": "Hok 2",
-      "value": 13
+      "value": 1
     },
     {
       "name": "Hok 3",
-      "value": 4
+      "value": 0
     },
       {
       "name": "Hok 4",
       "value": 1
+    },
+    {
+      "name": "Hok 5",
+      "value": 1
+    },
+    {
+      "name": "Hok 6",
+      "value": 0
+    },
+    {
+      "name": "Hok 7",
+      "value": 1
+    },
+      {
+      "name": "Hok 8",
+      "value": 1
+    },
+    {
+      "name": "Hok 9",
+      "value": 0
+    },
+    {
+      "name": "Hok 10",
+      "value": 0
+    },
+    {
+      "name": "Hok 11",
+      "value": 1
+    },
+      {
+      "name": "Hok 12",
+      "value": 2
     }
+    
   ];
 
   constructor(
