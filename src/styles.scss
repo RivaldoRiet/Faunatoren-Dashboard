@@ -1,4 +1,22 @@
 @import "~font-awesome/css/font-awesome.css";
+@import "~bootstrap/scss/bootstrap";
+
+.modal.fade {
+  opacity: 1;
+}
+
+.modal.fade .modal-dialog, .modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+@mixin default-box {
+    margin: 10px;
+    padding: 5px;
+    width: auto;
+    opacity: 100 !important;
+}
 
 /* Color Theme Swatches in Hex */
 .Optie-5---Custom-zwaluw-1-hex { color: #FFFFFF; }
@@ -68,3 +86,87 @@ button:hover,a.btn:hover{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$border: 1px solid #ddd;
+
+@mixin default-box {
+  margin: 10px;
+  padding: 5px;
+  width: auto;
+  opacity: 100 !important;
+}
+.general-edit-btn {
+  width: 45% !important;
+  margin: 2px;
+}
+.general-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  td {
+    width: 20%;
+    padding: 10px;
+  }
+  thead {
+    td {
+      font-weight: bold;
+      border-top: $border;
+      border-left: $border;
+      border-right: $border;
+    }
+  }
+  tbody {
+    td {
+      border: $border;
+    }
+  }
+}
+.list {
+  @include default-box;
+
+  table {
+    td {
+      button {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}
+.edit {
+  margin: 15px;
+}
+.global-bootstrap-input {
+  width: 400px;
+}
+.global-input-label {
+  min-width: 100%;
+}
+// Dragula
+/* in-flight clone */
+gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  pointer-events: none;
+}
+/* high-performance display:none; helper */
+.gu-hide {
+  left: -9999px !important;
+}
+/* added to mirrorContainer (default = body) while dragging */
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+/* added to the source element while its mirror is dragged */
+.gu-transit {
+  opacity: 0.2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: alpha(opacity=20);
+}
