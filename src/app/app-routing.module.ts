@@ -8,10 +8,11 @@ import { StatisticsModule } from './modules/statistics/statistics.module';
 import { VogelhokModule } from './modules/vogelhok/vogelhok.module';
 import {Router} from '@angular/router';
 import { Vogelhok2Module } from './modules/vogelhok2/vogelhok2.module';
+import { OverzichtModule } from './modules/overzicht/overzicht.module';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => StatisticsModule },
-  { path: 'overzicht', loadChildren: () => DashboardModule },
+  { path: '', loadChildren: () => DashboardModule },
+  { path: 'overzicht', loadChildren: () => OverzichtModule },
   { path: 'statistieken', loadChildren: () => StatisticsModule },
   { path: 'vogelherkenning', loadChildren: () => BirdnetModule },
   { path: 'toren', loadChildren: () => FaunatorenModule },
