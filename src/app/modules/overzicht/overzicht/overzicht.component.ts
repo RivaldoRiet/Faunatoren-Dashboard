@@ -64,31 +64,32 @@ export class OverzichtComponent implements OnInit {
   }); 
 
   Object.assign(this, {civity});
+  this.buildTemperatureData();
+  }
 
-  let pusheditems = {};
-  let myarray : any = [];
-  civity.forEach(element => {
-    if (element.temperature !== undefined && element.dateModified !== undefined) {
-      var modDate = element.dateObserved;
-      var temperature = element.temperature;
-      pusheditems[element.temperature] = modDate;
-
-      myarray.push({name : modDate , value : temperature});
-    }
-  });
-  let done: any = {};
-
-  done.name = "temperatuur";
-  done.series = myarray;
-
-  this.temperatureObject.push(done);
-
-  console.log(this.temperatureObject);
-
-
- // this.lastTemperatureValue = this.allTemperaturesValues[this.allTemperaturesValues.length - 1];
-
-
+  buildTemperatureData()
+  {
+    let pusheditems = {};
+    let myarray : any = [];
+    let lastTemp : number[] = [];
+    civity.forEach(element => {
+      if (element.temperature !== undefined && element.dateModified !== undefined) {
+        var modDate = element.dateObserved;
+        var temperature = element.temperature;
+        pusheditems[element.temperature] = modDate;
+        lastTemp.push(temperature);
+        myarray.push({name : modDate , value : temperature});
+      }
+    });
+    let done: any = {};
+  
+    done.name = "temperatuur";
+    done.series = myarray;
+  
+    this.lastTemperatureValue = lastTemp[lastTemp.length - 1];
+    this.temperatureObject.push(done);
+  
+    console.log(this.temperatureObject);
   }
 
   showDiv = {
@@ -97,40 +98,9 @@ export class OverzichtComponent implements OnInit {
     temperatuur : false,
     gewicht: false,
   }
-
-  surveyData = [
-    { name: 'Ma', value: 32 },
-    { name: 'Di', value: 28 },
-    { name: 'Wo', value: 34 },
-    { name: 'Do', value: 4 },
-    { name: 'Vr', value: 7 },
-    { name: 'Za', value: 8 },
-    { name: 'Zo', value: 9 }
-  ];
-
-
-  single: any[];
-  multi: any;
-  civity: any;
-
-  view: any = [700, 400];
-
-  // options
-  showXAxis = true;
-  showYAxis = true;
-  gradient = false;
-  showLegend = true;
-  showXAxisLabel = true;
-  xAxisLabel = 'Country';
-  showYAxisLabel = true;
-  yAxisLabel = 'Population';
-
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
-
-  // line, area
-  autoScale = true;
 }
 
 export class Bird {
