@@ -1,12 +1,12 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-const baseUrl: string = 'https://acc-ckan-fiware-lab-nl.fiware-lab.nl/';
+const baseUrl: string = 'https://tst-gravitee-gateway.dataplatform.nl/lab/1.0/observation/json/entity/';
 
 export const environment = {
   production: false,
-  api: `${baseUrl}api/`,
-  hub: `${baseUrl}hub/`,
+  api: `${baseUrl}`,
+  token: `24e0586f-175d-44b5-8fa5-24579736497b`,
   birdnetAPI: `birdnet.cornell.edu/api2/upload`,
 };
 

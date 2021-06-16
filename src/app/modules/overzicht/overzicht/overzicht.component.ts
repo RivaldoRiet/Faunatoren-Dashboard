@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WikipediaService } from 'src/app/core/services/wikipedia.service';
 import {multi} from './data';
 import {civity} from './civity';
+import { CivityService } from 'src/app/core/services/civity.service';
 
 @Component({
   selector: 'app-overzicht',
@@ -10,7 +11,7 @@ import {civity} from './civity';
 })
 export class OverzichtComponent implements OnInit {
 
-  constructor(private wikiService: WikipediaService) { }
+  constructor(private wikiService: WikipediaService, private civityService: CivityService) { }
 
   bird : Bird = new Bird();
   bird1 : Bird = new Bird();
@@ -25,9 +26,12 @@ export class OverzichtComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-
-
     Object.assign(this, {multi});
+    this.civityService.getCivityData('testt').subscribe(data => {
+      console.log(data);
+    }, err => { console.log('Error' + err)
+  }); 
+
     this.wikiService.getWikiDescription('Common_raven').subscribe(data => {
       this.bird.name = data.displaytitle;
       this.bird.image = data.thumbnail.source;

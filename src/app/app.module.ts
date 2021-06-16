@@ -11,6 +11,7 @@ import { BirdnetComponent } from './modules/birdnet/components/birdnet.component
 import { BirdnetService } from './core/services/birdnet.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { WikipediaService } from './core/services/wikipedia.service';
+import { CivityService } from './core/services/civity.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { WikipediaService } from './core/services/wikipedia.service';
     ReactiveFormsModule,
     MatSnackBarModule,
   ],
-  providers: [BirdnetService, WikipediaService],
+  providers: [BirdnetService, WikipediaService, CivityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
