@@ -19,10 +19,11 @@ export class CardComponent implements OnInit {
 
   open() {
     console.log("trying to open");
-
+    console.log("name: " + this.name + " - description: " + this.description + " - src: " + this.src);
     const currentModalReference = this.modalService.open(CardModalContent, { size: 'lg' });
     currentModalReference.componentInstance.name = this.name;
     currentModalReference.componentInstance.description = this.description;
+    currentModalReference.componentInstance.src = this.src;
   }
 }
 
@@ -37,12 +38,14 @@ export class CardComponent implements OnInit {
 </div>
 <div class="modal-body">
   <p>{{description}}</p>
+  <img src="{{src}}">
 </div>
   `
 })
 export class CardModalContent {
   @Input() name;
   @Input() description;
+  @Input() src;
 
   constructor(public activeModal: NgbActiveModal) { }
 }

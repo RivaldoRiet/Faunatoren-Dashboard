@@ -19,3 +19,13 @@
     -ms-transform: translate(0, 0);
     transform: translate(0, 0);
   }
+
+  img {
+    border-radius: 50%;
+    position: absolute;
+    width: 133px;
+    height: 133px;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+  }

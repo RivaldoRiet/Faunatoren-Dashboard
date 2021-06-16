@@ -80,12 +80,12 @@
 			</rect>
 		</svg>
 	</div>
-	<div id="Elipse_2" class="Elipse_2">
-		<img id="Roodborst" [src]="secondBird">
+	<div id="Elipse_2" class="Elipse_2" ng-if="bird4 !== null">
+		<app-card  name="{{bird4.name}}" description="{{bird4.description}}" src="{{bird4.image}}"></app-card>
 			
 	</div>
-	<div id="Elipse_3" class="Elipse_3">
-		<img id="Merel" [src]="thirdBird">
+	<div id="Elipse_3" class="Elipse_3" ng-if="bird3 !== null">
+		<app-card  name="{{bird3.name}}" description="{{bird3.description}}" src="{{bird3.image}}"></app-card>
 			
 	</div>
 	<div id="monitor_weight_black_24dp" class="monitor_weight_black_24dp">
@@ -106,7 +106,7 @@
 	</div>
 	<div id="Tempwaarde" class="Temp_waarde">
 		<div id="ID18C">
-			<span>18°C</span>
+			<span>{{lastTemperatureValue}}°C</span>
 		</div>
 	</div>
 	<div id="Activiteitwaarde" class="Activiteit_waarde">
@@ -120,7 +120,7 @@
 		</div>
 	</div>
 	<div id="Livestream" class="Livestream">
-		<button id="Livestream_bo" (click)="showDiv.previous = !showDiv.previous;showDiv.current = false;showDiv.next = false">
+		<button id="Livestream_bo" (click)="showDiv.live = true;showDiv.luchtvochtigheid = false; showDiv.temperatuur = false; showDiv.gewicht = false;">
 			<span>Livestream</span>
 		</button>
 	</div>
@@ -130,17 +130,17 @@
 		</div>
 	</div>
 	<div id="Registraties" class="Registraties">
-		<button id="Activatie" (click)="showDiv.current = !showDiv.current;showDiv.previous = false;showDiv.next = false">
-			<span>Activatie</span>
+		<button id="Luchtvochtigheid" (click)="showDiv.live = false;showDiv.luchtvochtigheid = true; showDiv.temperatuur = false; showDiv.gewicht = false;">
+			<span>Luchtvochtigheid</span>
         </button>
 	</div>
 	<div id="Gewicht" class="Gewicht">
-		<button id="Gewicht_bu" (click)="showDiv.next = !showDiv.next;showDiv.previous = false;showDiv.current = false">
+		<button id="Gewicht_bu" (click)="showDiv.live = false;showDiv.luchtvochtigheid = false; showDiv.temperatuur = false; showDiv.gewicht = true;">
 			<span>Gewicht</span>
 		</button>
 	</div>
 	<div id="Temperatuur" class="Temperatuur">
-		<button id="Temperatuur_bw">
+		<button id="Temperatuur_bw"  (click)="showDiv.live = false;showDiv.luchtvochtigheid = false; showDiv.temperatuur = true; showDiv.gewicht = false;">
 			<span>Temperatuur</span>
 		</button>
 	</div>
@@ -162,15 +162,14 @@
 			<span>Meest recente vogel</span>
 		</div>
 	</div>
-	<div id="Elipse_1" class="Elipse_1">
-		<img id="Vink" [src]="fourthBird">
-			
+	<div id="Elipse_1" class="Elipse_1" ng-if="bird2 !== null">
+		<app-card  name="{{bird2.name}}" description="{{bird2.description}}" src="{{bird2.image}}"></app-card>
 	</div>
 	<div id="Info_blok" class="Info_blok">
-    	<iframe *ngIf="showDiv.previous" type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UC-0uK90U1sH5A_2dHYVVm5Q&autoplay=1" >
+    	<iframe *ngIf="showDiv.live" type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UC-0uK90U1sH5A_2dHYVVm5Q&autoplay=1" >
         </iframe>
-  <!--
-        <ngx-charts-line-chart *ngIf="showDiv.next"
+  
+        <ngx-charts-line-chart *ngIf="showDiv.luchtvochtigheid"
       [view]="view"
       [scheme]="colorScheme"
       [results]="multi"
@@ -185,7 +184,41 @@
       [autoScale]="autoScale"
       [timeline]="true"
       (select)="onSelect($event)">
-    </ngx-charts-line-chart>-->
+    </ngx-charts-line-chart>
+
+	<ngx-charts-line-chart *ngIf="showDiv.temperatuur"
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="temperatureObject"
+      [gradient]="false"
+      [xAxis]="false"
+      [yAxis]="true"
+      [legend]="false"
+      [showXAxisLabel]="false"
+      [showYAxisLabel]="false"
+      [xAxisLabel]="'Tijd'"
+      [yAxisLabel]="'Temperatuur'"
+      [autoScale]="autoScale"
+      [timeline]="true"
+      (select)="onSelect($event)">
+    </ngx-charts-line-chart>
+
+	<ngx-charts-line-chart *ngIf="showDiv.gewicht"
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="multi"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [autoScale]="autoScale"
+      [timeline]="true"
+      (select)="onSelect($event)">
+    </ngx-charts-line-chart>
 
 
 	</div>
@@ -217,11 +250,11 @@
 			</svg>
 		</div>
 	</div>
-	<div id="Elipse_main" class="Elipse_main">
-		<img id="kerkuil" [src]="firstBird">
+	<div id="Elipse_main" class="Elipse_main" ng-if="bird1 !== null">
+		<app-card  name="{{bird1.name}}" description="{{bird1.description}}" src="{{bird1.image}}"></app-card>
 	</div>
-	<div id="Elipse_3_ch" class="Elipse_3">
-		<app-card name="aaaa" description="aaaaaaaa" src="{{mainImage}}"></app-card>
+	<div id="Elipse_3_ch" class="Elipse_3" ng-if="bird !== null">
+		<app-card  name="{{bird.name}}" description="{{bird.description}}" src="{{bird.image}}"></app-card>
 	</div>
 </div>
 </body>
