@@ -55,7 +55,7 @@ export class OverzichtComponent implements OnInit {
     }, err => { console.log('Error' + err)
   }); 
 
-  this.wikiService.getWikiDescription('Tawny_owl').subscribe(data => {
+  this.wikiService.getWikiDescription('Tawny owl').subscribe(data => {
     this.bird2.name = data.displaytitle;
     this.bird2.image = data.thumbnail.source;
     this.bird2.description = data.extract;
@@ -104,11 +104,26 @@ export class OverzichtComponent implements OnInit {
 
     console.log(sortedBirdArray);
 
-    // get 
-    for (let i = 0; i < 5; i++) {
+    this.setBird(sortedBirdArray, this.bird, 0);
+    this.setBird(sortedBirdArray, this.bird1, 1);
+    this.setBird(sortedBirdArray, this.bird2, 2);
+    this.setBird(sortedBirdArray, this.bird3, 3);
+    this.setBird(sortedBirdArray, this.bird4, 4);
+  }
 
-    }
 
+  setBird(sortedBirdArray, bird, count)
+  {
+        // get 5 birds
+        let nameOfBird = sortedBirdArray[count].name;
+        nameOfBird = nameOfBird.toString().split("_")[1];
+        console.log("Birdname: " + nameOfBird);
+        this.wikiService.getWikiDescription(nameOfBird.toString()).subscribe(data => {
+          bird.name = data.displaytitle;
+          bird.image = data.thumbnail.source;
+          bird.description = data.extract;
+        }, err => { console.log('Error' + err)
+      }); 
   }
 
   buildGewichtData()
