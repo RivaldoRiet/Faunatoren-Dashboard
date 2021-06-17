@@ -21,8 +21,17 @@ export class OverzichtComponent implements OnInit {
 
   allTemperaturesValues : number[] = [];
   lastTemperatureValue : number = 0;
-
   temperatureObject: any[] = [
+  ];
+
+  allLuchtvochtigheidValues : number[] = [];
+  lastLuchtvochtigheidValue : number = 0;
+  LuchtvochtigheidObject: any[] = [
+  ];
+
+  allGewichtValues : number[] = [];
+  lastGewichtValue : number = 0;
+  GewichtObject: any[] = [
   ];
 
   ngOnInit(): void {
@@ -69,7 +78,90 @@ export class OverzichtComponent implements OnInit {
 
   Object.assign(this, {civity});
   this.buildTemperatureData();
+  this.buildLuchtVochtigheidData();
+  this.buildGewichtData();
+  this.buildBirdData();
   }
+
+
+  buildBirdData()
+  {
+    let birdArray : any = [];
+    civity.forEach(element => {
+      for (const value of element.species) {
+        const firstKey = Object.keys(value)[0];
+        birdArray.push(firstKey);
+    }
+    });
+    console.log(birdArray);
+
+    var sortedBirdArray = Array.from(new Set(birdArray)).map(a =>
+      ({name:a, y: birdArray.filter(f => f === a).length}));
+    
+      sortedBirdArray.sort(function (a, b) {
+        return b.y - a.y;
+      });
+
+    console.log(sortedBirdArray);
+
+    // get 
+    for (let i = 0; i < 5; i++) {
+
+    }
+
+  }
+
+  buildGewichtData()
+  {
+    let pusheditems = {};
+    let myarray : any = [];
+    let lastTemp : number[] = [];
+    civity.forEach(element => {
+      if (element.weight !== undefined && element.dateModified !== undefined) {
+        var modDate = element.dateObserved;
+        var weight = element.weight;
+        pusheditems[element.weight] = modDate;
+        lastTemp.push(weight);
+        myarray.push({name : modDate , value : weight});
+      }
+    });
+    let done: any = {};
+  
+    done.name = "Gewicht";
+    done.series = myarray;
+  
+    this.lastGewichtValue = lastTemp[lastTemp.length - 1];
+    this.GewichtObject.push(done);
+  
+    console.log(this.GewichtObject);
+  }
+
+
+  buildLuchtVochtigheidData()
+  {
+    let pusheditems = {};
+    let myarray : any = [];
+    let lastTemp : number[] = [];
+    civity.forEach(element => {
+      if (element.activity !== undefined && element.dateModified !== undefined) {
+        var modDate = element.dateObserved;
+        var activity = element.activity;
+        pusheditems[element.activity] = modDate;
+        lastTemp.push(activity);
+        myarray.push({name : modDate , value : activity});
+      }
+    });
+    let done: any = {};
+  
+    done.name = "Luchtvochtigheid";
+    done.series = myarray;
+  
+    this.lastLuchtvochtigheidValue = lastTemp[lastTemp.length - 1];
+    this.LuchtvochtigheidObject.push(done);
+  
+    console.log(this.LuchtvochtigheidObject);
+  }
+
 
   buildTemperatureData()
   {

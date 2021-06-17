@@ -111,7 +111,7 @@
 	</div>
 	<div id="Activiteitwaarde" class="Activiteit_waarde">
 		<div id="ID38">
-			<span>38</span>
+			<span>{{lastLuchtvochtigheidValue}}</span>
 		</div>
 	</div>
 	<div id="Streamstatus" class="Stream_status">
@@ -126,7 +126,7 @@
 	</div>
 	<div id="Gewichtwaarde" class="Gewicht_waarde">
 		<div id="ID240g">
-			<span>240g</span>
+			<span>{{lastGewichtValue}}g</span>
 		</div>
 	</div>
 	<div id="Registraties" class="Registraties">
@@ -170,20 +170,20 @@
         </iframe>
   
         <ngx-charts-line-chart *ngIf="showDiv.luchtvochtigheid"
-      [view]="view"
-      [scheme]="colorScheme"
-      [results]="multi"
-      [gradient]="gradient"
-      [xAxis]="showXAxis"
-      [yAxis]="showYAxis"
-      [legend]="showLegend"
-      [showXAxisLabel]="showXAxisLabel"
-      [showYAxisLabel]="showYAxisLabel"
-      [xAxisLabel]="xAxisLabel"
-      [yAxisLabel]="yAxisLabel"
-      [autoScale]="autoScale"
-      [timeline]="true"
-      (select)="onSelect($event)">
+		[view]="view"
+		[scheme]="colorScheme"
+		[results]="LuchtvochtigheidObject"
+		[gradient]="false"
+		[xAxis]="false"
+		[yAxis]="true"
+		[legend]="false"
+		[showXAxisLabel]="true"
+		[showYAxisLabel]="false"
+		[xAxisLabel]="'Tijd'"
+		[yAxisLabel]="'Luchtvochtigheid'"
+		[autoScale]="true"
+		[timeline]="true"
+		(select)="onSelect($event)">
     </ngx-charts-line-chart>
 
 	<ngx-charts-line-chart *ngIf="showDiv.temperatuur"
@@ -204,20 +204,20 @@
     </ngx-charts-line-chart>
 
 	<ngx-charts-line-chart *ngIf="showDiv.gewicht"
-      [view]="view"
-      [scheme]="colorScheme"
-      [results]="multi"
-      [gradient]="gradient"
-      [xAxis]="showXAxis"
-      [yAxis]="showYAxis"
-      [legend]="showLegend"
-      [showXAxisLabel]="showXAxisLabel"
-      [showYAxisLabel]="showYAxisLabel"
-      [xAxisLabel]="xAxisLabel"
-      [yAxisLabel]="yAxisLabel"
-      [autoScale]="autoScale"
-      [timeline]="true"
-      (select)="onSelect($event)">
+	[view]="view"
+	[scheme]="colorScheme"
+	[results]="GewichtObject"
+	[gradient]="false"
+	[xAxis]="false"
+	[yAxis]="true"
+	[legend]="false"
+	[showXAxisLabel]="true"
+	[showYAxisLabel]="false"
+	[xAxisLabel]="'Tijd'"
+	[yAxisLabel]="'Gewicht'"
+	[autoScale]="true"
+	[timeline]="true"
+	(select)="onSelect($event)">
     </ngx-charts-line-chart>
 
 

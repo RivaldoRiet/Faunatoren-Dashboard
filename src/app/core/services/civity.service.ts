@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { observable, Observable } from 'rxjs';
+import { CivityObject } from 'src/app/shared/models/CivityObject';
 
 @Injectable()
 export class CivityService {
@@ -27,15 +28,3 @@ export class CivityService {
       }
   
 }
-
-
-export class CivityObject {
-    id?:          string;
-    type?:         string;
-    dataProvider?:  string;
-    dateModified?: string;
-    dateCreated?: string;
-    dateObserved?: string;
-    source?: string;
-    species?: any;
-  }

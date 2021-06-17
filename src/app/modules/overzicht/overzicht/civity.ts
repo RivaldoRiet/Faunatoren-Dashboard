@@ -1,3 +1,5 @@
+import { CivityObject } from "src/app/shared/models/CivityObject";
+
 export var civity =  [
     {
       "id": "testt",

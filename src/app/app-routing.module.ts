@@ -11,7 +11,7 @@ import { Vogelhok2Module } from './modules/vogelhok2/vogelhok2.module';
 import { OverzichtModule } from './modules/overzicht/overzicht.module';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => DashboardModule },
+  { path: '', loadChildren: () => OverzichtModule },
   { path: 'overzicht', loadChildren: () => OverzichtModule },
   { path: 'statistieken', loadChildren: () => StatisticsModule },
   { path: 'vogelherkenning', loadChildren: () => BirdnetModule },
