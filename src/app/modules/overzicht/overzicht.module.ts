@@ -9,6 +9,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardModule } from '../card/card.module';
+import { BirdCardModule } from '../birdcard/birdcard.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CardModule } from '../card/card.module';
     FontAwesomeModule,
     NgbModule,
     CardModule,
+    BirdCardModule
   ]
 })
 export class OverzichtModule { }

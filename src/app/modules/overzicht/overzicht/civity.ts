@@ -1,6 +1,6 @@
 import { CivityObject } from "src/app/shared/models/CivityObject";
 
-export var civity =  [
+export var civityold =  [
     {
       "id": "testt",
       "type": "Observation",

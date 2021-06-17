@@ -17,6 +17,10 @@ export class CardComponent implements OnInit {
   ngOnInit() {
   }
 
+  openScrollableContent(longContent) {
+    this.modalService.open(longContent, { scrollable: true });
+  }
+  
   open() {
     console.log("trying to open");
     console.log("name: " + this.name + " - description: " + this.description + " - src: " + this.src);

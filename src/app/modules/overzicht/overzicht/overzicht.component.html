@@ -155,6 +155,7 @@
 	<div id="Vogels_in_de_buurt" class="Vogels_in_de_buurt">
 		<div id="Vogels_in_de_buurt_b">
 			<span>Vogels in de buurt</span>
+			<app-birdcard name="aaaa" description="bbbbb"></app-birdcard>
 		</div>
 	</div>
 	<div id="Recente_Vogels" class="Recente_Vogels">
@@ -163,7 +164,7 @@
 		</div>
 	</div>
 	<div id="Elipse_1" class="Elipse_1" ng-if="bird2 !== null">
-		<app-card  name="{{bird2.name}}" description="{{bird2.description}}" src="{{bird2.image}}"></app-card>
+		<app-card  name="{{bird2.name}}" description="{{bird2.description}}" src="{{bird2.image}}" waarnemingen=""></app-card>
 	</div>
 	<div id="Info_blok" class="Info_blok">
     	<iframe *ngIf="showDiv.live" type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UC-0uK90U1sH5A_2dHYVVm5Q&autoplay=1" >
@@ -173,12 +174,12 @@
 		[view]="view"
 		[scheme]="colorScheme"
 		[results]="LuchtvochtigheidObject"
-		[gradient]="false"
-		[xAxis]="false"
+		[gradient]="true"
+		[xAxis]="true"
 		[yAxis]="true"
 		[legend]="false"
 		[showXAxisLabel]="true"
-		[showYAxisLabel]="false"
+		[showYAxisLabel]="true"
 		[xAxisLabel]="'Tijd'"
 		[yAxisLabel]="'Luchtvochtigheid'"
 		[autoScale]="true"
@@ -190,12 +191,12 @@
       [view]="view"
       [scheme]="colorScheme"
       [results]="temperatureObject"
-      [gradient]="false"
-      [xAxis]="false"
+      [gradient]="true"
+      [xAxis]="true"
       [yAxis]="true"
       [legend]="false"
       [showXAxisLabel]="true"
-      [showYAxisLabel]="false"
+      [showYAxisLabel]="true"
       [xAxisLabel]="'Tijd'"
       [yAxisLabel]="'Temperatuur'"
       [autoScale]="true"
@@ -207,12 +208,12 @@
 	[view]="view"
 	[scheme]="colorScheme"
 	[results]="GewichtObject"
-	[gradient]="false"
-	[xAxis]="false"
+	[gradient]="true"
+	[xAxis]="true"
 	[yAxis]="true"
 	[legend]="false"
 	[showXAxisLabel]="true"
-	[showYAxisLabel]="false"
+	[showYAxisLabel]="true"
 	[xAxisLabel]="'Tijd'"
 	[yAxisLabel]="'Gewicht'"
 	[autoScale]="true"

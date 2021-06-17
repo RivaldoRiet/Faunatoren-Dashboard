@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WikipediaService } from 'src/app/core/services/wikipedia.service';
 import {multi} from './data';
-import {civity} from './civity';
 import { CivityService } from 'src/app/core/services/civity.service';
+import {civityold} from './civity';
 
 @Component({
   selector: 'app-overzicht',
@@ -12,6 +12,8 @@ import { CivityService } from 'src/app/core/services/civity.service';
 export class OverzichtComponent implements OnInit {
 
   constructor(private wikiService: WikipediaService, private civityService: CivityService) { }
+
+  civity;
 
   bird : Bird = new Bird();
   bird1 : Bird = new Bird();
@@ -38,56 +40,21 @@ export class OverzichtComponent implements OnInit {
     Object.assign(this, {multi});
     this.civityService.getCivityData('testt').subscribe(data => {
       console.log(data);
+      console.log(civityold);
+       this.civity = data;
+       this.buildTemperatureData();
+       this.buildLuchtVochtigheidData();
+       this.buildGewichtData();
+       this.buildBirdData();
     }, err => { console.log('Error' + err)
-  }); 
-
-    this.wikiService.getWikiDescription('Common_raven').subscribe(data => {
-      this.bird.name = data.displaytitle;
-      this.bird.image = data.thumbnail.source;
-      this.bird.description = data.extract;
-    }, err => { console.log('Error' + err)
-  }); 
-
-    this.wikiService.getWikiDescription('Common_wood_pigeon').subscribe(data => {
-      this.bird1.name = data.displaytitle;
-      this.bird1.image = data.thumbnail.source;
-      this.bird1.description = data.extract;
-    }, err => { console.log('Error' + err)
-  }); 
-
-  this.wikiService.getWikiDescription('Tawny owl').subscribe(data => {
-    this.bird2.name = data.displaytitle;
-    this.bird2.image = data.thumbnail.source;
-    this.bird2.description = data.extract;
-  }, err => { console.log('Error' + err)
-  }); 
-
-  this.wikiService.getWikiDescription('eurasian_eagle-owl').subscribe(data => {
-    this.bird3.name = data.displaytitle;
-    this.bird3.image = data.thumbnail.source;
-    this.bird3.description = data.extract;
-  }, err => { console.log('Error' + err)
-  }); 
-
-  this.wikiService.getWikiDescription('Little_bittern').subscribe(data => {
-    this.bird4.name = data.displaytitle;
-    this.bird4.image = data.thumbnail.source;
-    this.bird4.description = data.extract;
-  }, err => { console.log('Error' + err)
-  }); 
-
-  Object.assign(this, {civity});
-  this.buildTemperatureData();
-  this.buildLuchtVochtigheidData();
-  this.buildGewichtData();
-  this.buildBirdData();
+  });
   }
 
 
   buildBirdData()
   {
     let birdArray : any = [];
-    civity.forEach(element => {
+    this.civity.forEach(element => {
       for (const value of element.species) {
         const firstKey = Object.keys(value)[0];
         birdArray.push(firstKey);
@@ -114,14 +81,18 @@ export class OverzichtComponent implements OnInit {
 
   setBird(sortedBirdArray, bird, count)
   {
+    if (sortedBirdArray.length <= count) {
+      return;
+    }
+
         // get 5 birds
         let nameOfBird = sortedBirdArray[count].name;
         nameOfBird = nameOfBird.toString().split("_")[1];
-        console.log("Birdname: " + nameOfBird);
+        //console.log("Birdname: " + nameOfBird);
         this.wikiService.getWikiDescription(nameOfBird.toString()).subscribe(data => {
           bird.name = data.displaytitle;
           bird.image = data.thumbnail.source;
-          bird.description = data.extract;
+          bird.description = data.extract_html;
         }, err => { console.log('Error' + err)
       }); 
   }
@@ -131,9 +102,12 @@ export class OverzichtComponent implements OnInit {
     let pusheditems = {};
     let myarray : any = [];
     let lastTemp : number[] = [];
-    civity.forEach(element => {
+    this.civity.forEach(element => {
       if (element.weight !== undefined && element.dateModified !== undefined) {
-        var modDate = element.dateObserved;
+        let unix = Date.parse(element.dateObserved);
+        let newDate = new Date(unix);
+        var time = newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds();
+        var modDate = time;
         var weight = element.weight;
         pusheditems[element.weight] = modDate;
         lastTemp.push(weight);
@@ -148,7 +122,7 @@ export class OverzichtComponent implements OnInit {
     this.lastGewichtValue = lastTemp[lastTemp.length - 1];
     this.GewichtObject.push(done);
   
-    console.log(this.GewichtObject);
+    //console.log(this.GewichtObject);
   }
 
 
@@ -157,9 +131,12 @@ export class OverzichtComponent implements OnInit {
     let pusheditems = {};
     let myarray : any = [];
     let lastTemp : number[] = [];
-    civity.forEach(element => {
+    this.civity.forEach(element => {
       if (element.activity !== undefined && element.dateModified !== undefined) {
-        var modDate = element.dateObserved;
+        let unix = Date.parse(element.dateObserved);
+        let newDate = new Date(unix);
+        var time = newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds();
+        var modDate = time;
         var activity = element.activity;
         pusheditems[element.activity] = modDate;
         lastTemp.push(activity);
@@ -174,7 +151,7 @@ export class OverzichtComponent implements OnInit {
     this.lastLuchtvochtigheidValue = lastTemp[lastTemp.length - 1];
     this.LuchtvochtigheidObject.push(done);
   
-    console.log(this.LuchtvochtigheidObject);
+   // console.log(this.LuchtvochtigheidObject);
   }
 
 
@@ -183,9 +160,12 @@ export class OverzichtComponent implements OnInit {
     let pusheditems = {};
     let myarray : any = [];
     let lastTemp : number[] = [];
-    civity.forEach(element => {
+    this.civity.forEach(element => {
       if (element.temperature !== undefined && element.dateModified !== undefined) {
-        var modDate = element.dateObserved;
+        let unix = Date.parse(element.dateObserved);
+        let newDate = new Date(unix);
+        var time = newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds();
+        var modDate = time;
         var temperature = element.temperature;
         pusheditems[element.temperature] = modDate;
         lastTemp.push(temperature);
@@ -197,10 +177,10 @@ export class OverzichtComponent implements OnInit {
     done.name = "temperatuur";
     done.series = myarray;
   
-    this.lastTemperatureValue = lastTemp[lastTemp.length - 1];
+    this.lastTemperatureValue = Math.round(lastTemp[lastTemp.length - 1] * 10) / 10;
     this.temperatureObject.push(done);
   
-    console.log(this.temperatureObject);
+   // console.log(this.temperatureObject);
   }
 
   showDiv = {

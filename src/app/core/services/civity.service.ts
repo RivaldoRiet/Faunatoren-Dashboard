@@ -10,9 +10,13 @@ export class CivityService {
   constructor(public http: HttpClient) {}
 
   getCivityData(entity: string) {
-    const baseUrl = this.baseUri + entity + "?fromDateTime=2021-06-09T18%3A50%3A21.925%2B02%3A00&toDateTime=2021-06-30T18%3A50%3A21.925%2B02%3A00&start=0&count=10";
+    const encoded = encodeURIComponent("?fromDateTime=2021-06-09T18:50:21.925+02:00&toDateTime=2021-06-30T18:50:21.925+02:00&start=0&count=300");
+   // const baseUrl = this.baseUri + entity + "?fromDateTime=2021-06-09T18%3A50%3A21.925%2B02%3A00&toDateTime=2021-06-30T18%3A50%3A21.925%2B02%3A00&start=0&count=300";
+   console.log(encoded);
+    const baseUrl = this.baseUri + entity + encoded;
     return this.http.get<CivityObject>(baseUrl, { headers: this.getRequestHeaders() });
   }
+
    /**
    * Gets the authorization header if the token is set.
    */
