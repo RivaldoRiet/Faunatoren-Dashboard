@@ -19,11 +19,11 @@ export class BirdCardComponent implements OnInit {
   constructor(private modalService: NgbModal, private civityService: CivityService) { }
 
   ngOnInit() {
-    this.civityService.getCivityData('testt').subscribe(data => {
+    this.civityService.getCivityData('testt', 300).subscribe(data => {
       this.civity = data;
       this.buildBirdData();
    }, err => { console.log('Error' + err)
- });
+  });
   }
 
 buildBirdData()
