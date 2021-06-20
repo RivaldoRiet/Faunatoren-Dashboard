@@ -81,11 +81,11 @@
 		</svg>
 	</div>
 	<div id="Elipse_2" class="Elipse_2" ng-if="bird4 !== null">
-		<app-card  name="{{bird4.name}}" description="{{bird4.description}}" src="{{bird4.image}}"></app-card>
+		<app-card  name="{{bird4.name}}" latinname="{{bird4.latinname}}" description="{{bird4.description}}" src="{{bird4.image}}"></app-card>
 			
 	</div>
 	<div id="Elipse_3" class="Elipse_3" ng-if="bird3 !== null">
-		<app-card  name="{{bird3.name}}" description="{{bird3.description}}" src="{{bird3.image}}"></app-card>
+		<app-card  name="{{bird3.name}}" latinname="{{bird3.latinname}}" description="{{bird3.description}}" src="{{bird3.image}}"></app-card>
 			
 	</div>
 	<div id="monitor_weight_black_24dp" class="monitor_weight_black_24dp">
@@ -164,11 +164,11 @@
 		</div>
 	</div>
 	<div id="Elipse_1" class="Elipse_1" ng-if="bird2 !== null">
-		<app-card  name="{{bird2.name}}" description="{{bird2.description}}" src="{{bird2.image}}" waarnemingen=""></app-card>
+		<app-card  name="{{bird2.name}}" latinname="{{bird2.latinname}}" description="{{bird2.description}}" src="{{bird2.image}}" waarnemingen=""></app-card>
 	</div>
 	<div id="Info_blok" class="Info_blok">
-    	<iframe *ngIf="showDiv.live" type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UC-0uK90U1sH5A_2dHYVVm5Q&autoplay=1" >
-        </iframe>
+    <!--	<iframe *ngIf="showDiv.live" type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UC-0uK90U1sH5A_2dHYVVm5Q&autoplay=1" >
+        </iframe>-->
   
         <ngx-charts-line-chart *ngIf="showDiv.luchtvochtigheid"
 		[view]="view"
@@ -252,10 +252,10 @@
 		</div>
 	</div>
 	<div id="Elipse_main" class="Elipse_main" ng-if="bird1 !== null">
-		<app-card  name="{{bird1.name}}" description="{{bird1.description}}" src="{{bird1.image}}"></app-card>
+		<app-card  name="{{bird1.name}}" latinname="{{bird1.latinname}}" description="{{bird1.description}}" src="{{bird1.image}}"></app-card>
 	</div>
 	<div id="Elipse_3_ch" class="Elipse_3" ng-if="bird !== null">
-		<app-card  name="{{bird.name}}" description="{{bird.description}}" src="{{bird.image}}"></app-card>
+		<app-card  name="{{bird.name}}" latinname="{{bird.latinname}}" description="{{bird.description}}" src="{{bird.image}}"></app-card>
 	</div>
 </div>
 </body>

@@ -9,20 +9,21 @@ export class CivityService {
   private readonly baseUri: string = environment.api;
   constructor(public http: HttpClient) {}
 
-  getCivityData(entity: string, amountOfRecords : number) {
+  getCivityData(entity: string, amountOfRecords : number) : Observable<CivityObject>{
     let endDate : Date = new Date();
     let hourAgo : Date = new Date();
-    hourAgo.setHours(hourAgo.getHours() - 1);
+    hourAgo.setHours(hourAgo.getHours() - 5);
     var monthAgo = new Date();
     monthAgo.setMonth(monthAgo.getMonth() - 1);
 
-    const fromDate = encodeURIComponent("2021-06-09T18:50:21.925+02:00");
+   // const fromDate = encodeURIComponent("2021-06-17T18:50:21.925+02:00");
    // const toDate = encodeURIComponent("2021-06-29T18:50:21.925+02:00");
+   const fromDate = encodeURIComponent(this.getDateTime(hourAgo));
    const toDate = encodeURIComponent(this.getDateTime(endDate));
 
     const encoded = "?fromDateTime=" + fromDate + "&toDateTime=" + toDate + "&start=0&count=" + amountOfRecords;
    const baseUrl = this.baseUri + entity + encoded;
-   console.log(baseUrl);
+   //console.log(baseUrl);
     return this.http.get<CivityObject>(baseUrl, { headers: this.getRequestHeaders() });
   }
 
@@ -50,7 +51,7 @@ export class CivityService {
           second = '0'+second;
     }   
     var dateTime = year+'-'+month+'-'+day+'T'+hour+':'+minute+':'+"21.925+02:00";
-    console.log(dateTime);
+   // console.log(dateTime);
     return dateTime;
   }
 

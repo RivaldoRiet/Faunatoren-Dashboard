@@ -10,6 +10,22 @@
     <div class="modal-body">
       <div [innerHTML]="description"></div>
         <img src="{{src}}">
+        <ngx-charts-line-chart
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="LuchtvochtigheidObject"
+        [gradient]="true"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="false"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        [xAxisLabel]="'Tijd'"
+        [yAxisLabel]="'Luchtvochtigheid'"
+        [autoScale]="true"
+        [timeline]="true"
+        (select)="onSelect($event)">
+        </ngx-charts-line-chart>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>

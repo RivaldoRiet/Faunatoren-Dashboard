@@ -13,7 +13,8 @@ export class OverzichtComponent implements OnInit {
 
   constructor(private wikiService: WikipediaService, private civityService: CivityService) { }
 
-  civity;
+  civityBird;
+  civitySensor;
 
   bird : Bird = new Bird();
   bird1 : Bird = new Bird();
@@ -38,27 +39,35 @@ export class OverzichtComponent implements OnInit {
 
   ngOnInit(): void {
     Object.assign(this, {multi});
-    this.civityService.getCivityData('testt', 300).subscribe(data => {
+    this.civityService.getCivityData('testhok1_BIRD', 100).subscribe(data => {
       console.log(data);
-       this.civity = data;
-       this.buildTemperatureData();
-       this.buildLuchtVochtigheidData();
-       this.buildGewichtData();
+       this.civityBird = data;
        this.buildBirdData();
-    }, err => { console.log('Error' + err)
+    }, err => { console.log(err)
   });
+
+  this.civityService.getCivityData('testhok1_SENSOR', 100).subscribe(data => {
+    console.log(data);
+     this.civitySensor = data;
+     this.buildTemperatureData();
+     this.buildLuchtVochtigheidData();
+     this.buildGewichtData();
+  }, err => { console.log(err)
+});
   }
 
 
   buildBirdData()
   {
     let birdArray : any = [];
-    this.civity.forEach(element => {
+    this.civityBird.forEach(element => {
       for (const value of element.species) {
-        const firstKey = Object.keys(value)[0];
-        birdArray.push(firstKey);
+        const birdName = Object.keys(value)[0];
+        birdArray.push(birdName);
     }
     });
+    
+
     console.log(birdArray);
 
     var sortedBirdArray = Array.from(new Set(birdArray)).map(a =>
@@ -83,17 +92,17 @@ export class OverzichtComponent implements OnInit {
     if (sortedBirdArray.length <= count) {
       return;
     }
-
         // get 5 birds
         let nameOfBird = sortedBirdArray[count].name;
-        nameOfBird = nameOfBird.toString().split("_")[1];
-        //console.log("Birdname: " + nameOfBird);
-        this.wikiService.getWikiDescription(nameOfBird.toString()).subscribe(data => {
-          bird.name = data.displaytitle;
-          bird.image = data.thumbnail.source;
-          bird.description = data.extract_html;
-        }, err => { console.log('Error' + err)
-      }); 
+        nameOfBird = nameOfBird.toString().split("_")[0];
+
+      this.wikiService.getDutchWikiDescription(nameOfBird.toString()).subscribe(data => {
+        bird.name = data.displaytitle;
+        bird.latinname = nameOfBird;
+        bird.image = data.thumbnail.source;
+        bird.description = data.extract_html;
+      }, err => { console.log(err)
+      });
   }
 
   buildGewichtData()
@@ -101,7 +110,7 @@ export class OverzichtComponent implements OnInit {
     let pusheditems = {};
     let myarray : any = [];
     let lastTemp : number[] = [];
-    this.civity.forEach(element => {
+    this.civitySensor.forEach(element => {
       if (element.weight !== undefined && element.dateModified !== undefined) {
         let unix = Date.parse(element.dateObserved);
         let newDate = new Date(unix);
@@ -130,7 +139,7 @@ export class OverzichtComponent implements OnInit {
     let pusheditems = {};
     let myarray : any = [];
     let lastTemp : number[] = [];
-    this.civity.forEach(element => {
+    this.civitySensor.forEach(element => {
       if (element.activity !== undefined && element.dateModified !== undefined) {
         let unix = Date.parse(element.dateObserved);
         let newDate = new Date(unix);
@@ -159,7 +168,7 @@ export class OverzichtComponent implements OnInit {
     let pusheditems = {};
     let myarray : any = [];
     let lastTemp : number[] = [];
-    this.civity.forEach(element => {
+    this.civitySensor.forEach(element => {
       if (element.temperature !== undefined && element.dateModified !== undefined) {
         let unix = Date.parse(element.dateObserved);
         let newDate = new Date(unix);
@@ -195,6 +204,7 @@ export class OverzichtComponent implements OnInit {
 
 export class Bird {
   name?:          string;
+  latinname?:          string;
   image?:         string;
   description?:  string;
 }

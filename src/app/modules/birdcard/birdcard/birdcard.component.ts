@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { CivityService } from 'src/app/core/services/civity.service';
+import { WikipediaService } from 'src/app/core/services/wikipedia.service';
 
 @Component({
   selector: 'app-birdcard',
@@ -14,15 +15,16 @@ export class BirdCardComponent implements OnInit {
   closeResult = '';
   civity;
   birdData;
+  birdDataDutch;
   faInfo = faInfo;
 
-  constructor(private modalService: NgbModal, private civityService: CivityService) { }
+  constructor(private modalService: NgbModal, private civityService: CivityService, private wikiService : WikipediaService) { }
 
   ngOnInit() {
-    this.civityService.getCivityData('testt', 300).subscribe(data => {
+    this.civityService.getCivityData('testhok1_BIRD', 500).subscribe(data => {
       this.civity = data;
       this.buildBirdData();
-   }, err => { console.log('Error' + err)
+   }, err => { console.log(err)
   });
   }
 
@@ -32,10 +34,9 @@ buildBirdData()
     this.civity.forEach(element => {
       for (const value of element.species) {
         const firstKey = Object.keys(value)[0];
-        birdArray.push(firstKey.toString().split("_")[1]);
-    }
+        birdArray.push(firstKey.toString().split("_")[0]);
+      }
     });
-    console.log(birdArray);
 
     var sortedBirdArray = Array.from(new Set(birdArray)).map(a =>
       ({name:a, value: birdArray.filter(f => f === a).length}));
@@ -44,10 +45,28 @@ buildBirdData()
         return b.value - a.value;
       });
 
-    console.log(sortedBirdArray);
+  //  console.log(sortedBirdArray);
     this.birdData = sortedBirdArray.slice(0, 5);
+
+    console.log(this.birdData);
+
+    let dutchBirds : any = [];
+    for (const bird of sortedBirdArray) {
+      this.wikiService.getDutchWikiDescription(bird.name.toString()).subscribe(data => {
+        const result = {name: data.displaytitle, value: bird.value};
+        dutchBirds.push(result);
+      });
+    }
+    this.birdDataDutch = dutchBirds;
+    console.log(this.birdDataDutch);
+/*
+   
+*/
   }
 
+  onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
 
   openXl(content) {
     this.modalService.open(content, { size: 'xl' });
