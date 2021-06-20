@@ -48,7 +48,7 @@ buildBirdData()
   //  console.log(sortedBirdArray);
     this.birdData = sortedBirdArray.slice(0, 5);
 
-    console.log(this.birdData);
+    //console.log(this.birdData);
 
     let dutchBirds : any = [];
     for (const bird of sortedBirdArray) {
@@ -58,14 +58,10 @@ buildBirdData()
       });
     }
     this.birdDataDutch = dutchBirds;
-    console.log(this.birdDataDutch);
+    //console.log(this.birdDataDutch);
 /*
    
 */
-  }
-
-  onlyUnique(value, index, self) {
-    return self.indexOf(value) === index;
   }
 
   openXl(content) {

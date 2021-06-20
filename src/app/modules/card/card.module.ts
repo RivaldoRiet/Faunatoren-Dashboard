@@ -4,6 +4,7 @@ import { CardRoutingModule } from './card-routing.module';
 import { CardComponent, CardModalContent } from './card/card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CardRoutingModule,
     FontAwesomeModule,
     NgbModule,
+    NgxChartsModule
   ],
   exports: [
     CardComponent,

@@ -1,6 +1,6 @@
-<a (click)="openScrollableContent(longContent)"> <img id="vogelpic" [src]="src"></a>
+<a (click)="openXl(content)"> <img id="vogelpic" [src]="src"></a>
 
-<ng-template #longContent let-modal>
+<ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title">{{name}}</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -13,21 +13,21 @@
         <ngx-charts-line-chart
         [view]="view"
         [scheme]="colorScheme"
-        [results]="LuchtvochtigheidObject"
+        [results]="GewichtObject"
         [gradient]="true"
         [xAxis]="true"
         [yAxis]="true"
-        [legend]="false"
+        [legend]="true"
         [showXAxisLabel]="true"
         [showYAxisLabel]="true"
         [xAxisLabel]="'Tijd'"
-        [yAxisLabel]="'Luchtvochtigheid'"
+        [yAxisLabel]="'Aantal detecties'"
         [autoScale]="true"
         [timeline]="true"
         (select)="onSelect($event)">
         </ngx-charts-line-chart>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Sluiten</button>
     </div>
   </ng-template>

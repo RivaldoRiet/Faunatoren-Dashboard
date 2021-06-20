@@ -40,14 +40,14 @@ export class OverzichtComponent implements OnInit {
   ngOnInit(): void {
     Object.assign(this, {multi});
     this.civityService.getCivityData('testhok1_BIRD', 100).subscribe(data => {
-      console.log(data);
+      //console.log(data);
        this.civityBird = data;
        this.buildBirdData();
     }, err => { console.log(err)
   });
 
   this.civityService.getCivityData('testhok1_SENSOR', 100).subscribe(data => {
-    console.log(data);
+   // console.log(data);
      this.civitySensor = data;
      this.buildTemperatureData();
      this.buildLuchtVochtigheidData();
