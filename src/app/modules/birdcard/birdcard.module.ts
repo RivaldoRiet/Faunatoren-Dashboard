@@ -6,7 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FormsModule } from '@angular/forms';
-
+import { LoadingModule } from '../loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     FontAwesomeModule,
     NgbModule,
     NgxChartsModule,
-    FormsModule
+    FormsModule,
+    LoadingModule
   ],
   exports: [
     BirdCardComponent,

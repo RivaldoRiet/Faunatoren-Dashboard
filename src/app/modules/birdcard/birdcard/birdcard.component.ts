@@ -14,12 +14,13 @@ export class BirdCardComponent implements OnInit, AfterViewInit{
   @Input() description = '[description]';
   @ViewChild('content', { static: false }) private content;
   closeResult = '';
+  isLoading = false;
   civity;
   birdData;
   birdDataDutch: any[];
   faInfo = faInfo;
 
-  max = 10;
+  max = 48;
   vogelTimer = {
     currentTime: 1
   };
@@ -33,9 +34,11 @@ export class BirdCardComponent implements OnInit, AfterViewInit{
    }
 
   ngOnInit() {
+    this.isLoading = true;
     this.civityService.getCivityData('testhok1_BIRD', 500, 1).subscribe(data => {
       this.civity = data;
       this.buildBirdData();
+      this.isLoading = false;
    }, err => { console.log(err)
   });
   }
@@ -50,12 +53,14 @@ export class BirdCardComponent implements OnInit, AfterViewInit{
     if (currentTime < 1) {
       return;
     }
+    this.isLoading = true;
     this.civityService.getCivityData('testhok1_BIRD', 500, this.vogelTimer.currentTime).subscribe(data => {
       this.civity = data;
       console.log(data);
       this.buildBirdData();
       console.log("first bird data");
       console.log(this.birdDataDutch);
+      this.isLoading = false;
    }, err => { console.log(err)
   });
   }
@@ -74,6 +79,7 @@ reloadData(currentTime)
 
 dismissModal()
 {
+  this.isLoading = true;
   this.civityService.getCivityData('testhok1_BIRD', 500, this.vogelTimer.currentTime).subscribe(data => {
     (async () => { 
     this.civity = data;
@@ -88,6 +94,7 @@ dismissModal()
 
       // Do something after
       console.log('after delay')
+      this.isLoading = false;
       this.modalService.open(this.content, { size: 'xl' });
   })();
  }, err => { console.log(err)

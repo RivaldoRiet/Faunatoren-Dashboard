@@ -9,10 +9,10 @@ import { FileDragNDropDirective } from './components/file-drag-n-drop.directive'
 import {MatIconModule} from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { LoadingComponent } from './components/loading';
+import { LoadingModule } from '../loading/loading.module';
 
 @NgModule({
-  declarations: [BirdnetComponent, FileDragNDropDirective, LoadingComponent],
+  declarations: [BirdnetComponent, FileDragNDropDirective],
   imports: [
     CommonModule,
     BirdnetRoutingModule,
@@ -21,7 +21,8 @@ import { LoadingComponent } from './components/loading';
     ClarityModule,
     MatIconModule,
     MatSnackBarModule,
-    NgxChartsModule
+    NgxChartsModule,
+    LoadingModule
   ]
 })
 export class BirdnetModule { }

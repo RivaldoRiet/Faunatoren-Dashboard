@@ -12,9 +12,8 @@
       </p>
       
       <input
-      disabled
-      [readonly]="true"
-      [disabled]="true"
+      #ref
+      (change)="reloadData(ref.value)"
       type="range"
       min="1"
       [attr.max]="max"
@@ -22,8 +21,8 @@
       />
       <br>
       
-      <button (click)="reloadData(vogelTimer.currentTime + 1)">+</button>
-      <button (click)="reloadData(vogelTimer.currentTime - 1)">-</button>
+      <button class="btn btn-icon btn-primary" (click)="reloadData(vogelTimer.currentTime + 1)">+</button>
+      <button class="btn btn-icon btn-primary" (click)="reloadData(vogelTimer.currentTime - 1)">-</button>
 
     <ngx-charts-bar-vertical
     [results]="birdDataDutch"
@@ -43,6 +42,7 @@
   </div>
 </ng-template>
 
+<loading *ngIf="isLoading"></loading>
 <button class="btn btn-primary" (click)="openXl(content)" style="width: 50px; height: 40px; margin-left: 10px;">
   <fa-icon [icon]="faInfo"></fa-icon>
 </button>

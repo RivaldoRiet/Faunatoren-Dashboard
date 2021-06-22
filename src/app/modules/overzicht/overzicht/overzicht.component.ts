@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { WikipediaService } from 'src/app/core/services/wikipedia.service';
 import {multi} from './data';
 import { CivityService } from 'src/app/core/services/civity.service';
 import {civityold} from './civity';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-overzicht',
@@ -11,7 +12,10 @@ import {civityold} from './civity';
 })
 export class OverzichtComponent implements OnInit {
 
-  constructor(private wikiService: WikipediaService, private civityService: CivityService) { }
+  @ViewChild('content', { static: false }) private content;
+
+  constructor(private wikiService: WikipediaService, private civityService: CivityService,
+    private modalService: NgbModal) { }
 
   civityBird;
   civitySensor;
