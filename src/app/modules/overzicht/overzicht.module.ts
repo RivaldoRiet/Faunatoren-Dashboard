@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardModule } from '../card/card.module';
 import { BirdCardModule } from '../birdcard/birdcard.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BirdCardModule } from '../birdcard/birdcard.module';
     FontAwesomeModule,
     NgbModule,
     CardModule,
-    BirdCardModule
+    BirdCardModule,
+    FormsModule,
   ]
 })
 export class OverzichtModule { }

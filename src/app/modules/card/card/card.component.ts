@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CivityService } from 'src/app/core/services/civity.service';
 import { WikipediaService } from 'src/app/core/services/wikipedia.service';
@@ -8,7 +8,7 @@ import { WikipediaService } from 'src/app/core/services/wikipedia.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, AfterViewInit {
   @Input() name = '[name]';
   @Input() latinname = '[latinname]';
   @Input() description = '[description]';
@@ -32,13 +32,19 @@ export class CardComponent implements OnInit {
 
   constructor(private modalService: NgbModal, private civityService : CivityService, private wikiService : WikipediaService) { }
 
-  ngOnInit() {
-    this.civityService.getCivityData('testhok1_BIRD', 100).subscribe(data => {
+
+  ngAfterViewInit() {
+    // ...
+    this.civityService.getCivityData('testhok1_BIRD', 100, 1).subscribe(data => {
       //console.log(data);
        this.civityBird = data;
        this.buildBirdData();
     }, err => { console.log(err)
   });
+  }
+
+  ngOnInit() {
+
   }
 
   openXl(content) {
@@ -63,10 +69,10 @@ export class CardComponent implements OnInit {
       
       for (const value of element.species) {
         const firstKey = Object.keys(value)[0].split('_')[0];
-        // console.log(this.latinname);
+         //console.log(this.latinname);
         // console.log(firstKey + " - " + this.latinname);
        if (firstKey == this.latinname) {
-         console.log(firstKey + " - " + this.latinname);
+         //console.log(firstKey + " - " + this.latinname);
          let unix = Date.parse(element.dateObserved);
          let newDate = new Date(unix);
          var time = newDate.getHours() + ":" + newDate.getMinutes();
@@ -74,13 +80,12 @@ export class CardComponent implements OnInit {
        }
       }
     });
-    console.log(mycount);
+  //  console.log(mycount);
 
-    console.log(this.mapToProp(mycount, 'value'));
-    console.log("val: " + this.mapToProp(mycount, 'value')[0] + " - " + this.mapToProp(mycount, 'value')[1]);
+   // console.log(this.mapToProp(mycount, 'value'));
+  //  console.log("val: " + this.mapToProp(mycount, 'value')[0] + " - " + this.mapToProp(mycount, 'value')[1]);
 
     for (const [key, value] of Object.entries(this.mapToProp(mycount, 'value'))) {
-      console.log(key, value);
       myarray.push({name : key , value : value});
     }
 
@@ -92,7 +97,7 @@ export class CardComponent implements OnInit {
     this.lastGewichtValue = lastTemp[lastTemp.length - 1];
     this.GewichtObject.push(done);
   
-    console.log(this.GewichtObject);
+  //  console.log(this.GewichtObject);
   }
 
   mapToProp(data, prop) {

@@ -9,10 +9,10 @@ export class CivityService {
   private readonly baseUri: string = environment.api;
   constructor(public http: HttpClient) {}
 
-  getCivityData(entity: string, amountOfRecords : number) : Observable<CivityObject>{
+  getCivityData(entity: string, amountOfRecords : number, aantalAfgelopenUur : any) : Observable<CivityObject>{
     let endDate : Date = new Date();
     let hourAgo : Date = new Date();
-    hourAgo.setHours(hourAgo.getHours() - 5);
+    hourAgo.setHours(hourAgo.getHours() - parseInt(aantalAfgelopenUur));
     var monthAgo = new Date();
     monthAgo.setMonth(monthAgo.getMonth() - 1);
 

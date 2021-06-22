@@ -7,6 +7,24 @@
   </div>
   <div class="modal-body">
     <p>Je ziet hier de vogels die door het vogelherkenningssysteem gedetecteerd zijn.</p>
+    <p>
+     Vogeldata laten zien van het afgelopen {{vogelTimer.currentTime}} uur :)
+      </p>
+      
+      <input
+      disabled
+      [readonly]="true"
+      [disabled]="true"
+      type="range"
+      min="1"
+      [attr.max]="max"
+      [(ngModel)]="vogelTimer.currentTime"
+      />
+      <br>
+      
+      <button (click)="reloadData(vogelTimer.currentTime + 1)">+</button>
+      <button (click)="reloadData(vogelTimer.currentTime - 1)">-</button>
+
     <ngx-charts-bar-vertical
     [results]="birdDataDutch"
     [xAxisLabel]="'Aantal verschillende vogel registraties'"
@@ -17,7 +35,7 @@
     [showYAxisLabel]="true"
     [xAxis]="true"
     [yAxis]="true"
-    [gradient]="false">
+    [gradient]="true">
     </ngx-charts-bar-vertical>
   </div>
   <div class="modal-footer">

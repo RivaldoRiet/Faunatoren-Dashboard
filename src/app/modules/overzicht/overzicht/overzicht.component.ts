@@ -39,14 +39,14 @@ export class OverzichtComponent implements OnInit {
 
   ngOnInit(): void {
     Object.assign(this, {multi});
-    this.civityService.getCivityData('testhok1_BIRD', 100).subscribe(data => {
+    this.civityService.getCivityData('testhok1_BIRD', 100, 1).subscribe(data => {
       //console.log(data);
        this.civityBird = data;
        this.buildBirdData();
     }, err => { console.log(err)
   });
 
-  this.civityService.getCivityData('testhok1_SENSOR', 100).subscribe(data => {
+  this.civityService.getCivityData('testhok1_SENSOR', 100, 1).subscribe(data => {
    // console.log(data);
      this.civitySensor = data;
      this.buildTemperatureData();
@@ -68,7 +68,7 @@ export class OverzichtComponent implements OnInit {
     });
     
 
-    console.log(birdArray);
+   // console.log(birdArray);
 
     var sortedBirdArray = Array.from(new Set(birdArray)).map(a =>
       ({name:a, y: birdArray.filter(f => f === a).length}));
@@ -77,7 +77,7 @@ export class OverzichtComponent implements OnInit {
         return b.y - a.y;
       });
 
-    console.log(sortedBirdArray);
+    //console.log(sortedBirdArray);
 
     this.setBird(sortedBirdArray, this.bird, 0);
     this.setBird(sortedBirdArray, this.bird1, 1);
@@ -111,6 +111,7 @@ export class OverzichtComponent implements OnInit {
     let myarray : any = [];
     let lastTemp : number[] = [];
     this.civitySensor.forEach(element => {
+      //console.log(element);
       if (element.weight !== undefined && element.dateModified !== undefined) {
         let unix = Date.parse(element.dateObserved);
         let newDate = new Date(unix);
@@ -128,9 +129,10 @@ export class OverzichtComponent implements OnInit {
     done.series = myarray;
   
     this.lastGewichtValue = lastTemp[lastTemp.length - 1];
+    this.GewichtObject = [... this.GewichtObject];
     this.GewichtObject.push(done);
   
-    //console.log(this.GewichtObject);
+    console.log(this.GewichtObject);
   }
 
 
@@ -157,6 +159,7 @@ export class OverzichtComponent implements OnInit {
     done.series = myarray;
   
     this.lastLuchtvochtigheidValue = lastTemp[lastTemp.length - 1];
+    this.LuchtvochtigheidObject = [... this.LuchtvochtigheidObject];
     this.LuchtvochtigheidObject.push(done);
   
    // console.log(this.LuchtvochtigheidObject);
@@ -186,6 +189,7 @@ export class OverzichtComponent implements OnInit {
     done.series = myarray;
   
     this.lastTemperatureValue = Math.round(lastTemp[lastTemp.length - 1] * 10) / 10;
+    this.temperatureObject = [... this.temperatureObject];
     this.temperatureObject.push(done);
   
    // console.log(this.temperatureObject);

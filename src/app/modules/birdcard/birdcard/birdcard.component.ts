@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, OnChanges, AfterViewInit, AfterViewChecked, ViewChild } from '@angular/core';
 import { NgbActiveModal, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { CivityService } from 'src/app/core/services/civity.service';
@@ -9,24 +9,83 @@ import { WikipediaService } from 'src/app/core/services/wikipedia.service';
   templateUrl: './birdcard.component.html',
   styleUrls: ['./birdcard.component.scss']
 })
-export class BirdCardComponent implements OnInit {
+export class BirdCardComponent implements OnInit, AfterViewInit{
   @Input() name = '[name]';
   @Input() description = '[description]';
+  @ViewChild('content', { static: false }) private content;
   closeResult = '';
   civity;
   birdData;
-  birdDataDutch;
+  birdDataDutch: any[] = [
+  ];;
   faInfo = faInfo;
 
-  constructor(private modalService: NgbModal, private civityService: CivityService, private wikiService : WikipediaService) { }
+  max = 10;
+  vogelTimer = {
+    currentTime: 1
+  };
+
+  constructor(private modalService: NgbModal, private civityService: CivityService, 
+    private wikiService : WikipediaService, private cd: ChangeDetectorRef) { }
+
+    ngOnChanges(changes: any) {
+     console.log(changes);
+     // this.open(this.content);
+   }
 
   ngOnInit() {
-    this.civityService.getCivityData('testhok1_BIRD', 500).subscribe(data => {
+    this.civityService.getCivityData('testhok1_BIRD', 500, 1).subscribe(data => {
       this.civity = data;
       this.buildBirdData();
    }, err => { console.log(err)
   });
   }
+
+  ngAfterViewInit() {
+    this.refreshData(this.vogelTimer.currentTime);
+    //this.modalService.open(this.content, { size: 'xl' });
+  }
+
+  refreshData(currentTime)
+  {
+    if (currentTime < 1) {
+      return;
+    }
+    this.civityService.getCivityData('testhok1_BIRD', 500, this.vogelTimer.currentTime).subscribe(data => {
+      this.civity = data;
+      console.log(data);
+      this.buildBirdData();
+      console.log("first bird data");
+      console.log(this.birdDataDutch);
+   }, err => { console.log(err)
+  });
+  }
+
+reloadData(currentTime)
+{
+  if (currentTime < 1) {
+    return;
+  }
+  this.vogelTimer.currentTime = currentTime;
+  this.dismissModal();
+  console.log(this.vogelTimer);
+  //this.refreshData(currentTime);
+}
+
+dismissModal()
+{
+  this.civityService.getCivityData('testhok1_BIRD', 500, this.vogelTimer.currentTime).subscribe(data => {
+    this.civity = data;
+    console.log(data);    
+    this.modalService.dismissAll();
+    this.buildBirdData();
+    console.log("second bird data");
+    console.log(this.birdDataDutch);
+    //this.modalService.open(this.content, { size: 'xl' });
+ }, err => { console.log(err)
+});
+}
+
 
 buildBirdData()
   {
@@ -51,60 +110,26 @@ buildBirdData()
     //console.log(this.birdData);
 
     let dutchBirds : any = [];
+    dutchBirds = [...dutchBirds];
     for (const bird of sortedBirdArray) {
       this.wikiService.getDutchWikiDescription(bird.name.toString()).subscribe(data => {
         const result = {name: data.displaytitle, value: bird.value};
         dutchBirds.push(result);
       });
     }
-    this.birdDataDutch = dutchBirds;
-    //console.log(this.birdDataDutch);
-/*
-   
-*/
+   // this.birdDataDutch = dutchBirds;
+   // Object.assign(dutchBirds, this.birdDataDutch);
+  // console.log(dutchBirds);
+   this.birdDataDutch.forEach(val => dutchBirds.push(Object.assign({}, val)));
+    console.log(this.birdDataDutch);
+   //  console.log(this.birdDataDutch);
+   // console.log([...this.birdDataDutch]);
+  //  console.log(...this.birdDataDutch);
   }
 
   openXl(content) {
-    this.modalService.open(content, { size: 'xl' });
+    console.log(content);
+   // this.modalService.open(content, { size: 'xl' });
+    this.modalService.open(this.content, { size: 'xl' });
   }
-
-    open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
-
-}
-
-@Component({
-  selector: 'card-modal-content',
-  template: `
-  <div class="modal-header">
-  <h4 class="modal-title">{{name}}</h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-  <p>{{description}}</p>
-</div>
-  `
-})
-export class BirdCardModalContent {
-  @Input() name;
-  @Input() description;
-
-  constructor(public activeModal: NgbActiveModal) { }
 }
