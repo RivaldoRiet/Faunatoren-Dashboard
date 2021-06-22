@@ -16,8 +16,7 @@ export class BirdCardComponent implements OnInit, AfterViewInit{
   closeResult = '';
   civity;
   birdData;
-  birdDataDutch: any[] = [
-  ];;
+  birdDataDutch: any[];
   faInfo = faInfo;
 
   max = 10;
@@ -67,6 +66,7 @@ reloadData(currentTime)
     return;
   }
   this.vogelTimer.currentTime = currentTime;
+  this.modalService.dismissAll();
   this.dismissModal();
   console.log(this.vogelTimer);
   //this.refreshData(currentTime);
@@ -75,17 +75,28 @@ reloadData(currentTime)
 dismissModal()
 {
   this.civityService.getCivityData('testhok1_BIRD', 500, this.vogelTimer.currentTime).subscribe(data => {
+    (async () => { 
     this.civity = data;
     console.log(data);    
-    this.modalService.dismissAll();
     this.buildBirdData();
     console.log("second bird data");
     console.log(this.birdDataDutch);
-    //this.modalService.open(this.content, { size: 'xl' });
+      // Do something before delay
+      console.log('before delay')
+
+      await this.delay(1000);
+
+      // Do something after
+      console.log('after delay')
+      this.modalService.open(this.content, { size: 'xl' });
+  })();
  }, err => { console.log(err)
 });
 }
 
+delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
+}
 
 buildBirdData()
   {
@@ -109,7 +120,7 @@ buildBirdData()
 
     //console.log(this.birdData);
 
-    let dutchBirds : any = [];
+    let dutchBirds: any[] = [];
     dutchBirds = [...dutchBirds];
     for (const bird of sortedBirdArray) {
       this.wikiService.getDutchWikiDescription(bird.name.toString()).subscribe(data => {
@@ -117,14 +128,9 @@ buildBirdData()
         dutchBirds.push(result);
       });
     }
-   // this.birdDataDutch = dutchBirds;
-   // Object.assign(dutchBirds, this.birdDataDutch);
-  // console.log(dutchBirds);
-   this.birdDataDutch.forEach(val => dutchBirds.push(Object.assign({}, val)));
+    console.log(dutchBirds);
+    this.birdDataDutch = dutchBirds;
     console.log(this.birdDataDutch);
-   //  console.log(this.birdDataDutch);
-   // console.log([...this.birdDataDutch]);
-  //  console.log(...this.birdDataDutch);
   }
 
   openXl(content) {
