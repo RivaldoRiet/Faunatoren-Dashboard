@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardModule } from '../card/card.module';
 import { BirdCardModule } from '../birdcard/birdcard.module';
 import { FormsModule } from '@angular/forms';
+import { SettingscardModule } from '../settingscard/settingscard/settingscard.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     CardModule,
     BirdCardModule,
     FormsModule,
+    SettingscardModule,
   ]
 })
 export class OverzichtModule { }

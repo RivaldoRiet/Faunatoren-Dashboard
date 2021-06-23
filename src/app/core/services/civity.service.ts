@@ -3,10 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { observable, Observable } from 'rxjs';
 import { CivityObject } from 'src/app/shared/models/CivityObject';
+import { DatabaseData } from 'src/app/shared/models/DatabaseData';
 
 @Injectable()
 export class CivityService {
   private readonly baseUri: string = environment.api;
+  public databaseData : DatabaseData = new DatabaseData();
   constructor(public http: HttpClient) {}
 
   getCivityData(entity: string, amountOfRecords : number, aantalAfgelopenUur : any) : Observable<CivityObject>{

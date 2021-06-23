@@ -1,0 +1,51 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Vogelherkenning</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>De applicatie haalt momenteel de laatste data op van het laatste uur. Is er geen data beschikbaar van het laatste uur 
+      zal er automatisch verder gezocht worden. Op deze pagina zijn de settings met betrekking tot het ophalen van data in te 
+    stellen.</p>
+       <p>
+        Vogeldata laten zien van het afgelopen {{databaseData.pastHours}} uur
+         </p>
+         
+         <input
+         #ref
+         (change)="reloadData(databaseData.pastHours, databaseData.records)"
+         type="range"
+         min="1"
+         [attr.max]="100"
+         [(ngModel)]="databaseData.pastHours"
+         />
+         <br>
+         <p>
+          Aantal stuks aan vogel data laten zien (database records) {{databaseData.records}} records
+            </p>
+            
+            <input
+            #ref
+            (change)="reloadDataDismiss(databaseData.pastHours, databaseData.records)"
+            type="range"
+            min="1"
+            [attr.max]="500"
+            [(ngModel)]="databaseData.records"
+            />
+     
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="changeDate()">Opslaan</button>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Sluiten</button>
+  </div>
+</ng-template>
+
+<loading *ngIf="isLoading"></loading>
+<button class="btn btn-primary" (click)="openXl(content)" style="width: 50px; height: 40px; margin-left: 10px;">
+  <fa-icon [icon]="faCog"></fa-icon>
+</button>

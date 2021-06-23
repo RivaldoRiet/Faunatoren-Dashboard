@@ -1,51 +1,63 @@
-import { Component, OnInit, Input, ChangeDetectorRef, OnChanges, AfterViewInit, AfterViewChecked, ViewChild } from '@angular/core';
-import { NgbActiveModal, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { faInfo } from '@fortawesome/free-solid-svg-icons';
+import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CivityService } from 'src/app/core/services/civity.service';
 import { WikipediaService } from 'src/app/core/services/wikipedia.service';
+import { faInfo, faWrench, faCog } from '@fortawesome/free-solid-svg-icons';
+import { OverzichtComponent } from 'src/app/modules/overzicht/overzicht/overzicht.component';
+import { DatabaseData } from 'src/app/shared/models/DatabaseData';
 
 @Component({
-  selector: 'app-birdcard',
-  templateUrl: './birdcard.component.html',
-  styleUrls: ['./birdcard.component.scss']
+  providers:[OverzichtComponent ],
+  selector: 'app-settingscard',
+  templateUrl: './settingscard.component.html',
+  styleUrls: ['./settingscard.component.scss']
 })
-export class BirdCardComponent implements OnInit, AfterViewInit{
-  @Input() name = '[name]';
-  @Input() description = '[description]';
-  @ViewChild('content', { static: false }) private content;
+export class SettingscardComponent implements OnInit {
   closeResult = '';
   isLoading = false;
   civity;
   birdData;
   birdDataDutch: any[];
-  faInfo = faInfo;
+  @Input() databaseData: DatabaseData;
 
+  @ViewChild('content', { static: false }) private content;
+  faInfo = faInfo;
+  faWrench = faWrench;
+  faCog = faCog;
+  
   max = 48;
   vogelTimer = {
     currentTime: 1
   };
 
   constructor(private modalService: NgbModal, private civityService: CivityService, 
-    private wikiService : WikipediaService, private cd: ChangeDetectorRef) { }
+    private wikiService : WikipediaService, private cd: ChangeDetectorRef, private comp: OverzichtComponent) { }
 
     ngOnChanges(changes: any) {
-    console.log(changes);
+     console.log(changes);
      // this.open(this.content);
    }
 
   ngOnInit() {
-    this.isLoading = true;
-    this.civityService.getCivityData('testhok1_BIRD', 500, 1).subscribe(data => {
-      this.civity = data;
-      this.buildBirdData();
-      this.isLoading = false;
-   }, err => { console.log(err)
-  });
+    this.databaseData = this.civityService.databaseData;
   }
 
   ngAfterViewInit() {
-    this.refreshData(this.vogelTimer.currentTime);
+    //this.refreshData(this.vogelTimer.currentTime);
     //this.modalService.open(this.content, { size: 'xl' });
+  }
+
+  changeDate()
+  {
+    if (typeof this.databaseData.startDate !== 'undefined') {
+      const startDate = new Date(this.databaseData.startDate);
+      console.log(startDate);
+    }
+    if (typeof this.databaseData.endDate !== 'undefined') {
+      const endDate = new Date(this.databaseData.endDate);
+      console.log(endDate);
+    }
+   
   }
 
   refreshData(currentTime)
@@ -56,26 +68,50 @@ export class BirdCardComponent implements OnInit, AfterViewInit{
     this.isLoading = true;
     this.civityService.getCivityData('testhok1_BIRD', 500, this.vogelTimer.currentTime).subscribe(data => {
       this.civity = data;
-    //  console.log(data);
+      console.log(data);
       this.buildBirdData();
-     // console.log("first bird data");
-      //console.log(this.birdDataDutch);
+      console.log("first bird data");
+      console.log(this.birdDataDutch);
       this.isLoading = false;
    }, err => { console.log(err)
   });
   }
 
-reloadData(currentTime)
+reloadData(pastHours, amountOfRecords)
 {
-  currentTime = parseInt(currentTime);
-  if (currentTime < 1) {
+  this.civityService.databaseData.pastHours = pastHours;
+  this.civityService.databaseData.records = amountOfRecords;
+
+  console.log("here: " + pastHours);
+  pastHours = parseInt(pastHours);
+  amountOfRecords = parseInt(amountOfRecords);
+  if (pastHours < 1) {
     return;
   }
-  this.vogelTimer.currentTime = currentTime;
+
+  if (amountOfRecords < 1) {
+    return;
+  }
+  this.comp.reloadData(amountOfRecords, pastHours);
+}
+
+reloadDataDismiss(pastHours, amountOfRecords)
+{
+  this.civityService.databaseData.pastHours = pastHours;
+  this.civityService.databaseData.records = amountOfRecords;
+
+  console.log("here: " + pastHours);
+  pastHours = parseInt(pastHours);
+  amountOfRecords = parseInt(amountOfRecords);
+  if (pastHours < 1) {
+    return;
+  }
+
+  if (amountOfRecords < 1) {
+    return;
+  }
+  this.comp.reloadData(amountOfRecords, pastHours);
   this.modalService.dismissAll();
-  this.dismissModal();
- // console.log(this.vogelTimer);
-  //this.refreshData(currentTime);
 }
 
 dismissModal()
@@ -84,17 +120,17 @@ dismissModal()
   this.civityService.getCivityData('testhok1_BIRD', 500, this.vogelTimer.currentTime).subscribe(data => {
     (async () => { 
     this.civity = data;
-  //  console.log(data);    
+    console.log(data);    
     this.buildBirdData();
-    //console.log("second bird data");
-   // console.log(this.birdDataDutch);
+    console.log("second bird data");
+    console.log(this.birdDataDutch);
       // Do something before delay
-    //  console.log('before delay')
+      console.log('before delay')
 
       await this.delay(1000);
 
       // Do something after
-     // console.log('after delay')
+      console.log('after delay')
       this.isLoading = false;
       this.modalService.open(this.content, { size: 'xl' });
   })();
@@ -136,13 +172,13 @@ buildBirdData()
         dutchBirds.push(result);
       });
     }
- //   console.log(dutchBirds);
+  //  console.log(dutchBirds);
     this.birdDataDutch = dutchBirds;
-  // console.log(this.birdDataDutch);
+//    console.log(this.birdDataDutch);
   }
 
   openXl(content) {
-  //  console.log(content);
+    //console.log(content);
    // this.modalService.open(content, { size: 'xl' });
     this.modalService.open(this.content, { size: 'xl' });
   }

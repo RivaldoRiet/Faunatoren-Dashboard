@@ -1,24 +1,30 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { WikipediaService } from 'src/app/core/services/wikipedia.service';
 import { CivityService } from 'src/app/core/services/civity.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { faInfo } from '@fortawesome/free-solid-svg-icons';
+import { faInfo, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-overzicht',
   templateUrl: './overzicht.component.html',
-  styleUrls: ['./overzicht.component.scss']
+  styleUrls: ['./overzicht.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OverzichtComponent implements OnInit {
+export class OverzichtComponent implements OnInit, AfterViewInit {
 
   @ViewChild('content', { static: false }) private content;
-
+  public cdRef: ChangeDetectorRef;
   constructor(private wikiService: WikipediaService, private civityService: CivityService,
-    private modalService: NgbModal) { }
-
+    private modalService: NgbModal, cdRef: ChangeDetectorRef,) {
+      this.cdRef = cdRef;
+     }
+  private title: BehaviorSubject<string> = new BehaviorSubject<string>('fuckman');
   civityBird;
   civitySensor;
   faInfo = faInfo;
+  faWrench = faWrench;
+  wtfobject : debugObject = new debugObject();
 
   bird : Bird = new Bird();
   bird1 : Bird = new Bird();
@@ -42,32 +48,49 @@ export class OverzichtComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.loadBirdData(100, 1);
-    this.loadSensorData(500, 1);
+    this.loadBirdData(100, 1, true);
+    this.loadSensorData(500, 1, true);
   }
 
-  loadBirdData(records, hours){
+  ngAfterViewInit() {
+
+  }
+
+
+  reloadData(records, hours){
+    console.log("overzicht component called: " + "records - " + records + " - hours: " + hours );
+    this.loadBirdData(records, hours, false);
+    this.loadSensorData(records, hours, false);
+    this.cdRef.detectChanges();
+  }
+
+  loadBirdData(records, hours, failsafe){
+   // console.log("overzicht component called: " + "records - " + records + " - hours: " + hours );
     this.civityService.getCivityData('testhok1_BIRD', records, hours).subscribe(data => {
-      //console.log(data);
+     // console.log(data);
        this.civityBird = data;
-       if (this.civityBird.length == 0 && hours < 1000) {
-        this.loadBirdData(100, hours * 10);
+       if (failsafe && this.civityBird.length == 0 && hours < 1000) {
+        this.loadBirdData(100, hours * 10, true);
+        return;
        }
        this.buildBirdData();
+       this.cdRef.detectChanges();
     }, err => { console.log(err)
   });
   }
 
-  loadSensorData(records, hours){
+  loadSensorData(records, hours, failsafe){
     this.civityService.getCivityData('testhok1_SENSOR', records, hours).subscribe(data => {
-    // console.log(data);
+     //console.log(data);
       this.civitySensor = data;
-      if (this.civitySensor.length == 0 && hours < 1000) {
-        this.loadSensorData(100, hours * 10);
+      if (failsafe && this.civitySensor.length == 0 && hours < 1000) {
+        this.loadSensorData(100, hours * 10, true);
+        return;
        }
       this.buildTemperatureData();
       this.buildLuchtVochtigheidData();
       this.buildGewichtData();
+      this.cdRef.detectChanges();
     }, err => { console.log(err)
   });
   }
@@ -83,7 +106,7 @@ export class OverzichtComponent implements OnInit {
     });
     
 
-   // console.log(birdArray);
+   //console.log(birdArray);
 
     var sortedBirdArray = Array.from(new Set(birdArray)).map(a =>
       ({name:a, y: birdArray.filter(f => f === a).length}));
@@ -92,7 +115,7 @@ export class OverzichtComponent implements OnInit {
         return b.y - a.y;
       });
 
-    //console.log(sortedBirdArray);
+    console.log(sortedBirdArray);
 
     this.setBird(sortedBirdArray, this.bird, 0);
     this.setBird(sortedBirdArray, this.bird1, 1);
@@ -147,7 +170,7 @@ export class OverzichtComponent implements OnInit {
     this.GewichtObject = [... this.GewichtObject];
     this.GewichtObject.push(done);
   
-    console.log(this.GewichtObject);
+   // console.log(this.GewichtObject);
   }
 
 
@@ -177,7 +200,7 @@ export class OverzichtComponent implements OnInit {
     this.LuchtvochtigheidObject = [... this.LuchtvochtigheidObject];
     this.LuchtvochtigheidObject.push(done);
   
-   // console.log(this.LuchtvochtigheidObject);
+    console.log(this.LuchtvochtigheidObject);
   }
 
 
@@ -205,9 +228,12 @@ export class OverzichtComponent implements OnInit {
   
     this.lastTemperatureValue = Math.round(lastTemp[lastTemp.length - 1] * 10) / 10;
     this.temperatureObject = [... this.temperatureObject];
-    this.temperatureObject.push(done);
-  
-   // console.log(this.temperatureObject);
+    if (this.temperatureObject[0] !== undefined) {
+      this.temperatureObject[0] = done;
+    }else{
+      this.temperatureObject.push(done);
+    }
+    console.log(this.temperatureObject);
   }
 
   showDiv = {
@@ -226,4 +252,8 @@ export class Bird {
   latinname?:          string;
   image?:         string;
   description?:  string;
+}
+
+export class debugObject{
+  name?: string = 'nameeeeeeeeee';
 }

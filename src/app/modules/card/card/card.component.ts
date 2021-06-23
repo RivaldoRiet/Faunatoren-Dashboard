@@ -99,13 +99,15 @@ export class CardComponent implements OnInit, AfterViewInit {
 
     let done: any = {};
   
+    if (this.name !== undefined && this.name !== '') {
     done.name = this.name;
     done.series = myarray;
   
     this.lastGewichtValue = lastTemp[lastTemp.length - 1];
     this.GewichtObject.push(done);
   
-     console.log(this.GewichtObject);
+  //   console.log(this.GewichtObject);
+    }
   }
 
   mapToProp(data, prop) {
