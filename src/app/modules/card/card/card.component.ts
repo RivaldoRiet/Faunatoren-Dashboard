@@ -35,9 +35,17 @@ export class CardComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     // ...
-    this.civityService.getCivityData('testhok1_BIRD', 100, 1).subscribe(data => {
+    this.loadBirdData(100, 1);
+  }
+
+
+  loadBirdData(records, hours){
+    this.civityService.getCivityData('testhok1_BIRD', records, hours).subscribe(data => {
       //console.log(data);
        this.civityBird = data;
+       if (this.civityBird.length == 0 && hours < 1000) {
+        this.loadBirdData(100, hours * 10);
+       }
        this.buildBirdData();
     }, err => { console.log(err)
   });
@@ -97,7 +105,7 @@ export class CardComponent implements OnInit, AfterViewInit {
     this.lastGewichtValue = lastTemp[lastTemp.length - 1];
     this.GewichtObject.push(done);
   
-  //  console.log(this.GewichtObject);
+     console.log(this.GewichtObject);
   }
 
   mapToProp(data, prop) {

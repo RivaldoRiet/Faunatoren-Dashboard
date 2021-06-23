@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { WikipediaService } from 'src/app/core/services/wikipedia.service';
-import {multi} from './data';
 import { CivityService } from 'src/app/core/services/civity.service';
-import {civityold} from './civity';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-overzicht',
@@ -19,6 +18,7 @@ export class OverzichtComponent implements OnInit {
 
   civityBird;
   civitySensor;
+  faInfo = faInfo;
 
   bird : Bird = new Bird();
   bird1 : Bird = new Bird();
@@ -42,24 +42,35 @@ export class OverzichtComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    Object.assign(this, {multi});
-    this.civityService.getCivityData('testhok1_BIRD', 100, 1).subscribe(data => {
+    this.loadBirdData(100, 1);
+    this.loadSensorData(500, 1);
+  }
+
+  loadBirdData(records, hours){
+    this.civityService.getCivityData('testhok1_BIRD', records, hours).subscribe(data => {
       //console.log(data);
        this.civityBird = data;
+       if (this.civityBird.length == 0 && hours < 1000) {
+        this.loadBirdData(100, hours * 10);
+       }
        this.buildBirdData();
     }, err => { console.log(err)
   });
-
-  this.civityService.getCivityData('testhok1_SENSOR', 100, 1).subscribe(data => {
-   // console.log(data);
-     this.civitySensor = data;
-     this.buildTemperatureData();
-     this.buildLuchtVochtigheidData();
-     this.buildGewichtData();
-  }, err => { console.log(err)
-});
   }
 
+  loadSensorData(records, hours){
+    this.civityService.getCivityData('testhok1_SENSOR', records, hours).subscribe(data => {
+    // console.log(data);
+      this.civitySensor = data;
+      if (this.civitySensor.length == 0 && hours < 1000) {
+        this.loadSensorData(100, hours * 10);
+       }
+      this.buildTemperatureData();
+      this.buildLuchtVochtigheidData();
+      this.buildGewichtData();
+    }, err => { console.log(err)
+  });
+  }
 
   buildBirdData()
   {

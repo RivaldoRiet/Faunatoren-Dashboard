@@ -119,7 +119,7 @@
 		</div>
 	</div>
 	<div id="Livestream" class="Livestream">
-		<button id="Livestream_bo" (click)="showDiv.live = true;showDiv.luchtvochtigheid = false; showDiv.temperatuur = false; showDiv.gewicht = false;">
+		<button class="btn btn-secondary btn-lg active" id="Livestream_bo" (click)="showDiv.live = true;showDiv.luchtvochtigheid = false; showDiv.temperatuur = false; showDiv.gewicht = false;">
 			<span>Livestream</span>
 		</button>
 	</div>
@@ -129,18 +129,20 @@
 		</div>
 	</div>
 	<div id="Registraties" class="Registraties">
-		<button id="Luchtvochtigheid" (click)="showDiv.live = false;showDiv.luchtvochtigheid = true; showDiv.temperatuur = false; showDiv.gewicht = false;">
+		<button class="btn btn-secondary btn-lg active" id="Luchtvochtigheid" (click)="showDiv.live = false;showDiv.luchtvochtigheid = true; showDiv.temperatuur = false; showDiv.gewicht = false;">
 			<span>Luchtvochtigheid</span>
         </button>
 	</div>
 	<div id="Gewicht" class="Gewicht">
-		<button id="Gewicht_bu" (click)="showDiv.live = false;showDiv.luchtvochtigheid = false; showDiv.temperatuur = false; showDiv.gewicht = true;">
+		<button class="btn btn-secondary btn-lg active" id="Gewicht_bu" (click)="showDiv.live = false;showDiv.luchtvochtigheid = false; showDiv.temperatuur = false; showDiv.gewicht = true;">
 			<span>Gewicht</span>
 		</button>
 	</div>
 	<div id="Temperatuur" class="Temperatuur">
-		<button id="Temperatuur_bw"  (click)="showDiv.live = false;showDiv.luchtvochtigheid = false; showDiv.temperatuur = true; showDiv.gewicht = false;">
-			<span>Temperatuur</span>
+		<button class="btn btn-primary" id="Temperatuur_bw"
+		style="height: 40px; margin-left: 10px;"
+		(click)="showDiv.live = false;showDiv.luchtvochtigheid = false; showDiv.temperatuur = true; showDiv.gewicht = false;">
+			<fa-icon [icon]="faInfo"></fa-icon> Temperatuur
 		</button>
 	</div>
 	<svg class="Rectangle_12_by">

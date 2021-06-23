@@ -400,23 +400,15 @@ root {
 	position: absolute;
 	width: 118px;
 	height: 33px;
-	left: 1168.5px;
+	left: 1140px;
 	top: 221.941px;
 	overflow: visible;
 }
 #Livestream_bo {
-	left: 0px;
-	top: 0px;
-	position: absolute;
-	overflow: visible;
-	width: 119px;
 	white-space: nowrap;
-	text-align: left;
-	font-family: Segoe UI;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 25px;
-	color: rgba(81,138,80,1);
+    font-style: inherit;
+    font-weight: bolder;
+    font-size: 17px;
 }
 #Gewichtwaarde {
 	position: absolute;
@@ -444,7 +436,7 @@ root {
 	position: absolute;
 	width: 94px;
 	height: 33px;
-	left: 1168.5px;
+	left: 1140px;
 	top: 324.941px;
 	overflow: visible;
 }
@@ -466,45 +458,36 @@ root {
 	position: absolute;
 	width: 89px;
 	height: 33px;
-	left: 1168.5px;
+	left: 1140px;
 	top: 530.939px;
 	overflow: visible;
 }
 #Gewicht_bu {
-	left: 0px;
-	top: 0.25px;
-	position: absolute;
-	overflow: visible;
-	width: 90px;
 	white-space: nowrap;
-	text-align: left;
-	font-family: Segoe UI;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 25px;
-	color: rgba(61,23,43,1);
+    font-style: inherit;
+    font-weight: bolder;
+    font-size: 17px;
+}
+
+#Luchtvochtigheid {
+	white-space: nowrap;
+    font-style: inherit;
+    font-weight: bolder;
+    font-size: 13px;
 }
 #Temperatuur {
 	position: absolute;
 	width: 123px;
 	height: 33px;
-	left: 1166px;
+	left: 1140px;
 	top: 427.94px;
 	overflow: visible;
 }
 #Temperatuur_bw {
-	left: 0px;
-	top: 0.25px;
-	position: absolute;
-	overflow: visible;
-	width: 124px;
 	white-space: nowrap;
-	text-align: left;
-	font-family: Segoe UI;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 23px;
-	color: rgba(61,23,43,1);
+    font-style: inherit;
+    font-weight: bolder;
+    font-size: 17px;
 }
 #Rectangle_12_by {
 	fill: url(#Rectangle_12_by);
