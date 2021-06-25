@@ -7,7 +7,6 @@ import { OverzichtComponent } from 'src/app/modules/overzicht/overzicht/overzich
 import { DatabaseData } from 'src/app/shared/models/DatabaseData';
 
 @Component({
-  providers:[OverzichtComponent ],
   selector: 'app-settingscard',
   templateUrl: './settingscard.component.html',
   styleUrls: ['./settingscard.component.scss']
@@ -19,6 +18,7 @@ export class SettingscardComponent implements OnInit {
   birdData;
   birdDataDutch: any[];
   @Input() databaseData: DatabaseData;
+  @ViewChild(OverzichtComponent) overzichtComponent: OverzichtComponent;
 
   @ViewChild('content', { static: false }) private content;
   faInfo = faInfo;
@@ -31,7 +31,7 @@ export class SettingscardComponent implements OnInit {
   };
 
   constructor(private modalService: NgbModal, private civityService: CivityService, 
-    private wikiService : WikipediaService, private cd: ChangeDetectorRef, private comp: OverzichtComponent) { }
+    private wikiService : WikipediaService, private cd: ChangeDetectorRef) { }
 
     ngOnChanges(changes: any) {
      console.log(changes);
@@ -92,7 +92,7 @@ reloadData(pastHours, amountOfRecords)
   if (amountOfRecords < 1) {
     return;
   }
-  this.comp.reloadData(amountOfRecords, pastHours);
+  this.overzichtComponent.reloadData(amountOfRecords, pastHours);
 }
 
 reloadDataDismiss(pastHours, amountOfRecords)
@@ -110,7 +110,7 @@ reloadDataDismiss(pastHours, amountOfRecords)
   if (amountOfRecords < 1) {
     return;
   }
-  this.comp.reloadData(amountOfRecords, pastHours);
+  this.overzichtComponent.reloadData(amountOfRecords, pastHours);
   this.modalService.dismissAll();
 }
 

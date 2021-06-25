@@ -9,10 +9,12 @@ import { VogelhokModule } from './modules/vogelhok/vogelhok.module';
 import {Router} from '@angular/router';
 import { Vogelhok2Module } from './modules/vogelhok2/vogelhok2.module';
 import { OverzichtModule } from './modules/overzicht/overzicht.module';
+import { SettingscardModule } from './modules/settingscard/settingscard/settingscard.module';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => OverzichtModule },
-  { path: 'overzicht', loadChildren: () => OverzichtModule },
+  { path: '', loadChildren: () => SettingscardModule },
+  //{ path: 'overzicht', loadChildren: () => OverzichtModule },
+  { path: 'overzicht', loadChildren: () => StatisticsModule },
   { path: 'statistieken', loadChildren: () => StatisticsModule },
   { path: 'vogelherkenning', loadChildren: () => BirdnetModule },
   { path: 'toren', loadChildren: () => FaunatorenModule },
@@ -27,8 +29,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
   constructor(private route:Router){} 
-  
-  	go(){
-		this.route.navigate(['/statistieken']); // navigate to other page
-	}
  }

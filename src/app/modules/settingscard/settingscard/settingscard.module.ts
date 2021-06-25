@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FormsModule } from '@angular/forms';
+import { OverzichtModule } from '../../overzicht/overzicht.module';
 
 
 @NgModule({
@@ -19,10 +20,8 @@ import { FormsModule } from '@angular/forms';
     FontAwesomeModule,
     NgbModule,
     NgxChartsModule,
-    FormsModule
-  ],
-  exports: [
-    SettingscardComponent,
-  ],
+    FormsModule,
+    OverzichtModule,
+  ]
 })
 export class SettingscardModule { }

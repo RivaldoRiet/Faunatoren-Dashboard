@@ -8,8 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Component({
   selector: 'app-overzicht',
   templateUrl: './overzicht.component.html',
-  styleUrls: ['./overzicht.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./overzicht.component.scss']
 })
 export class OverzichtComponent implements OnInit, AfterViewInit {
 

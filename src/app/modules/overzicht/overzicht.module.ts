@@ -11,8 +11,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardModule } from '../card/card.module';
 import { BirdCardModule } from '../birdcard/birdcard.module';
 import { FormsModule } from '@angular/forms';
-import { SettingscardModule } from '../settingscard/settingscard/settingscard.module';
-
 @NgModule({
   declarations: [
     OverzichtComponent,
@@ -28,7 +26,8 @@ import { SettingscardModule } from '../settingscard/settingscard/settingscard.mo
     CardModule,
     BirdCardModule,
     FormsModule,
-    SettingscardModule,
+  ], exports: [
+    OverzichtComponent
   ]
 })
 export class OverzichtModule { }
