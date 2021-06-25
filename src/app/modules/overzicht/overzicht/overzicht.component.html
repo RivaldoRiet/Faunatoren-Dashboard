@@ -1,34 +1,4 @@
 <div id="Web_1920__1">
-	<svg class="Path_1" viewBox="0 0 1200 1080">
-		<path id="Path_1" d="M 0 0 L 1200 0 L 1200 1080 L 0 1080 L 0 0 Z">
-		</path>
-	</svg>
-	<div id="">
-		<span></span>
-	</div>
-	<div id="_o">
-		<span></span>
-	</div>
-	<svg class="Rectangle_15">
-		<rect id="Rectangle_15" rx="0" ry="0" x="0" y="0" width="153" height="438">
-		</rect>
-	</svg>
-<!--<svg class="Rectangle_14_r">
-		<linearGradient id="Rectangle_14_r" spreadMethod="pad" x1="0.5" x2="0.5" y1="0.881" y2="1">
-			<stop offset="0" stop-color="#acccab" stop-opacity="0.302"></stop>
-			<stop offset="1" stop-color="#fff" stop-opacity="0.302"></stop>
-		</linearGradient>
-		<rect id="Rectangle_14_r" rx="0" ry="0" x="0" y="0" width="1927" height="1080">
-		</rect>
-	</svg>-->	
-	<svg class="Path_23" viewBox="0 0 1128 276.292">
-		<path id="Path_23" d="M 24.99999809265137 0 L 1103 0 C 1116.80712890625 0 1128 7.060498237609863 1128 15.7700662612915 L 1128 260.5214233398438 C 1128 269.2309875488281 1116.80712890625 276.29150390625 1103 276.29150390625 L 24.99999809265137 276.29150390625 C 11.19287967681885 276.29150390625 -1.183637987622888e-08 269.2309875488281 -1.183637987622888e-08 260.5214233398438 L -1.183637987622888e-08 15.7700662612915 C -1.183637987622888e-08 7.060498237609863 11.19287967681885 0 24.99999809265137 0 Z">
-		</path>
-	</svg>
-	<svg class="Path_22" viewBox="0 0 1128 493.018">
-		<path id="Path_22" d="M 24.99999809265137 4.619530358240809e-08 L 1102.999877929688 4.619530358240809e-08 C 1116.80712890625 4.619530358240809e-08 1128 12.59884643554688 1128 28.14031600952148 L 1128 464.8779907226562 C 1128 480.4194641113281 1116.80712890625 493.018310546875 1102.999877929688 493.018310546875 L 24.99999809265137 493.018310546875 C 11.19287872314453 493.018310546875 -7.345235530920036e-11 480.4194641113281 -7.345235530920036e-11 464.8779907226562 L -7.345235530920036e-11 28.14031600952148 C -7.345235530920036e-11 12.59884643554688 11.19287872314453 4.619530358240809e-08 24.99999809265137 4.619530358240809e-08 Z">
-		</path>
-	</svg>
 	<div id="Info_blok_mini" class="Info_blok_mini">
 		<svg class="Rectangle_5_w">
 			<linearGradient id="Rectangle_5_w" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
@@ -162,8 +132,8 @@
 		<app-card  name="{{bird2.name}}" latinname="{{bird2.latinname}}" description="{{bird2.description}}" src="{{bird2.image}}" waarnemingen=""></app-card>
 	</div>
 	<div id="Info_blok" class="Info_blok">
-    <!--	<iframe *ngIf="showDiv.live" type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UC-0uK90U1sH5A_2dHYVVm5Q&autoplay=1" >
-        </iframe>-->
+    	<iframe *ngIf="showDiv.live" type="text/html" width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UC-0uK90U1sH5A_2dHYVVm5Q&autoplay=1" >
+        </iframe>
   
 	<div *ngIf="showDiv.luchtvochtigheid"> 
         <ngx-charts-line-chart
@@ -265,8 +235,8 @@
 			</svg>
 		</div>
 	</div>
-	<div id="Elipse_main" class="Elipse_main" ng-if="bird1 !== null">
-		<app-card  name="{{bird1.name}}" latinname="{{bird1.latinname}}" description="{{bird1.description}}" src="{{bird1.image}}"></app-card>
+	<div id="Elipse_main" class="Elipse_main" ng-if="mostRecentBird !== null">
+		<app-card  name="{{mostRecentBird.name}}" latinname="{{mostRecentBird.latinname}}" description="{{mostRecentBird.description}}" src="{{mostRecentBird.image}}"></app-card>
 	</div>
 	<div id="Elipse_3_ch" class="Elipse_3" ng-if="bird !== null">
 		<app-card  name="{{bird.name}}" latinname="{{bird.latinname}}" description="{{bird.description}}" src="{{bird.image}}"></app-card>

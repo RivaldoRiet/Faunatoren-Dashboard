@@ -4,6 +4,7 @@ import { CivityService } from 'src/app/core/services/civity.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { faInfo, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CardComponent } from '../../card/card/card.component';
 
 @Component({
   selector: 'app-overzicht',
@@ -19,6 +20,7 @@ export class OverzichtComponent implements OnInit, AfterViewInit {
       this.cdRef = cdRef;
      }
   private title: BehaviorSubject<string> = new BehaviorSubject<string>('fuckman');
+  @ViewChild(CardComponent) cardComponent: CardComponent;
   civityBird;
   civitySensor;
   faInfo = faInfo;
@@ -26,10 +28,10 @@ export class OverzichtComponent implements OnInit, AfterViewInit {
   wtfobject : debugObject = new debugObject();
 
   bird : Bird = new Bird();
-  bird1 : Bird = new Bird();
   bird2 : Bird = new Bird();
   bird3 : Bird = new Bird();
   bird4 : Bird = new Bird();
+  mostRecentBird : Bird = new Bird();
 
   allTemperaturesValues : number[] = [];
   lastTemperatureValue : number = 0;
@@ -57,16 +59,14 @@ export class OverzichtComponent implements OnInit, AfterViewInit {
 
 
   reloadData(records, hours){
-    console.log("overzicht component called: " + "records - " + records + " - hours: " + hours );
     this.loadBirdData(records, hours, false);
     this.loadSensorData(records, hours, false);
+    this.cardComponent.reloadData(records, hours);
     this.cdRef.detectChanges();
   }
 
   loadBirdData(records, hours, failsafe){
-   // console.log("overzicht component called: " + "records - " + records + " - hours: " + hours );
     this.civityService.getCivityData('testhok1_BIRD', records, hours).subscribe(data => {
-     // console.log(data);
        this.civityBird = data;
        if (failsafe && this.civityBird.length == 0 && hours < 1000) {
         this.loadBirdData(100, hours * 10, true);
@@ -80,7 +80,6 @@ export class OverzichtComponent implements OnInit, AfterViewInit {
 
   loadSensorData(records, hours, failsafe){
     this.civityService.getCivityData('testhok1_SENSOR', records, hours).subscribe(data => {
-     //console.log(data);
       this.civitySensor = data;
       if (failsafe && this.civitySensor.length == 0 && hours < 1000) {
         this.loadSensorData(100, hours * 10, true);
@@ -100,12 +99,14 @@ export class OverzichtComponent implements OnInit, AfterViewInit {
     this.civityBird.forEach(element => {
       for (const value of element.species) {
         const birdName = Object.keys(value)[0];
-        birdArray.push(birdName);
+        if (birdName !== "Human_Human") {
+          birdArray.push(birdName);
+        }
     }
     });
-    
 
-   //console.log(birdArray);
+   let recentBird = birdArray[birdArray.length - 1].toString();
+   this.setRecentBird(recentBird);
 
     var sortedBirdArray = Array.from(new Set(birdArray)).map(a =>
       ({name:a, y: birdArray.filter(f => f === a).length}));
@@ -114,15 +115,24 @@ export class OverzichtComponent implements OnInit, AfterViewInit {
         return b.y - a.y;
       });
 
-    console.log(sortedBirdArray);
-
     this.setBird(sortedBirdArray, this.bird, 0);
-    this.setBird(sortedBirdArray, this.bird1, 1);
     this.setBird(sortedBirdArray, this.bird2, 2);
     this.setBird(sortedBirdArray, this.bird3, 3);
     this.setBird(sortedBirdArray, this.bird4, 4);
   }
 
+  setRecentBird(recentBird)
+  {
+    let nameOfBird = "" + recentBird;
+    nameOfBird = nameOfBird.toString().split("_")[0];
+    this.wikiService.getDutchWikiDescription(nameOfBird).subscribe(data => {
+      this.mostRecentBird.name = data.displaytitle;
+      this.mostRecentBird.latinname = nameOfBird;
+      this.mostRecentBird.image = data.thumbnail.source;
+      this.mostRecentBird.description = data.extract_html;
+      }, err => { console.log(err)
+      });
+  }
 
   setBird(sortedBirdArray, bird, count)
   {
@@ -148,7 +158,6 @@ export class OverzichtComponent implements OnInit, AfterViewInit {
     let myarray : any = [];
     let lastTemp : number[] = [];
     this.civitySensor.forEach(element => {
-      //console.log(element);
       if (element.weight !== undefined && element.dateModified !== undefined) {
         let unix = Date.parse(element.dateObserved);
         let newDate = new Date(unix);
@@ -168,8 +177,6 @@ export class OverzichtComponent implements OnInit, AfterViewInit {
     this.lastGewichtValue = lastTemp[lastTemp.length - 1];
     this.GewichtObject = [... this.GewichtObject];
     this.GewichtObject.push(done);
-  
-   // console.log(this.GewichtObject);
   }
 
 
@@ -198,8 +205,6 @@ export class OverzichtComponent implements OnInit, AfterViewInit {
     this.lastLuchtvochtigheidValue = lastTemp[lastTemp.length - 1];
     this.LuchtvochtigheidObject = [... this.LuchtvochtigheidObject];
     this.LuchtvochtigheidObject.push(done);
-  
-    console.log(this.LuchtvochtigheidObject);
   }
 
 
@@ -232,7 +237,6 @@ export class OverzichtComponent implements OnInit, AfterViewInit {
     }else{
       this.temperatureObject.push(done);
     }
-    console.log(this.temperatureObject);
   }
 
   showDiv = {

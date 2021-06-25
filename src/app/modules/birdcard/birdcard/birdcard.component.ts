@@ -112,7 +112,9 @@ buildBirdData()
     this.civity.forEach(element => {
       for (const value of element.species) {
         const firstKey = Object.keys(value)[0];
-        birdArray.push(firstKey.toString().split("_")[0]);
+        if (firstKey !== "Human_Human") {
+           birdArray.push(firstKey.toString().split("_")[0]);
+        }
       }
     });
 

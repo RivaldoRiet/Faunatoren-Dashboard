@@ -28,7 +28,7 @@
             
             <input
             #ref
-            (change)="reloadDataDismiss(databaseData.pastHours, databaseData.records)"
+            (change)="reloadData(databaseData.pastHours, databaseData.records)"
             type="range"
             min="1"
             [attr.max]="500"
@@ -38,7 +38,7 @@
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="changeDate()">Opslaan</button>
+    <button type="button" class="btn btn-outline-dark" (click)="reloadDataDismiss(databaseData.pastHours, databaseData.records)">Opslaan</button>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Sluiten</button>

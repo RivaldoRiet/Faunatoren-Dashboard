@@ -5,6 +5,7 @@ import { WikipediaService } from 'src/app/core/services/wikipedia.service';
 import { faInfo, faWrench, faCog } from '@fortawesome/free-solid-svg-icons';
 import { OverzichtComponent } from 'src/app/modules/overzicht/overzicht/overzicht.component';
 import { DatabaseData } from 'src/app/shared/models/DatabaseData';
+import { CardComponent } from 'src/app/modules/card/card/card.component';
 
 @Component({
   selector: 'app-settingscard',
@@ -34,8 +35,6 @@ export class SettingscardComponent implements OnInit {
     private wikiService : WikipediaService, private cd: ChangeDetectorRef) { }
 
     ngOnChanges(changes: any) {
-     console.log(changes);
-     // this.open(this.content);
    }
 
   ngOnInit() {
@@ -51,11 +50,9 @@ export class SettingscardComponent implements OnInit {
   {
     if (typeof this.databaseData.startDate !== 'undefined') {
       const startDate = new Date(this.databaseData.startDate);
-      console.log(startDate);
     }
     if (typeof this.databaseData.endDate !== 'undefined') {
       const endDate = new Date(this.databaseData.endDate);
-      console.log(endDate);
     }
    
   }
@@ -68,10 +65,7 @@ export class SettingscardComponent implements OnInit {
     this.isLoading = true;
     this.civityService.getCivityData('testhok1_BIRD', 500, this.vogelTimer.currentTime).subscribe(data => {
       this.civity = data;
-      console.log(data);
       this.buildBirdData();
-      console.log("first bird data");
-      console.log(this.birdDataDutch);
       this.isLoading = false;
    }, err => { console.log(err)
   });
@@ -82,7 +76,6 @@ reloadData(pastHours, amountOfRecords)
   this.civityService.databaseData.pastHours = pastHours;
   this.civityService.databaseData.records = amountOfRecords;
 
-  console.log("here: " + pastHours);
   pastHours = parseInt(pastHours);
   amountOfRecords = parseInt(amountOfRecords);
   if (pastHours < 1) {
@@ -100,7 +93,6 @@ reloadDataDismiss(pastHours, amountOfRecords)
   this.civityService.databaseData.pastHours = pastHours;
   this.civityService.databaseData.records = amountOfRecords;
 
-  console.log("here: " + pastHours);
   pastHours = parseInt(pastHours);
   amountOfRecords = parseInt(amountOfRecords);
   if (pastHours < 1) {
@@ -120,19 +112,10 @@ dismissModal()
   this.civityService.getCivityData('testhok1_BIRD', 500, this.vogelTimer.currentTime).subscribe(data => {
     (async () => { 
     this.civity = data;
-    console.log(data);    
     this.buildBirdData();
-    console.log("second bird data");
-    console.log(this.birdDataDutch);
-      // Do something before delay
-      console.log('before delay')
-
-      await this.delay(1000);
-
-      // Do something after
-      console.log('after delay')
-      this.isLoading = false;
-      this.modalService.open(this.content, { size: 'xl' });
+    await this.delay(1000);
+    this.isLoading = false;
+    this.modalService.open(this.content, { size: 'xl' });
   })();
  }, err => { console.log(err)
 });
@@ -159,10 +142,7 @@ buildBirdData()
         return b.value - a.value;
       });
 
-  //  console.log(sortedBirdArray);
     this.birdData = sortedBirdArray.slice(0, 5);
-
-    //console.log(this.birdData);
 
     let dutchBirds: any[] = [];
     dutchBirds = [...dutchBirds];
@@ -172,14 +152,10 @@ buildBirdData()
         dutchBirds.push(result);
       });
     }
-  //  console.log(dutchBirds);
     this.birdDataDutch = dutchBirds;
-//    console.log(this.birdDataDutch);
   }
 
   openXl(content) {
-    //console.log(content);
-   // this.modalService.open(content, { size: 'xl' });
     this.modalService.open(this.content, { size: 'xl' });
   }
 }

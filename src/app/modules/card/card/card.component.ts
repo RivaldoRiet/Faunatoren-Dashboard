@@ -29,34 +29,37 @@ export class CardComponent implements OnInit, AfterViewInit {
   GewichtObject: any[] = [
   ];
 
-
   constructor(private modalService: NgbModal, private civityService : CivityService, private wikiService : WikipediaService) { }
 
 
   ngAfterViewInit() {
     // ...
-    this.loadBirdData(100, 1);
+   // this.loadBirdData(100, 1);
   }
 
-
-  loadBirdData(records, hours){
-    this.civityService.getCivityData('testhok1_BIRD', records, hours).subscribe(data => {
-      //console.log(data);
-       this.civityBird = data;
-       if (this.civityBird.length == 0 && hours < 1000) {
-        this.loadBirdData(100, hours * 10);
-       }
-       this.buildBirdData();
-    }, err => { console.log(err)
-  });
+  reloadData(records, hours){
+    this.civityBird = [];
+    //this.loadBirdData(records, hours, false);
   }
+
+  loadBirdData(records, hours, failsafe){
+     this.civityService.getCivityData('testhok1_BIRD', records, hours).subscribe(data => {
+        this.civityBird = data;
+        if (failsafe && this.civityBird.length == 0 && hours < 1000) {
+         this.loadBirdData(100, hours * 10, true);
+         return;
+        }
+        this.buildBirdData();
+     }, err => { console.log(err)
+   });
+   }
+ 
 
   ngOnInit() {
-
+    this.loadBirdData(100, 1, true);
   }
 
-  openXl(content) {
-    //console.log("name: " + this.name + " - description: " + this.description + " - src: " + this.src + " - latinname: " + this.latinname);
+  openXl(content) {  
     this.modalService.open(content, { size: 'xl' });
   }
 
@@ -74,13 +77,9 @@ export class CardComponent implements OnInit, AfterViewInit {
       });
 
     this.civityBird.forEach(element => {
-      
       for (const value of element.species) {
         const firstKey = Object.keys(value)[0].split('_')[0];
-         //console.log(this.latinname);
-        // console.log(firstKey + " - " + this.latinname);
        if (firstKey == this.latinname) {
-         //console.log(firstKey + " - " + this.latinname);
          let unix = Date.parse(element.dateObserved);
          let newDate = new Date(unix);
          var time = newDate.getHours() + ":" + newDate.getMinutes();
@@ -88,14 +87,14 @@ export class CardComponent implements OnInit, AfterViewInit {
        }
       }
     });
-  //  console.log(mycount);
-
-   // console.log(this.mapToProp(mycount, 'value'));
-  //  console.log("val: " + this.mapToProp(mycount, 'value')[0] + " - " + this.mapToProp(mycount, 'value')[1]);
 
     for (const [key, value] of Object.entries(this.mapToProp(mycount, 'value'))) {
       myarray.push({name : key , value : value});
     }
+
+    console.log("----- my array ----------------");
+    console.log(myarray);
+    console.log("----- my array ----------------");
 
     let done: any = {};
   
@@ -105,8 +104,8 @@ export class CardComponent implements OnInit, AfterViewInit {
   
     this.lastGewichtValue = lastTemp[lastTemp.length - 1];
     this.GewichtObject.push(done);
-  
-  //   console.log(this.GewichtObject);
+    this.GewichtObject = [...this.GewichtObject];
+    console.log(this.GewichtObject);
     }
   }
 
