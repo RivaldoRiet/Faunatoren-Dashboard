@@ -1,8 +1,6 @@
 # Faunatoren dashboard
 
-![image](https://user-images.githubusercontent.com/27764671/111812910-de5ecb80-88d8-11eb-9227-0d262e98b71c.png)
-![image](https://user-images.githubusercontent.com/27764671/114304349-f3dba580-9ad2-11eb-9974-3c4df0a5a848.png)
-![image](https://user-images.githubusercontent.com/27764671/114304359-00f89480-9ad3-11eb-9d3c-14b1685494cc.png)
+![image](https://user-images.githubusercontent.com/27764671/123421567-4a7a5b00-d5bd-11eb-965f-fa3d849409aa.png)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
